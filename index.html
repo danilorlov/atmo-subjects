@@ -7,6 +7,7 @@
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>ATMO School — Subjects from £85</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<script type="text/javascript" id="hs-script-loader" async defer src="https://js-eu1.hs-scripts.com/149190779.js"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Public+Sans:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: Ledger — ink-navy bands around a paper builder; one sticky dark receipt; hairline rules over boxes. Single committed brand look. */
@@ -455,7 +456,10 @@ form h1{font-size:clamp(40px,5vw,60px);line-height:1.02}
           <h1>Almost there.</h1>
           <p style="font-size:18px">Leave your details. We will call to confirm the plan and open access.</p>
         </div>
-        <div class="field"><label for="f-name">Parent’s full name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="two">
+          <div class="field"><label for="f-first">Parent’s first name</label><input id="f-first" name="firstname" type="text" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last">Last name</label><input id="f-last" name="lastname" type="text" autocomplete="family-name" required></div>
+        </div>
         <div class="two">
           <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
           <div class="field"><label for="f-phone">Mobile number</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
@@ -465,7 +469,8 @@ form h1{font-size:clamp(40px,5vw,60px);line-height:1.02}
         </div>
         <div class="consent"><input id="f-consent" name="consent" type="checkbox" required><label for="f-consent">ATMO School may contact me about this application by phone, email or WhatsApp.</label></div>
         <p class="err" id="form-err" hidden>Please fill in every field and tick the consent box.</p>
-        <button class="btn btn-ink btn-block" type="submit" style="min-height:60px;font-size:18px">Send application</button>
+        <p class="err" id="send-err" hidden>We could not send your application. Please check your connection and try again.</p>
+        <button class="btn btn-ink btn-block" type="submit" id="f-submit" style="min-height:60px;font-size:18px">Send application</button>
       </form>
     </section>
   </div>
@@ -705,21 +710,63 @@ form h1{font-size:clamp(40px,5vw,60px);line-height:1.02}
   }
   window.addEventListener('hashchange',route);
 
+  // HubSpot: portal 149190779 (EU data centre). Fill FORM_ID with the form's GUID from HubSpot.
+  var HUBSPOT = { portal: '149190779', form: 'FORM_ID', url: 'https://api-eu1.hsforms.com/submissions/v3/integration/submit/' };
+
+  function planSummary(){
+    var p=planNumbers();
+    if(!p.n) return 'Self-study plan: no subjects chosen yet (to choose with an adviser).';
+    var lines=state.sel.map(function(id,i){var s=byId(id);return '- '+s.name+' ('+LSHORT[s.level]+', syllabus '+s.code+'): £'+fmt(p.unit*(1-rate(i)/100));});
+    return 'Self-study plan from atmo-school.com\n'+p.n+' '+plural(p.n)+', '+state.dur+' months\n'+lines.join('\n')+'\nTotal: £'+fmt(p.total)+(p.saving>0?' (saves £'+fmt(p.saving)+')':'');
+  }
+  function readCookie(name){var m=document.cookie.match(new RegExp('(?:^|; )'+name+'=([^;]*)'));return m?decodeURIComponent(m[1]):undefined;}
+
+  function sendToHubSpot(d){
+    if(HUBSPOT.form==='FORM_ID') return Promise.resolve();
+    var body={
+      fields:[
+        {objectTypeId:'0-1',name:'firstname',value:d.first},
+        {objectTypeId:'0-1',name:'lastname',value:d.last},
+        {objectTypeId:'0-1',name:'email',value:d.email},
+        {objectTypeId:'0-1',name:'phone',value:d.phone},
+        {objectTypeId:'0-1',name:'what_grade_is_your_child_in',value:d.year},
+        {objectTypeId:'0-1',name:'message',value:planSummary()}
+      ],
+      context:{pageUri:location.href,pageName:document.title},
+      legalConsentOptions:{consent:{consentToProcess:true,text:'ATMO School may contact me about this application by phone, email or WhatsApp.'}}
+    };
+    var hutk=readCookie('hubspotutk'); if(hutk) body.context.hutk=hutk;
+    return fetch(HUBSPOT.url+HUBSPOT.portal+'/'+HUBSPOT.form,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+      .then(function(r){if(!r.ok) throw new Error('HubSpot '+r.status);});
+  }
+
   $('apply-form').addEventListener('submit',function(e){
     e.preventDefault();
     var f=e.target, ok=f.checkValidity();
     $('form-err').hidden=ok;
+    $('send-err').hidden=true;
     if(!ok){var bad=f.querySelector(':invalid');if(bad)bad.focus();return;}
-    var full=(f.elements.name.value||'').trim().replace(/\s+/g,' ');
-    var first=full.split(' ')[0];
-    var email=(f.elements.email.value||'').trim();
-    $('thanks-h').textContent=first?'Thank you, '+first+'.':'Thank you.';
-    $('thanks-email').textContent=email||'your inbox';
-    $('mail-to').textContent=email?full+' <'+email+'>':full;
-    $('mail-dear').textContent='Dear '+(full||'parent')+',';
-    $('mail-subj').textContent='Your ATMO plan is ready'+(first?', '+first:'');
-    renderApplyPlan();
-    location.hash='thanks';
+    var d={
+      first:(f.elements.firstname.value||'').trim(),
+      last:(f.elements.lastname.value||'').trim(),
+      email:(f.elements.email.value||'').trim(),
+      phone:(f.elements.phone.value||'').trim(),
+      year:f.elements.year.value
+    };
+    var full=(d.first+' '+d.last).trim();
+    var btn=$('f-submit'); btn.disabled=true; btn.textContent='Sending…';
+    sendToHubSpot(d).then(function(){
+      $('thanks-h').textContent=d.first?'Thank you, '+d.first+'.':'Thank you.';
+      $('thanks-email').textContent=d.email||'your inbox';
+      $('mail-to').textContent=d.email?full+' <'+d.email+'>':full;
+      $('mail-dear').textContent='Dear '+(full||'parent')+',';
+      $('mail-subj').textContent='Your ATMO plan is ready'+(d.first?', '+d.first:'');
+      renderApplyPlan();
+      f.reset();
+      location.hash='thanks';
+    }).catch(function(){
+      $('send-err').hidden=false;
+    }).then(function(){btn.disabled=false;btn.textContent='Send application';});
   });
 
   staticBits();renderAll();route();
