@@ -711,7 +711,13 @@ form h1{font-size:clamp(40px,5vw,60px);line-height:1.02}
   window.addEventListener('hashchange',route);
 
   // HubSpot: portal 149190779 (EU data centre). Fill FORM_ID with the form's GUID from HubSpot.
-  var HUBSPOT = { portal: '149190779', form: 'FORM_ID', url: 'https://api-eu1.hsforms.com/submissions/v3/integration/submit/' };
+  var HUBSPOT = { portal: '149190779', form: 'a3ebc7a3-dba3-487d-aaef-86c5bdf53d2c', url: 'https://api-eu1.hsforms.com/submissions/v3/integration/submit/' };
+
+  // Levels in the plan, in catalogue order, e.g. "AS Level" or "IGCSE/AS Level". Used for the HubSpot lead name "One-subject | <levels>".
+  function planLevels(){
+    var seen={};state.sel.forEach(function(id){var s=byId(id);if(s)seen[s.level]=true;});
+    return LEVELS.filter(function(l){return seen[l.id];}).map(function(l){return LSHORT[l.id];}).join('/');
+  }
 
   function planSummary(){
     var p=planNumbers();
@@ -722,7 +728,6 @@ form h1{font-size:clamp(40px,5vw,60px);line-height:1.02}
   function readCookie(name){var m=document.cookie.match(new RegExp('(?:^|; )'+name+'=([^;]*)'));return m?decodeURIComponent(m[1]):undefined;}
 
   function sendToHubSpot(d){
-    if(HUBSPOT.form==='FORM_ID') return Promise.resolve();
     var body={
       fields:[
         {objectTypeId:'0-1',name:'firstname',value:d.first},
@@ -730,7 +735,8 @@ form h1{font-size:clamp(40px,5vw,60px);line-height:1.02}
         {objectTypeId:'0-1',name:'email',value:d.email},
         {objectTypeId:'0-1',name:'phone',value:d.phone},
         {objectTypeId:'0-1',name:'what_grade_is_your_child_in',value:d.year},
-        {objectTypeId:'0-1',name:'message',value:planSummary()}
+        {objectTypeId:'0-1',name:'message',value:planSummary()},
+        {objectTypeId:'0-1',name:'selfstudy_level',value:planLevels()||'Not chosen'}
       ],
       context:{pageUri:location.href,pageName:document.title},
       legalConsentOptions:{consent:{consentToProcess:true,text:'ATMO School may contact me about this application by phone, email or WhatsApp.'}}
