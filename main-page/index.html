@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATMO School | Online IGCSE and A-Level School</title>
+<meta name="description" content="Premium British education. Without leaving home. Cambridge and Pearson Edexcel qualifications, taught online by qualified British teachers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,400;6..72,600&amp;family=Unbounded:wght@500;700&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#1E4FCC}a:hover{color:#1B4FD6}
+button{font-family:inherit}
+.doodle-blue{background-image:url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22640%22%20viewBox%3D%220%200%20640%20640%22%20fill%3D%22none%22%20stroke%3D%22%232563FF%22%20stroke-opacity%3D%220.1%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cg%20transform%3D%22translate(60%2070)%22%3E%3Cpath%20d%3D%22M0%2018%2032%204l32%2014-32%2014z%22%2F%3E%3Cpath%20d%3D%22M14%2025v14c10%208%2026%208%2036%200V25%22%2F%3E%3Cpath%20d%3D%22M64%2018v18%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate(420%20200)%20rotate(8)%22%3E%3Cpath%20d%3D%22M0%208c12-6%2024-6%2034%202%2010-8%2022-8%2034-2v44c-12-6-24-6-34%202-10-8-22-8-34-2z%22%2F%3E%3Cpath%20d%3D%22M34%2010v44%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate(150%20430)%20rotate(14)%22%3E%3Ccircle%20cx%3D%2224%22%20cy%3D%2224%22%20r%3D%224%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%2224%22%20rx%3D%2226%22%20ry%3D%2210%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%2224%22%20rx%3D%2226%22%20ry%3D%2210%22%20transform%3D%22rotate(60%2024%2024)%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%2224%22%20rx%3D%2226%22%20ry%3D%2210%22%20transform%3D%22rotate(120%2024%2024)%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E);background-size:640px 640px}
+.doodle-white{background-image:url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22640%22%20viewBox%3D%220%200%20640%20640%22%20fill%3D%22none%22%20stroke%3D%22%23FFFFFF%22%20stroke-opacity%3D%220.12%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cg%20transform%3D%22translate(60%2070)%22%3E%3Cpath%20d%3D%22M0%2018%2032%204l32%2014-32%2014z%22%2F%3E%3Cpath%20d%3D%22M14%2025v14c10%208%2026%208%2036%200V25%22%2F%3E%3Cpath%20d%3D%22M64%2018v18%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate(420%20200)%20rotate(8)%22%3E%3Cpath%20d%3D%22M0%208c12-6%2024-6%2034%202%2010-8%2022-8%2034-2v44c-12-6-24-6-34%202-10-8-22-8-34-2z%22%2F%3E%3Cpath%20d%3D%22M34%2010v44%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate(150%20430)%20rotate(14)%22%3E%3Ccircle%20cx%3D%2224%22%20cy%3D%2224%22%20r%3D%224%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%2224%22%20rx%3D%2226%22%20ry%3D%2210%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%2224%22%20rx%3D%2226%22%20ry%3D%2210%22%20transform%3D%22rotate(60%2024%2024)%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%2224%22%20rx%3D%2226%22%20ry%3D%2210%22%20transform%3D%22rotate(120%2024%2024)%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E);background-size:640px 640px}
+.lift{transition:transform .25s ease,box-shadow .25s ease}
+.lift:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(11,20,55,.12)}
+.track{display:flex;width:max-content;gap:56px;animation:slide 32s linear infinite}
+.strip:hover .track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(calc(-50% - 28px))}}
+@media (max-width:760px){header nav a:not(:last-child){display:none}a[aria-label^="Message ATMO"]{font-size:0;gap:0;padding:0 16px}}
+@media (prefers-reduced-motion:reduce){.track{animation:none}.lift{transition:none}}
+html{scroll-behavior:smooth;scroll-padding-top:80px}section{scroll-margin-top:80px}
+[c="0"]{font-family:Inter, system-ui, sans-serif;color:#0B1437;background:#FFFFFF}
+[c="1"]{padding:10px 24px;background:#0B1437;color:#FFFFFF;text-align:center;font-size:14px;font-weight:600}
+[c="2"]{position:sticky;top:0;z-index:20;background:#FFFFFF;padding:12px 24px;border-bottom:1px solid #DCE3F5}
+[c="3"]{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+[c="4"]{display:flex;gap:10px;align-items:center}
+[c="5"]{font-family:Unbounded, sans-serif;font-weight:700;font-size:18px;letter-spacing:-0.01em}
+[c="6"]{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;font-weight:500;align-items:center}
+[c="7"]{text-decoration:none;color:#0B1437}
+[c="8"]{text-decoration:none;color:#0B1437;font-weight:600}
+[c="9"]{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:12px;background:#0B1437;color:#FFFFFF;text-decoration:none;font-weight:600}
+[c="a"]{padding:0 24px;background-color:#FFFFFF;overflow:hidden;border-bottom:1px solid #DCE3F5}
+[c="b"]{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end}
+[c="c"]{flex:1 1 560px;min-width:0;display:flex;flex-direction:column;gap:22px;padding:64px 0}
+[c="d"]{font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#1E4FCC}
+[c="e"]{margin:0;font-family:Newsreader, Georgia, serif;font-weight:500;font-size:clamp(46px, 5.8vw, 76px);line-height:1.02;letter-spacing:-0.02em}
+[c="f"]{color:#1E4FCC}
+[c="g"]{margin:0;font-size:20px;line-height:1.5;color:#3A4668;max-width:540px}
+[c="h"]{display:flex;flex-wrap:wrap;gap:12px}
+[c="i"]{display:inline-flex;align-items:center;min-height:54px;padding:0 28px;border-radius:14px;background:#1E4FCC;color:#FFFFFF;font-size:17px;font-weight:700;text-decoration:none}
+[c="j"]{display:inline-flex;align-items:center;min-height:54px;padding:0 28px;border-radius:14px;border:1px solid #0B1437;background:#FFFFFF;color:#0B1437;font-size:17px;font-weight:600;text-decoration:none}
+[c="k"]{display:flex;flex-wrap:wrap;gap:16px 40px;padding-top:8px}
+[c="l"]{font-family:Newsreader, Georgia, serif;font-size:48px;line-height:1;font-weight:600;letter-spacing:-0.02em}
+[c="m"]{font-size:14px;color:#56607A}
+[c="n"]{flex:1 1 460px;min-width:0;padding-top:24px}
+[c="o"]{display:block;width:100%;height:auto;margin-bottom:-22%}
+[c="p"]{padding:32px 24px;border-bottom:1px solid #DCE3F5}
+[c="q"]{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+[c="r"]{font-size:14px;font-weight:600;color:#56607A}
+[c="s"]{overflow:hidden}
+[c="t"]{display:flex;align-items:center;gap:12px;height:72px;font-family:Newsreader, Georgia, serif;font-size:22px;line-height:1.1;white-space:nowrap}
+[c="u"]{height:60px;width:auto}
+[c="v"]{height:72px;width:auto}
+[c="w"]{height:44px;width:auto}
+[c="x"]{height:50px;width:auto}
+[c="y"]{height:56px;width:auto}
+[c="z"]{padding:32px 24px}
+[c="10"]{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:20px}
+[c="11"]{flex:1 1 250px;min-width:0;display:flex;gap:10px;font-size:15px}
+[c="12"]{flex-shrink:0;margin-top:2px}
+[c="13"]{font-weight:700}
+[c="14"]{color:#56607A}
+[c="15"]{padding:80px 24px;background-color:#EEF3FF}
+[c="16"]{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+[c="17"]{display:flex;flex-direction:column;gap:10px}
+[c="18"]{margin:0;font-family:Newsreader, Georgia, serif;font-weight:500;font-size:clamp(36px, 4.4vw, 54px);line-height:1.08;letter-spacing:-0.015em}
+[c="19"]{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:20px}
+[c="1a"]{box-sizing:border-box;padding:28px;border-radius:22px;background:#FFFFFF;display:flex;flex-direction:column;gap:10px}
+[c="1b"]{width:52px;height:52px;border-radius:16px;background:#DCE7FF;display:flex;align-items:center;justify-content:center}
+[c="1c"]{font-size:20px;font-weight:700}
+[c="1d"]{font-size:15px;font-weight:600;color:#1E4FCC}
+[c="1e"]{font-size:15px;line-height:1.55;color:#3A4668}
+[c="1f"]{width:52px;height:52px;border-radius:16px;background:#FFE9B8;display:flex;align-items:center;justify-content:center}
+[c="1g"]{width:52px;height:52px;border-radius:16px;background:#D5F5E8;display:flex;align-items:center;justify-content:center}
+[c="1h"]{width:52px;height:52px;border-radius:16px;background:#FFE0D3;display:flex;align-items:center;justify-content:center}
+[c="1i"]{width:52px;height:52px;border-radius:16px;background:#E6DEFF;display:flex;align-items:center;justify-content:center}
+[c="1j"]{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding:24px 28px;border-radius:22px;background:#0B1437;color:#FFFFFF}
+[c="1k"]{font-size:18px;font-weight:600}
+[c="1l"]{display:flex;flex-wrap:wrap;gap:10px}
+[c="1m"]{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:12px;background:#FFFFFF;color:#0B1437;font-weight:700;text-decoration:none}
+[c="1n"]{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:12px;border:1px solid #FFFFFF;color:#FFFFFF;font-weight:600;text-decoration:none}
+[c="1o"]{padding:80px 24px;background-color:#0B1437;color:#FFFFFF}
+[c="1p"]{font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#8FB3FF}
+[c="1q"]{margin:0;font-size:17px;color:#D3DBEE}
+[c="1r"]{display:flex;flex-wrap:wrap;gap:20px}
+[c="1s"]{flex:1 1 280px;min-width:0}
+[c="1t"]{font-family:Newsreader, Georgia, serif;font-size:clamp(72px, 8vw, 104px);line-height:1;font-weight:600;letter-spacing:-0.02em;color:#FFC53D}
+[c="1u"]{font-size:16px;color:#D3DBEE;padding-top:6px}
+[c="1v"]{display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:14px;background:#FFC53D;color:#0B1437;font-size:17px;font-weight:700;text-decoration:none}
+[c="1w"]{padding:80px 24px}
+[c="1x"]{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+[c="1y"]{display:grid;border-radius:28px;background:#EEF3FF}
+[c="1z"]{grid-column:1;grid-row:1;box-sizing:border-box;padding:clamp(24px, 4vw, 48px);display:flex;flex-wrap:wrap;gap:32px;align-items:center;transition:opacity .5s ease;opacity:1}
+[c="20"]{border-radius:50%;flex-shrink:0;border:4px solid #FFFFFF}
+[c="21"]{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:16px}
+[c="22"]{margin:0;font-family:Newsreader, Georgia, serif;font-size:clamp(24px, 3vw, 34px);line-height:1.25}
+[c="23"]{font-size:15px}
+[c="24"]{font-size:18px;font-weight:700}
+[c="25"]{font-weight:600;color:#1E4FCC}
+[c="26"]{grid-column:1;grid-row:1;box-sizing:border-box;padding:clamp(24px, 4vw, 48px);display:flex;flex-wrap:wrap;gap:32px;align-items:center;transition:opacity .5s ease;opacity:0;pointer-events:none}
+[c="27"]{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+[c="28"]{display:flex;gap:10px}
+[c="29"]{padding:0;width:60px;height:60px;border-radius:50%;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;border:3px solid #1E4FCC}
+[c="2a"]{display:block;border-radius:50%}
+[c="2b"]{padding:0;width:60px;height:60px;border-radius:50%;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;border:3px solid transparent}
+[c="2c"]{display:flex;gap:8px}
+[c="2d"]{width:52px;height:52px;border-radius:50%;border:1px solid #0B1437;background:#FFFFFF;color:#0B1437;cursor:pointer;font-size:20px}
+[c="2e"]{width:52px;height:52px;border-radius:50%;border:none;background:#1E4FCC;color:#FFFFFF;cursor:pointer;font-size:20px}
+[c="2f"]{font-size:17px}
+[c="2g"]{font-weight:600}
+[c="2h"]{padding:72px 24px;background-color:#EEF3FF}
+[c="2i"]{margin:0;font-size:17px;line-height:1.6;color:#3A4668;max-width:760px}
+[c="2j"]{flex:1 1 240px;min-width:0;box-sizing:border-box;padding:24px;border-radius:20px;background:#FFFFFF}
+[c="2k"]{font-family:Newsreader, Georgia, serif;font-size:56px;line-height:1;font-weight:600;letter-spacing:-0.02em}
+[c="2l"]{font-size:15px;color:#56607A;padding-top:6px}
+[c="2m"]{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+[c="2n"]{font-size:15px;font-weight:700}
+[c="2o"]{padding:10px 16px;border-radius:999px;background:#FFFFFF;font-size:14px;font-weight:600}
+[c="2p"]{padding:72px 24px;background-color:#1E4FCC;color:#FFFFFF}
+[c="2q"]{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}
+[c="2r"]{margin:0;font-size:18px;line-height:1.5}
+[c="2s"]{display:inline-flex;align-items:center;min-height:52px;padding:0 26px;margin-top:8px;border-radius:14px;background:#FFFFFF;color:#0B1437;font-size:17px;font-weight:700;text-decoration:none}
+[c="2t"]{overflow-x:auto;border-radius:20px;background:#FFFFFF}
+[c="2u"]{min-width:680px}
+[c="2v"]{display:grid;grid-template-columns:minmax(0, 1.8fr) repeat(3, minmax(0, 1fr));gap:12px;padding:18px 24px;font-size:15px;font-weight:700}
+[c="2w"]{display:flex;justify-content:center;align-items:center;gap:8px;color:#0B1437;font-family:Unbounded, sans-serif;font-size:14px}
+[c="2x"]{text-align:center}
+[c="2y"]{display:grid;grid-template-columns:minmax(0, 1.8fr) repeat(3, minmax(0, 1fr));gap:12px;padding:14px 24px;border-top:1px solid #DCE3F5;font-size:15px;align-items:center}
+[c="2z"]{display:flex;justify-content:center;font-size:14px;color:#56607A}
+[c="30"]{display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:14px;background:#1E4FCC;color:#FFFFFF;font-size:17px;font-weight:700;text-decoration:none}
+[c="31"]{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:48px;align-items:center}
+[c="32"]{margin:0;font-size:17px;line-height:1.6;color:#3A4668}
+[c="33"]{flex:1 1 520px;min-width:0}
+[c="34"]{display:block;width:100%;height:auto;border-radius:22px;background:#0B1437}
+[c="35"]{font-size:15px;font-weight:600;padding-top:12px}
+[c="36"]{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:36px}
+[c="37"]{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between}
+[c="38"]{font-size:16px;font-weight:600}
+[c="39"]{display:flex;flex-wrap:wrap;gap:20px;align-items:stretch}
+[c="3a"]{flex:1 1 250px;min-width:0;box-sizing:border-box;padding:28px;border-radius:22px;display:flex;flex-direction:column;gap:10px;background:#0B1437;color:#FFFFFF}
+[c="3b"]{align-self:flex-start;padding:6px 12px;border-radius:999px;background:#FFC53D;color:#0B1437;font-size:12px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase}
+[c="3c"]{font-size:14px;font-weight:600}
+[c="3d"]{font-size:15px;flex-grow:1}
+[c="3e"]{display:flex;align-items:baseline;gap:6px}
+[c="3f"]{font-size:13px}
+[c="3g"]{display:flex;align-items:center;justify-content:center;min-height:48px;margin-top:6px;border-radius:12px;font-weight:700;text-decoration:none;background:#FFFFFF;color:#0B1437}
+[c="3h"]{flex:1 1 250px;min-width:0;box-sizing:border-box;padding:28px;border-radius:22px;display:flex;flex-direction:column;gap:10px;background:#FFFFFF;color:#0B1437}
+[c="3i"]{display:flex;align-items:center;justify-content:center;min-height:48px;margin-top:6px;border-radius:12px;font-weight:700;text-decoration:none;border:1px solid #0B1437;color:#0B1437}
+[c="3j"]{font-size:13px;color:#56607A}
+[c="3k"]{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
+[c="3l"]{border-radius:16px;background:#EEF3FF}
+[c="3m"]{width:100%;min-height:60px;padding:14px 24px;border:none;background:transparent;color:#0B1437;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center;text-align:left;font-size:17px;font-weight:600}
+[c="3n"]{font-size:22px;color:#1E4FCC}
+[c="3o"]{padding:0 24px 20px;font-size:15px;line-height:1.6;color:#3A4668;white-space:pre-line}
+[c="3p"]{padding:96px 24px;background-color:#1E4FCC;color:#FFFFFF}
+[c="3q"]{flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:20px}
+[c="3r"]{margin:0;font-family:Newsreader, Georgia, serif;font-weight:500;font-size:clamp(42px, 5vw, 64px);line-height:1.05;letter-spacing:-0.015em}
+[c="3s"]{margin:0;font-size:19px;line-height:1.5}
+[c="3t"]{display:flex;flex-direction:column;gap:6px;font-size:17px;font-weight:600}
+[c="3u"]{color:#FFFFFF}
+[c="3v"]{flex:1 1 420px;min-width:0;box-sizing:border-box;padding:32px;border-radius:22px;background:#FFFFFF;color:#0B1437}
+[c="3w"]{display:flex;flex-direction:column;gap:14px}
+[c="3x"]{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+[c="3y"]{min-height:48px;padding:0 14px;border-radius:10px;border:1px solid #B4BFDA;font-size:16px;font-family:inherit}
+[c="3z"]{min-height:48px;padding:0 12px;border-radius:10px;border:1px solid #B4BFDA;background:#FFFFFF;font-size:16px;font-family:inherit}
+[c="40"]{min-height:54px;border:none;border-radius:14px;background:#1E4FCC;color:#FFFFFF;font-size:17px;font-weight:700;cursor:pointer}
+[c="41"]{padding:40px 24px;background-color:#0B1437;color:#D3DBEE}
+[c="42"]{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:32px;font-size:14px;line-height:1.7}
+[c="43"]{flex:2 1 320px;min-width:0}
+[c="44"]{font-weight:700;color:#FFFFFF}
+[c="45"]{flex:1 1 200px;min-width:0}
+[c="46"]{position:fixed;right:20px;bottom:20px;z-index:30;display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 20px;border-radius:999px;background:#0B1437;color:#FFFFFF;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 10px 28px rgba(11,20,55,.28)}
+</style>
+</head>
+<body>
+<div c=0>
+<div c=1>Registered online Cambridge International School · UCAS Registered Centre · 14-day money-back guarantee</div>
+<header c=2>
+<div c=3>
+<div c=4><img src="data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%2286%22%20viewBox%3D%2230%209%2050%2043%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M60.7148%2012.0114L76.5776%2048.5744H76.7411C77.0192%2048.5744%2077.2447%2048.7998%2077.2447%2049.078V50.0577C77.2447%2050.3358%2077.0192%2050.5613%2076.7411%2050.5613H67.7433C67.4651%2050.5613%2067.2397%2050.3358%2067.2397%2050.0577V49.0287C67.2397%2048.7778%2067.4431%2048.5744%2067.6941%2048.5744L63.2523%2038.3346L61.7892%2034.8476L56.1978%2021.6599L44.5266%2048.5744C44.7457%2048.5744%2044.9233%2048.752%2044.9233%2048.9711V50.0575C44.9233%2050.3357%2044.6978%2050.5613%2044.4196%2050.5613H38.7858C38.5077%2050.5613%2038.2822%2050.3358%2038.2822%2050.0577V49.078C38.2822%2048.7998%2038.5077%2048.5744%2038.7858%2048.5744H38.9272L53.6999%2015.8119L55.4305%2011.9737C55.8975%2010.938%2056.9282%2010.2722%2058.0643%2010.2722C59.2154%2010.2722%2060.2566%2010.9554%2060.7148%2012.0114Z%22%20fill%3D%22%231B2A55%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M78.9251%2018.4379C81.0147%2022.297%2072.2262%2031.0567%2059.3202%2037.8562C46.4141%2044.6556%2034.307%2047.0446%2032.2174%2043.1855C30.4095%2039.8466%2037.4132%2032.6201%2047.5126%2026.3878L45.3699%2030.5147C40.3698%2034.7479%2037.9794%2038.7324%2039.0197%2040.6865C40.6176%2043.688%2049.4481%2039.3073%2061.0636%2033.1816C72.6791%2027.056%2077.1572%2022.1036%2076.8632%2019.7519C76.5793%2017.48%2071.6823%2017.3841%2064.6355%2019.7862L64.1319%2018.5023C71.6925%2016.0691%2077.5328%2015.8664%2078.9251%2018.4379Z%22%20fill%3D%22%232A5DBC%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E" alt="" width="38" height="32"><span c=5>ATMO School</span></div>
+<nav aria-label="Main" c=6>
+<a href="#why" c=7>Why ATMO</a>
+<a href="#results" c=7>Results</a>
+<a href="#reviews" c=7>Reviews</a>
+<a href="#team" c=7>Teachers</a>
+<a href="#teach" c=7>How we teach</a>
+<a href="https://www.atmoschool.com/pricing" c=7>Fees</a>
+<a href="#faq" c=7>FAQ</a>
+<a href="tel:+447441429616" c=8>+44 7441 429616</a>
+<a href="#call" c=9>Book a call</a>
+</nav>
+</div>
+</header>
+<section class="doodle-blue" c=a>
+<div c=b>
+<div c=c>
+<div c=d>Online IGCSE &amp; A-Levels</div>
+<h1 c=e>Premium British education. <span c=f>Without leaving home.</span></h1>
+<p c=g>Achieve your academic goals with Cambridge and Pearson Edexcel qualifications, taught online by qualified British teachers.</p>
+<div c=h>
+<a href="#call" c=i>Book a call</a>
+<a href="https://www.atmoschool.com/pricing" c=j>See the fees</a>
+</div>
+<div c=k>
+<div><div c=l>1,000+</div><div c=m>students worldwide</div></div><div><div c=l>95%</div><div c=m>exam success rate</div></div><div><div c=l>40+</div><div c=m>countries</div></div>
+</div>
+</div>
+<div c=n>
+<img src="https://www.atmoschool.com/images/bg-homepage-new.webp" alt="ATMO School student in a graduation cap and gown, holding a navy ATMO School book" c=o>
+</div>
+</div>
+</section>
+<section c=p>
+<div c=q>
+<div c=r>Our graduates study at</div>
+<div class="strip" c=s><div class="track">
+<div c=t><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Coat_of_Arms_of_the_University_of_Cambridge.svg/250px-Coat_of_Arms_of_the_University_of_Cambridge.svg.png" alt="University of Cambridge logo" c=u><span>University of Cambridge</span></div><div c=t><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/University_of_Oxford-Logo.wine.svg/330px-University_of_Oxford-Logo.wine.svg.png" alt="University of Oxford logo" c=v><span></span></div><div c=t><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Imperial_logo.svg/500px-Imperial_logo.svg.png" alt="Imperial College London logo" c=w><span></span></div><div c=t><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/London_school_of_economics_logo_with_name.svg/500px-London_school_of_economics_logo_with_name.svg.png" alt="London School of Economics logo" c=x><span></span></div><div c=t><img src="https://www.atmoschool.com/images/logos/ucl.webp" alt="UCL logo" c=y><span></span></div><div c=t><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/University_of_Edinburgh_c%C3%ADmer.svg/250px-University_of_Edinburgh_c%C3%ADmer.svg.png" alt="University of Edinburgh logo" c=u><span>University of Edinburgh</span></div><div c=t><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Coat_of_Arms_of_the_University_of_Cambridge.svg/250px-Coat_of_Arms_of_the_University_of_Cambridge.svg.png" alt="University of Cambridge logo" c=u><span>University of Cambridge</span></div><div c=t><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/University_of_Oxford-Logo.wine.svg/330px-University_of_Oxford-Logo.wine.svg.png" alt="University of Oxford logo" c=v><span></span></div><div c=t><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Imperial_logo.svg/500px-Imperial_logo.svg.png" alt="Imperial College London logo" c=w><span></span></div><div c=t><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/London_school_of_economics_logo_with_name.svg/500px-London_school_of_economics_logo_with_name.svg.png" alt="London School of Economics logo" c=x><span></span></div><div c=t><img src="https://www.atmoschool.com/images/logos/ucl.webp" alt="UCL logo" c=y><span></span></div><div c=t><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/University_of_Edinburgh_c%C3%ADmer.svg/250px-University_of_Edinburgh_c%C3%ADmer.svg.png" alt="University of Edinburgh logo" c=u><span>University of Edinburgh</span></div>
+</div></div>
+</div>
+</section>
+<section c=z>
+<div c=10>
+<div c=11><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4FCC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" c=12><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path></svg><div><div c=13>Cambridge &amp; Edexcel</div><div c=14>Accredited qualifications, recognised worldwide</div></div></div><div c=11><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4FCC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" c=12><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path></svg><div><div c=13>UCAS Registered Centre</div><div c=14>Official support for UK university applications</div></div></div><div c=11><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4FCC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" c=12><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path></svg><div><div c=13>Qualified British teachers</div><div c=14>All tutors hold QTS or equivalent qualifications</div></div></div><div c=11><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4FCC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" c=12><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path></svg><div><div c=13>Money-back guarantee</div><div c=14>Full refund within 14 days if not satisfied</div></div></div>
+</div>
+</section>
+<section id="why" c=15>
+<div c=16>
+<div c=17><div c=d>Why ATMO School</div>
+<h2 c=18>Everything for academic success and future careers</h2></div>
+<div c=19>
+<div class="lift" c=1a><span c=1b><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0B1437" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11zM12 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg></span><div c=1c>Personal future pathways</div><div c=1d>A tailored plan for university and career success</div><div c=1e>We construct a personal academic profile for every student using clear data, guiding them towards the ideal university degree and the right profession.</div></div><div class="lift" c=1a><span c=1f><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0B1437" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg></span><div c=1c>Transparent progress tracking</div><div c=1d>Real-time insights into academic growth</div><div c=1e>No surprises. Students and parents can instantly view current marks, key strengths, areas for improvement and immediate next steps.</div></div><div class="lift" c=1a><span c=1g><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0B1437" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .7-4.4 4.1 1.2 6L12 16.8 6.6 19.4l1.2-6L3.4 9.3l6-.7z"></path></svg></span><div c=1c>Critical skills beyond the curriculum</div><div c=1d>Competencies for global success</div><div c=1e>We help students develop independence, eloquent communication and leadership skills so they can thrive at international universities.</div></div><div class="lift" c=1a><span c=1h><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0B1437" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4a8 8 0 1 0 8 8M12 8a4 4 0 1 0 4 4M12 12l9-9"></path></svg></span><div c=1c>Advanced exam and memory tools</div><div c=1d>Scientific revision for outstanding results</div><div c=1e>Our digital tools are based on cognitive science. They enhance knowledge retention, helping students prepare thoroughly and confidently for IGCSE and A-Level exams.</div></div><div class="lift" c=1a><span c=1i><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0B1437" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18v12H3zM8 21h8M12 17v4M7 13l3-3 3 2 4-4"></path></svg></span><div c=1c>The Parent Dashboard</div><div c=1d>Complete visibility for families</div><div c=1e>Parents can log in at any moment to review progress reports, see predicted grades and receive early notifications if their child needs extra tutor support.</div></div><div class="lift" c=1a><span c=1b><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0B1437" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21c0-4 3-7 7-7s7 3 7 7M16 3.5a4 4 0 0 1 0 7.5M22 21c0-3-2-6-5-6.700"></path></svg></span><div c=1c>An authentic student community</div><div c=1d>Connect, collaborate and study together</div><div c=1e>Our global platform connects students with peers locally and internationally, to form online study groups, share insights and stay motivated.</div></div>
+</div>
+<div c=1j><div c=1k>See how this would work for your child</div><div c=1l><a href="#call" c=1m>Get a demo</a><a href="#call" c=1n>Book a call</a></div></div>
+</div>
+</section>
+<section id="results" c=1o>
+<div c=16>
+<div c=17>
+<div c=1p>Proven results</div>
+<h2 c=18>Our students get into top universities</h2>
+<p c=1q>ATMO School graduates secure places at some of the world's most prestigious universities.</p>
+</div>
+<div c=1r>
+<div c=1s><div c=1t>96%</div><div c=1u>university acceptance rate</div></div><div c=1s><div c=1t>45+</div><div c=1u>Russell Group placements</div></div><div c=1s><div c=1t>15+</div><div c=1u>Oxbridge offers in 2024</div></div>
+</div>
+<div><a href="#call" c=1v>Plan your child's route to university</a></div>
+</div>
+</section>
+<section id="reviews" c=1w>
+<div c=1x>
+<div c=17><div c=d>Success stories</div>
+<h2 c=18>What students and parents say</h2></div>
+<div c=1y>
+<div c=1z data-slide=""><img src="https://www.atmoschool.com/images/testimonials/Sarah_Chen.webp" alt="Portrait of Sarah Chen" width="128" height="128" c=20><div c=21><p c=22>“ATMO School transformed my approach to studying. The personalized attention from tutors helped me achieve A*A*A in my A-Levels. I couldn't have done it without them!”</p><div c=23><div c=24>Sarah Chen</div><div c=25>Accepted to Cambridge</div><div c=14>Mathematics, Physics, Chemistry</div></div></div></div><div c=26 data-slide=""><img src="https://www.atmoschool.com/images/testimonials/James_Williams.webp" alt="Portrait of James Williams" width="128" height="128" c=20><div c=21><p c=22>“The flexibility of online learning combined with world-class teaching made all the difference. My tutor was available whenever I needed help, even late evenings before exams.”</p><div c=23><div c=24>James Williams</div><div c=25>Now at Oxford University</div><div c=14>Economics, Mathematics, History</div></div></div></div><div c=26 data-slide=""><img src="https://www.atmoschool.com/images/testimonials/Emma_Rodriguez.webp" alt="Portrait of Emma Rodriguez" width="128" height="128" c=20><div c=21><p c=22>“As a parent, I was skeptical about online education. But ATMO School exceeded all expectations. The progress reports and parent communication were exceptional.”</p><div c=23><div c=24>Emma Rodriguez</div><div c=25>Daughter accepted to LSE</div><div c=14>Business, Economics, Mathematics</div></div></div></div><div c=26 data-slide=""><img src="https://www.atmoschool.com/images/testimonials/Ahmed_Hassan.webp" alt="Portrait of Ahmed Hassan" width="128" height="128" c=20><div c=21><p c=22>“Living in Dubai, finding quality A-Level education was challenging until I discovered ATMO. The recorded lessons meant I could study on my schedule without compromising quality.”</p><div c=23><div c=24>Ahmed Hassan</div><div c=25>Accepted to Imperial College</div><div c=14>Biology, Chemistry, Mathematics</div></div></div></div>
+</div>
+<div c=27>
+<div c=28><button type="button" aria-label="Show review from Sarah Chen" c=29 data-thumb=""><img src="https://www.atmoschool.com/images/testimonials/Sarah_Chen.webp" alt="" width="52" height="52" c=2a></button><button type="button" aria-label="Show review from James Williams" c=2b data-thumb=""><img src="https://www.atmoschool.com/images/testimonials/James_Williams.webp" alt="" width="52" height="52" c=2a></button><button type="button" aria-label="Show review from Emma Rodriguez" c=2b data-thumb=""><img src="https://www.atmoschool.com/images/testimonials/Emma_Rodriguez.webp" alt="" width="52" height="52" c=2a></button><button type="button" aria-label="Show review from Ahmed Hassan" c=2b data-thumb=""><img src="https://www.atmoschool.com/images/testimonials/Ahmed_Hassan.webp" alt="" width="52" height="52" c=2a></button></div>
+<div c=2c>
+<button type="button" aria-label="Previous review" c=2d>←</button>
+<button type="button" aria-label="Next review" c=2e>→</button>
+</div>
+</div>
+<div c=2f>Want to ask a question of your own? <a href="#call" c=2g>Talk to an advisor</a></div>
+</div>
+</section>
+<section c=2h>
+<div c=1x>
+<div c=17><div c=d>Our story</div>
+<h2 c=18>Built on more than seven years of real students' data</h2>
+<p c=2i>ATMO School is built on the foundation of Atmospheric School, an online school with over seven years of experience and more than 6,000 students educated through a fully digital platform.</p></div>
+<div c=1r>
+<div c=2j><div c=2k>6,000+</div><div c=2l>students educated, including Atmospheric School</div></div><div c=2j><div c=2k>60k+</div><div c=2l>people use our educational platform</div></div><div c=2j><div c=2k>27k+</div><div c=2l>training materials</div></div><div c=2j><div c=2k>120M</div><div c=2l>education data points</div></div>
+</div>
+<div c=2m><div c=2n>2026 recognition</div><span c=2o>The PIEoneer Awards shortlist</span><span c=2o>National Tutoring Awards shortlist</span><span c=2o>WDEA AIED Top 100</span></div>
+</div>
+</section>
+<section id="team" class="doodle-white" c=2p>
+<div c=2q>
+<h2 c=18>Taught by top British teachers</h2>
+<p c=2r>Every tutor holds QTS or an equivalent qualification.</p>
+<a href="#call" c=2s>Book a call with our team</a>
+</div>
+</section>
+<section c=15>
+<div c=1x>
+<h2 c=18>ATMO School against the alternatives</h2>
+<div c=2t>
+<div c=2u>
+<div c=2v><div>Feature</div><div c=2w><img src="data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%2286%22%20viewBox%3D%2230%209%2050%2043%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M60.7148%2012.0114L76.5776%2048.5744H76.7411C77.0192%2048.5744%2077.2447%2048.7998%2077.2447%2049.078V50.0577C77.2447%2050.3358%2077.0192%2050.5613%2076.7411%2050.5613H67.7433C67.4651%2050.5613%2067.2397%2050.3358%2067.2397%2050.0577V49.0287C67.2397%2048.7778%2067.4431%2048.5744%2067.6941%2048.5744L63.2523%2038.3346L61.7892%2034.8476L56.1978%2021.6599L44.5266%2048.5744C44.7457%2048.5744%2044.9233%2048.752%2044.9233%2048.9711V50.0575C44.9233%2050.3357%2044.6978%2050.5613%2044.4196%2050.5613H38.7858C38.5077%2050.5613%2038.2822%2050.3358%2038.2822%2050.0577V49.078C38.2822%2048.7998%2038.5077%2048.5744%2038.7858%2048.5744H38.9272L53.6999%2015.8119L55.4305%2011.9737C55.8975%2010.938%2056.9282%2010.2722%2058.0643%2010.2722C59.2154%2010.2722%2060.2566%2010.9554%2060.7148%2012.0114Z%22%20fill%3D%22%231B2A55%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M78.9251%2018.4379C81.0147%2022.297%2072.2262%2031.0567%2059.3202%2037.8562C46.4141%2044.6556%2034.307%2047.0446%2032.2174%2043.1855C30.4095%2039.8466%2037.4132%2032.6201%2047.5126%2026.3878L45.3699%2030.5147C40.3698%2034.7479%2037.9794%2038.7324%2039.0197%2040.6865C40.6176%2043.688%2049.4481%2039.3073%2061.0636%2033.1816C72.6791%2027.056%2077.1572%2022.1036%2076.8632%2019.7519C76.5793%2017.48%2071.6823%2017.3841%2064.6355%2019.7862L64.1319%2018.5023C71.6925%2016.0691%2077.5328%2015.8664%2078.9251%2018.4379Z%22%20fill%3D%22%232A5DBC%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E" alt="" width="28" height="24"><span>ATMO School</span></div><div c=2x>Traditional school</div><div c=2x>Other online</div></div>
+<div c=2y><div>Personalised 1-on-1 tutoring</div><div c=2z><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4FCC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Yes"><path d="M5 12l5 5L20 7"></path></svg></div><div c=2z><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B4BFDA" stroke-width="2.4" stroke-linecap="round" role="img" aria-label="No"><path d="M18 6 6 18M6 6l12 12"></path></svg></div><div c=2z><span>Limited</span></div></div><div c=2y><div>Study from anywhere</div><div c=2z><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4FCC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Yes"><path d="M5 12l5 5L20 7"></path></svg></div><div c=2z><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B4BFDA" stroke-width="2.4" stroke-linecap="round" role="img" aria-label="No"><path d="M18 6 6 18M6 6l12 12"></path></svg></div><div c=2z><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4FCC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Yes"><path d="M5 12l5 5L20 7"></path></svg></div></div><div c=2y><div>Recorded lessons for revision</div><div c=2z><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4FCC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Yes"><path d="M5 12l5 5L20 7"></path></svg></div><div c=2z><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B4BFDA" stroke-width="2.4" stroke-linecap="round" role="img" aria-label="No"><path d="M18 6 6 18M6 6l12 12"></path></svg></div><div c=2z><span>Extra cost</span></div></div><div c=2y><div>Flexible scheduling</div><div c=2z><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4FCC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Yes"><path d="M5 12l5 5L20 7"></path></svg></div><div c=2z><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B4BFDA" stroke-width="2.4" stroke-linecap="round" role="img" aria-label="No"><path d="M18 6 6 18M6 6l12 12"></path></svg></div><div c=2z><span>Limited</span></div></div><div c=2y><div>Direct tutor contact</div><div c=2z><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4FCC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Yes"><path d="M5 12l5 5L20 7"></path></svg></div><div c=2z><span>Office hours</span></div><div c=2z><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B4BFDA" stroke-width="2.4" stroke-linecap="round" role="img" aria-label="No"><path d="M18 6 6 18M6 6l12 12"></path></svg></div></div><div c=2y><div>Progress tracking for parents</div><div c=2z><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4FCC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Yes"><path d="M5 12l5 5L20 7"></path></svg></div><div c=2z><span>Termly</span></div><div c=2z><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B4BFDA" stroke-width="2.4" stroke-linecap="round" role="img" aria-label="No"><path d="M18 6 6 18M6 6l12 12"></path></svg></div></div><div c=2y><div>UCAS &amp; university support</div><div c=2z><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4FCC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Yes"><path d="M5 12l5 5L20 7"></path></svg></div><div c=2z><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E4FCC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Yes"><path d="M5 12l5 5L20 7"></path></svg></div><div c=2z><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B4BFDA" stroke-width="2.4" stroke-linecap="round" role="img" aria-label="No"><path d="M18 6 6 18M6 6l12 12"></path></svg></div></div>
+</div>
+</div>
+<div><a href="#call" c=30>Register a student</a></div>
+</div>
+</section>
+<section id="teach" c=1w>
+<div c=31>
+<div c=21>
+<div c=d>How we teach</div>
+<h2 c=18>LIP, our Learning Intelligence Platform</h2>
+<p c=32>LIP brings together live lessons, recorded materials, interactive tools, regular feedback and progress tracking. It helps each student understand their strengths, close learning gaps and follow a clear pathway towards IGCSE, A-Level, university and future career goals.</p>
+<p c=32>The platform also supports soft skills, smart memory techniques and parent progress insights.</p>
+<div><a href="#call" c=30>Get a demo of LIP</a></div>
+</div>
+<div c=33>
+<video controls="" playsinline="" preload="none" poster="https://a-level-cms.s3.eu-central-1.amazonaws.com/atmo_video_poster_5789906700.webp" src="https://a-level-cms.s3.eu-central-1.amazonaws.com/atmo_video_720p_c887383fe0.mp4" aria-label="How we teach at ATMO School" c=34></video>
+<div c=35>See how we teach in action</div>
+</div>
+</div>
+</section>
+<section c=15>
+<div c=36>
+<div c=37>
+<h2 c=18>Choose how you study</h2>
+<a href="https://www.atmoschool.com/pricing" c=38>See all fees and payment plans</a>
+</div>
+<div c=39>
+<div class="lift" c=3a><div c=3b>Most popular</div><div c=1c>Full Programme</div><div c=3c>IGCSE / A-Level · 3 subjects</div><div c=3d>A fully guided academic pathway with live small-group lessons, structure and support.</div><div c=3e><span c=2k>£720</span><span>/ month</span></div><div c=3f>£8,640 a year</div><a href="#call" c=3g>Apply now</a></div><div class="lift" c=3h><div c=1c>Core Programme</div><div c=3c>A-Level · 3 subjects</div><div c=3d>Independent study with structure, content and teacher access.</div><div c=3e><span c=2k>£240</span><span>/ month</span></div><div c=3f>£2,880 a year</div><a href="#call" c=3i>Start with Core</a></div><div class="lift" c=3h><div c=1c>Core Programme</div><div c=3c>IGCSE/GCSE · 3 + 2 subjects</div><div c=3d>Independent study with structure, content and teacher access.</div><div c=3e><span c=2k>£250</span><span>/ month</span></div><div c=3f>£3,000 a year</div><a href="#call" c=3i>Start with Core</a></div><div class="lift" c=3h><div c=1c>Single Subject</div><div c=3c>IGCSE / A-Level · 1 subject</div><div c=3d>Start small. Test the system. Build your path.</div><div c=3e><span c=2k>£80</span><span>/ month</span></div><div c=3f>£960 a year</div><a href="#call" c=3i>Try one subject</a></div>
+</div>
+<div c=3j>Monthly figures are the yearly fee averaged over 12 months. Plus £100 enrolment fee on every programme.</div>
+</div>
+</section>
+<section id="faq" c=1w>
+<div c=3k>
+<h2 c=18>Questions parents ask</h2>
+<div c=17>
+<div c=3l data-faq=""><button type="button" c=3m><span>What certification will I receive after completing the course?</span><span aria-hidden="true" c=3n data-sign="">−</span></button><div c=3o data-answer="">Upon successful completion of your studies and final examinations, you will receive officially recognised British qualifications from Cambridge International: the IGCSE or the A-Level certificate, depending on your enrolled programme.
+These certificates are globally recognised and highly respected by top-tier universities worldwide. They open doors to leading academic institutions across Europe, Canada and Asia, as well as Russell Group universities in the UK and Ivy League schools in the US.</div></div><div c=3l data-faq=""><button type="button" c=3m><span>Can I combine studying at ATMO School with other programmes?</span><span aria-hidden="true" c=3n data-sign="">+</span></button><div c=3o data-answer="">Yes, you can, but A-Level is academically demanding. You will need strong time-management skills for self-study, assignments and exam prep. Our flexible schedule helps motivated students balance ATMO School with other studies.
+Many students also continue their local education to receive a national high school diploma while working towards their A-Level qualification. This dual approach allows you to gain both certificates and keep more university options open.</div></div><div c=3l data-faq=""><button type="button" c=3m><span>What subjects can I study at ATMO School?</span><span aria-hidden="true" c=3n data-sign="">+</span></button><div c=3o data-answer="">Students choose subjects depending on their intended university major and the admission requirements of their chosen country. We currently offer:
+Biology (9700) · Chemistry (9701) · Physics (9702) · Mathematics (9709) · Computer Science (9618) · English Language (9093) · Business (9609) · Economics (9708) · History (9489) · Psychology (9990) · Sociology (9699) · Geography (9696)</div></div><div c=3l data-faq=""><button type="button" c=3m><span>How do online lessons work?</span><span aria-hidden="true" c=3n data-sign="">+</span></button><div c=3o data-answer="">Lessons are held live on an interactive platform with experienced teachers. They include presentations, exercises and group discussions. Students can ask questions in real time and access all materials digitally. Lessons are recorded, homework is managed through our system, and teacher support is always available.
+Students also receive guidance from mentors, and our learning platform offers a wide range of resources to support independent study and exam preparation.</div></div>
+</div>
+<div c=2f>Another question? <a href="https://wa.me/447549989688" c=2g>Message us on WhatsApp</a> or call <a href="tel:+447441429616" c=2g>+44 7441 429616</a></div>
+</div>
+</section>
+<section id="call" class="doodle-white" c=3p>
+<div c=31>
+<div c=3q>
+<h2 c=3r>Build your future with ATMO School</h2>
+<p c=3s>Leave your details and an advisor will call to talk through your child's year group, subjects and goals.</p>
+<div c=3t>
+<a href="tel:+447441429616" c=3u>+44 7441 429616</a>
+<a href="https://wa.me/447549989688" c=3u>WhatsApp +44 7549 989688</a>
+<a href="mailto:international@atmoschool.com" c=3u>international@atmoschool.com</a>
+</div>
+</div>
+<div c=3v>
+<form id="lead" c=3w>
+<label c=3x>Your name<input type="text" name="name" c=3y required=""></label><label c=3x>Email<input type="email" name="email" c=3y required=""></label><label c=3x>Mobile phone<input type="tel" name="phone" c=3y required=""></label>
+<label c=3x>Child's year group<select name="year" c=3z><option>Year 9</option><option>Year 10</option><option>Year 11</option><option>Year 12</option><option>Year 13</option></select></label>
+<button type="submit" c=40>Request a call</button>
+<div c=3j>14-day money-back guarantee on enrolment.</div>
+</form>
+</div>
+</div>
+</section>
+<footer c=41>
+<div c=42>
+<div c=43><div c=44>ATMO School</div><div>ATMO School is a registered online Cambridge International School and a UCAS Registered Centre. Qualifications are awarded by the exam boards.</div></div>
+<div c=45><div c=44>School</div><div>A-Levels Online · Partners · Webinars · Blog · Teaching team · Documents and licences</div></div>
+<div c=45><div c=44>Contact</div><div>+44 7441 429616<br>+44 7549 989688<br>international@atmoschool.com<br>Instagram · Facebook · LinkedIn</div></div>
+</div>
+</footer>
+<a href="https://wa.me/447549989688" aria-label="Message ATMO School on WhatsApp" c=46><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.300 7.900L3 21l1.100-4.700A9 9 0 1 1 21 12z"></path></svg>Ask us on WhatsApp</a>
+</div>
+<script>
+document.querySelectorAll('[data-faq]').forEach(function (item, i) {
+  var b = item.querySelector('button'), a = item.querySelector('[data-answer]'), s = item.querySelector('[data-sign]');
+  function set(o) { a.hidden = !o; s.textContent = o ? '−' : '+'; b.setAttribute('aria-expanded', o); }
+  set(i === 0);
+  b.addEventListener('click', function () { set(a.hidden); });
+});
+(function () {
+  var slides = [].slice.call(document.querySelectorAll('[data-slide]')), thumbs = [].slice.call(document.querySelectorAll('[data-thumb]')), cur = 0, timer;
+  function show(i) {
+    cur = (i + slides.length) % slides.length;
+    slides.forEach(function (s, k) { s.style.opacity = k === cur ? 1 : 0; s.style.pointerEvents = k === cur ? 'auto' : 'none'; });
+    thumbs.forEach(function (t, k) { t.style.borderColor = k === cur ? '#1E4FCC' : 'transparent'; });
+  }
+  function stop() { clearInterval(timer); }
+  thumbs.forEach(function (t, k) { t.addEventListener('click', function () { stop(); show(k); }); });
+  document.querySelector('[aria-label="Previous review"]').addEventListener('click', function () { stop(); show(cur - 1); });
+  document.querySelector('[aria-label="Next review"]').addEventListener('click', function () { stop(); show(cur + 1); });
+  show(0); timer = setInterval(function () { show(cur + 1); }, 7000);
+})();
+document.getElementById('lead').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var f = e.target, body = 'Name: ' + f.name.value + '\nEmail: ' + f.email.value + '\nMobile: ' + f.phone.value + '\nYear group: ' + f.year.value;
+  location.href = 'mailto:international@atmoschool.com?subject=' + encodeURIComponent('Call request from website') + '&body=' + encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
