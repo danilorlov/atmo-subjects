@@ -706,11 +706,15 @@ form h1{font-size:clamp(40px,5vw,60px);line-height:1.02}
     return LEVELS.filter(function(l){return seen[l.id];}).map(function(l){return LSHORT[l.id];}).join('/');
   }
 
+  // One line for HubSpot "Order comment": access period, each subject with its price and discount, total.
   function planSummary(){
     var p=planNumbers();
-    if(!p.n) return 'Self-study plan: no subjects chosen yet (to choose with an adviser).';
-    var lines=state.sel.map(function(id,i){var s=byId(id);return '- '+s.name+' ('+LSHORT[s.level]+(s.code?', syllabus '+s.code:'')+'): £'+fmt(p.unit*(1-rate(i)/100));});
-    return 'Self-study plan from atmo-school.com\n'+p.n+' '+plural(p.n)+', '+state.dur+' months\n'+lines.join('\n')+'\nTotal: £'+fmt(p.total)+(p.saving>0?' (saves £'+fmt(p.saving)+')':'');
+    if(!p.n) return 'No subjects chosen yet: to choose with an adviser.';
+    var items=state.sel.map(function(id,i){var s=byId(id);var r=rate(i);return s.name+' ('+LSHORT[s.level]+') £'+fmt(p.unit*(1-r/100))+(r?' (−'+r+'%)':'');});
+    return state.dur+' months: '+items.join('; ')+'. Total £'+fmt(p.total)+(p.saving>0?', saves £'+fmt(p.saving):'')+'.';
+  }
+  function planSubjects(){
+    return state.sel.map(function(id){var s=byId(id);return s.name+' ('+LSHORT[s.level]+')';}).join(', ');
   }
   function readCookie(name){var m=document.cookie.match(new RegExp('(?:^|; )'+name+'=([^;]*)'));return m?decodeURIComponent(m[1]):undefined;}
 
@@ -723,7 +727,9 @@ form h1{font-size:clamp(40px,5vw,60px);line-height:1.02}
         {objectTypeId:'0-1',name:'phone',value:d.phone},
         {objectTypeId:'0-1',name:'what_grade_is_your_child_in',value:d.year},
         {objectTypeId:'0-1',name:'message',value:planSummary()},
-        {objectTypeId:'0-1',name:'selfstudy_level',value:planLevels()||'Not chosen'}
+        {objectTypeId:'0-1',name:'selfstudy_level',value:planLevels()||'Not chosen'},
+        {objectTypeId:'0-1',name:'selfstudy_subjects',value:planSubjects()||'Not chosen'},
+        {objectTypeId:'0-1',name:'selfstudy_subject_count',value:String(state.sel.length)}
       ],
       context:{pageUri:location.href,pageName:document.title},
       legalConsentOptions:{consent:{consentToProcess:true,text:'ATMO School may contact me about this application by phone, email or WhatsApp.'}}
