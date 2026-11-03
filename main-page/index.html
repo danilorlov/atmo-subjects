@@ -173,10 +173,63 @@ html{scroll-behavior:smooth;scroll-padding-top:80px}section{scroll-margin-top:80
 [c="45"]{flex:1 1 200px;min-width:0}
 [c="46"]{position:fixed;right:20px;bottom:20px;z-index:30;display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 20px;border-radius:999px;background:#0B1437;color:#FFFFFF;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 10px 28px rgba(11,20,55,.28)}
 </style>
+<style id="mobile">
+.ts{display:none}
+@media (min-width:761px) and (max-width:1080px){[c="b"]{flex-wrap:nowrap}[c="c"]{flex:1 1 56%}[c="n"]{flex:1 1 44%}}
+@media (max-width:760px){
+.tl{display:none}.ts{display:inline}
+[c="1"]{padding:9px 12px;font-size:min(12px,3.05vw);white-space:nowrap}
+[c="2"]{padding-left:20px;padding-right:20px}
+[c="a"]{padding:0 20px}
+[c="b"]{flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:16px;padding:24px 0 28px}
+[c="c"]{display:contents}
+[c="a"] [c="d"]{order:1;font-size:12px}
+[c="e"]{order:2;font-size:min(32px,8.2vw);line-height:1.08}
+[c="n"]{order:3;flex:none;padding:0;height:min(58vw,232px);overflow:hidden;border-radius:24px;background:#EEF3FF}
+[c="o"]{width:100%;height:100%;object-fit:cover;object-position:50% 0;margin:0;transform:scale(1.14);transform-origin:50% 0}
+[c="g"]{order:4;font-size:17px;line-height:1.45}
+[c="h"]{order:5;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+[c="i"],[c="j"]{padding:0 10px;justify-content:center;min-height:52px;font-size:16px}
+[c="k"]{order:6;display:grid;grid-template-columns:1.15fr 1fr .8fr;gap:10px;padding-top:6px}
+[c="l"]{font-size:min(24px,6.1vw)}
+[c="m"]{font-size:12px;line-height:1.3;padding-top:4px}
+[c="p"]{padding:24px 20px}[c="z"]{padding:28px 20px}
+[c="15"],[c="1o"],[c="1w"],[c="2h"],[c="2p"],[c="3p"]{padding:56px 20px}
+[c="41"]{padding:40px 20px 96px}
+[c="19"]{grid-template-columns:1fr;gap:12px}
+[c="1a"]{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:14px;row-gap:3px;padding:20px;border-radius:18px;align-items:center}
+[c="1a"]>span{width:44px;height:44px;border-radius:14px;grid-row:1/3;align-self:start}
+[c="1a"]>div:last-child{grid-column:1/-1;margin-top:8px}
+[c="1c"]{font-size:17px;line-height:1.25}[c="1d"]{font-size:14px;line-height:1.3}
+[c="1s"]{flex:1 1 0}[c="1t"]{font-size:min(32px,8vw)}[c="1u"]{font-size:13px;line-height:1.3}
+[c="1r"]{gap:12px}
+[c="2j"]{flex:1 1 calc(50% - 6px);padding:18px;border-radius:16px}[c="2k"]{font-size:min(28px,7vw)}[c="2l"]{font-size:13px;line-height:1.35}
+[c="2u"]{min-width:0}
+[c="2v"],[c="2y"]{grid-template-columns:minmax(0,1fr) 62px 60px 52px;gap:6px;padding:12px 14px;font-size:13px;line-height:1.3;align-items:center}
+[c="2v"]{font-size:11px;text-align:center}[c="2v"]>div:first-child{text-align:left}
+[c="2w"]{flex-direction:column;gap:3px;font-size:9px;white-space:nowrap}
+[c="2w"] img{height:20px;width:auto}
+[c="2z"]{font-size:11px;text-align:center;line-height:1.2}
+[c="1y"]{border-radius:22px}
+[data-slide]{padding:22px;gap:14px;align-content:flex-start;align-items:flex-start}
+[c="20"]{width:72px;height:72px}
+[c="22"]{font-size:18px}
+[c="1v"],[c="30"],[c="2s"]{width:100%;box-sizing:border-box;justify-content:center;text-align:center;padding:0 16px}
+[c="1l"]{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
+[c="1m"],[c="1n"]{justify-content:center;padding:0 8px;box-sizing:border-box}
+[c="27"]{display:flex;flex-wrap:nowrap;justify-content:space-between;align-items:center;gap:8px}
+[c="28"]{gap:6px;flex-wrap:nowrap}
+[c="29"],[c="2b"]{width:44px;height:44px;padding:0;flex:none}
+[c="2a"]{width:100%;height:100%}
+[c="27"]>div:last-child{gap:6px;flex-wrap:nowrap}
+[c="27"]>div:last-child button{width:42px;height:42px}
+a[aria-label^="Message ATMO"]{right:14px;bottom:14px;min-height:46px;padding:0 13px}
+}
+</style>
 </head>
 <body>
 <div c=0>
-<div c=1>Registered online Cambridge International School · UCAS Registered Centre · 14-day money-back guarantee</div>
+<div c="1"><span class="tl">Registered online Cambridge International School · UCAS Registered Centre · 14-day money-back guarantee</span><span class="ts">Registered Cambridge School · UCAS Centre · 14-day refund</span></div>
 <header c=2>
 <div c=3>
 <div c=4><img src="data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%2286%22%20viewBox%3D%2230%209%2050%2043%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M60.7148%2012.0114L76.5776%2048.5744H76.7411C77.0192%2048.5744%2077.2447%2048.7998%2077.2447%2049.078V50.0577C77.2447%2050.3358%2077.0192%2050.5613%2076.7411%2050.5613H67.7433C67.4651%2050.5613%2067.2397%2050.3358%2067.2397%2050.0577V49.0287C67.2397%2048.7778%2067.4431%2048.5744%2067.6941%2048.5744L63.2523%2038.3346L61.7892%2034.8476L56.1978%2021.6599L44.5266%2048.5744C44.7457%2048.5744%2044.9233%2048.752%2044.9233%2048.9711V50.0575C44.9233%2050.3357%2044.6978%2050.5613%2044.4196%2050.5613H38.7858C38.5077%2050.5613%2038.2822%2050.3358%2038.2822%2050.0577V49.078C38.2822%2048.7998%2038.5077%2048.5744%2038.7858%2048.5744H38.9272L53.6999%2015.8119L55.4305%2011.9737C55.8975%2010.938%2056.9282%2010.2722%2058.0643%2010.2722C59.2154%2010.2722%2060.2566%2010.9554%2060.7148%2012.0114Z%22%20fill%3D%22%231B2A55%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M78.9251%2018.4379C81.0147%2022.297%2072.2262%2031.0567%2059.3202%2037.8562C46.4141%2044.6556%2034.307%2047.0446%2032.2174%2043.1855C30.4095%2039.8466%2037.4132%2032.6201%2047.5126%2026.3878L45.3699%2030.5147C40.3698%2034.7479%2037.9794%2038.7324%2039.0197%2040.6865C40.6176%2043.688%2049.4481%2039.3073%2061.0636%2033.1816C72.6791%2027.056%2077.1572%2022.1036%2076.8632%2019.7519C76.5793%2017.48%2071.6823%2017.3841%2064.6355%2019.7862L64.1319%2018.5023C71.6925%2016.0691%2077.5328%2015.8664%2078.9251%2018.4379Z%22%20fill%3D%22%232A5DBC%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E" alt="" width="38" height="32"><span c=5>ATMO School</span></div>
