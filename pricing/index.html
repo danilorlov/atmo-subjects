@@ -100,9 +100,50 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:32px}footer .wrap>div{flex:1 1 220p
 .wa{position:fixed;right:20px;bottom:20px;z-index:30;display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 20px;border-radius:999px;background:var(--n);color:#fff;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 10px 28px rgba(11,20,55,.28)}
 @media (max-width:760px){nav a:not(.btn){display:none}.wa{font-size:0;gap:0;padding:0 16px}.sec{padding:56px 16px}.hero{padding:0 16px}header{padding:12px 16px}.card,.calc,.panel,.tile{padding:24px}}
 </style>
+<style id="mobile">
+.ts{display:none}.tpick{display:none}
+.old{margin-bottom:8px}
+@media (min-width:761px) and (max-width:1080px){.hero .wrap{flex-wrap:nowrap}.hero .txt{flex:1 1 56%}.hero .pic{flex:1 1 44%}}
+@media (max-width:760px){
+.tl{display:none}.ts{display:inline}
+.top{padding:9px 12px;font-size:min(12px,3.05vw);white-space:nowrap}
+header{padding:12px 20px}.sec{padding:56px 20px}
+.hero{padding:0 20px}
+.hero .wrap{flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:16px;padding:24px 0 28px}
+.hero .txt{display:contents}
+.hero .eyebrow{order:1;font-size:12px}
+.hero h1{order:2;font-size:min(26px,6.4vw);line-height:1.1}
+.hero .price{font-size:min(44px,10.8vw);margin-top:6px}
+.hero .pic{order:3;flex:none;padding:0;height:min(58vw,232px);overflow:hidden;border-radius:24px;background:var(--s)}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:50% 0;margin:0;transform:scale(1.14);transform-origin:50% 0}
+.hero .lead{order:4;font-size:17px;line-height:1.45}
+.hero .row{order:5;display:grid;grid-template-columns:1.4fr 1fr;gap:10px}
+.hero .btn{padding:0 8px;min-height:52px;font-size:16px}
+.hero .small{order:6;font-size:12px}
+.head{gap:16px}
+.pills{flex-wrap:nowrap;width:100%;box-sizing:border-box}
+.pills button{flex:1 1 auto;padding:0 8px;font-size:14px;white-space:nowrap}
+.tag{font-size:11px;padding:2px 6px;margin-left:3px}
+.cards{gap:24px}
+.card,.panel,.tile{padding:22px}.calc{padding:20px}
+.tiles{gap:12px}
+.tpick{display:flex;margin-bottom:12px}
+.tbl{overflow:hidden}
+table{min-width:0;table-layout:fixed}
+th,td{padding:12px 14px}
+th:first-child,td:first-child{width:56%;font-size:14px}
+th:not(:first-child),td:not(:first-child){display:none}
+table[data-col="2"] th:nth-child(2),table[data-col="2"] td:nth-child(2),table[data-col="3"] th:nth-child(3),table[data-col="3"] td:nth-child(3),table[data-col="4"] th:nth-child(4),table[data-col="4"] td:nth-child(4){display:table-cell}
+.chips button{flex:1 1 auto;padding:0 12px}
+.split{gap:28px}
+.cta{padding:64px 20px}
+footer{padding:40px 20px 96px}
+.wa{right:14px;bottom:14px;min-height:46px;padding:0 13px}
+}
+</style>
 </head>
 <body>
-<div class="top">Registered online Cambridge International School · UCAS Registered Centre · 14-day money-back guarantee</div>
+<div class="top"><span class="tl">Registered online Cambridge International School · UCAS Registered Centre · 14-day money-back guarantee</span><span class="ts">Registered Cambridge School · UCAS Centre · 14-day refund</span></div>
 <header><div class="wrap bar">
 <a class="brand" href="/main-page/"><img src="data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%2286%22%20viewBox%3D%2230%209%2050%2043%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M60.7148%2012.0114L76.5776%2048.5744H76.7411C77.0192%2048.5744%2077.2447%2048.7998%2077.2447%2049.078V50.0577C77.2447%2050.3358%2077.0192%2050.5613%2076.7411%2050.5613H67.7433C67.4651%2050.5613%2067.2397%2050.3358%2067.2397%2050.0577V49.0287C67.2397%2048.7778%2067.4431%2048.5744%2067.6941%2048.5744L63.2523%2038.3346L61.7892%2034.8476L56.1978%2021.6599L44.5266%2048.5744C44.7457%2048.5744%2044.9233%2048.752%2044.9233%2048.9711V50.0575C44.9233%2050.3357%2044.6978%2050.5613%2044.4196%2050.5613H38.7858C38.5077%2050.5613%2038.2822%2050.3358%2038.2822%2050.0577V49.078C38.2822%2048.7998%2038.5077%2048.5744%2038.7858%2048.5744H38.9272L53.6999%2015.8119L55.4305%2011.9737C55.8975%2010.938%2056.9282%2010.2722%2058.0643%2010.2722C59.2154%2010.2722%2060.2566%2010.9554%2060.7148%2012.0114Z%22%20fill%3D%22%231B2A55%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M78.9251%2018.4379C81.0147%2022.297%2072.2262%2031.0567%2059.3202%2037.8562C46.4141%2044.6556%2034.307%2047.0446%2032.2174%2043.1855C30.4095%2039.8466%2037.4132%2032.6201%2047.5126%2026.3878L45.3699%2030.5147C40.3698%2034.7479%2037.9794%2038.7324%2039.0197%2040.6865C40.6176%2043.688%2049.4481%2039.3073%2061.0636%2033.1816C72.6791%2027.056%2077.1572%2022.1036%2076.8632%2019.7519C76.5793%2017.48%2071.6823%2017.3841%2064.6355%2019.7862L64.1319%2018.5023C71.6925%2016.0691%2077.5328%2015.8664%2078.9251%2018.4379Z%22%20fill%3D%22%232A5DBC%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E" alt="" width="38" height="32">ATMO School</a>
 <nav aria-label="Main"><a href="/main-page/#why">Why ATMO</a><a href="/main-page/#results">Results</a><a href="/main-page/#reviews">Reviews</a><a href="#fees">Prices</a><a href="#included">What's included</a><a href="#spread">Payment plans</a><a class="tel" href="tel:+447441429616">+44 7441 429616</a><a class="btn" href="/main-page/#call">Book a call</a></nav>
@@ -132,7 +173,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:32px}footer .wrap>div{flex:1 1 220p
 
 <section class="sec" id="included"><div class="wrap stack">
 <h2>What each programme includes</h2>
-<div class="tbl"><table><thead><tr><th>Feature</th><th>Core</th><th class="on">Full</th><th>Single</th></tr></thead><tbody id="rows"></tbody></table></div>
+<div class="pills tpick" id="tpick" role="group" aria-label="Programme"><button type="button" data-col="2" aria-pressed="false">Core</button><button type="button" data-col="3" aria-pressed="true">Full</button><button type="button" data-col="4" aria-pressed="false">Single</button></div>
+<div class="tbl"><table id="ptbl" data-col="3"><thead><tr><th>Feature</th><th>Core</th><th class="on">Full</th><th>Single</th></tr></thead><tbody id="rows"></tbody></table></div>
 <div><a class="btn" href="/main-page/#call">Talk to an advisor</a></div>
 </div></section>
 
@@ -241,5 +283,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:32px}footer .wrap>div{flex:1 1 220p
   fees(); calc();
 })();
 </script>
+<script>(function(){var t=document.getElementById('ptbl'),b=[].slice.call(document.querySelectorAll('#tpick button'));b.forEach(function(x){x.addEventListener('click',function(){t.setAttribute('data-col',x.getAttribute('data-col'));b.forEach(function(y){y.setAttribute('aria-pressed',y===x)})})})})();</script>
 </body>
 </html>
