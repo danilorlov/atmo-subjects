@@ -290,5 +290,6 @@ footer{padding:40px 20px 96px}
 })();
 </script>
 <script>(function(){var t=document.getElementById('ptbl'),b=[].slice.call(document.querySelectorAll('#tpick button'));b.forEach(function(x){x.addEventListener('click',function(){t.setAttribute('data-col',x.getAttribute('data-col'));b.forEach(function(y){y.setAttribute('aria-pressed',y===x)})})})})();</script>
+<script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="#call"]');if(!a)return;var c=a.closest('.card,.more'),n=c&&c.querySelector('.name,b'),l=c&&c.querySelector('.lvl'),on=[].map.call(document.querySelectorAll('.pills:not(.tpick) button[aria-pressed="true"]'),function(b){return b.childNodes[0].textContent.trim()}).join(', ');var s='pricing page: '+a.textContent.trim();if(n)s+=' | '+n.textContent.trim();if(l)s+=' ('+l.textContent.trim()+')';if(c&&c.classList.contains('card')&&on)s+=' | '+on;try{sessionStorage.setItem('atmo_ref',s)}catch(x){}});</script>
 </body>
 </html>
