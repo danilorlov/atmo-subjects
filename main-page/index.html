@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Unbounded:wght@500;700&amp;display=swap">
 <style>
 body{margin:0;background:#FFFFFF}
-a{color:#1E4FCC}a:hover{color:#1B4FD6}
+a{color:#1E4FCC}a:not([c]):hover{color:#1B4FD6}
 button{font-family:inherit}
 .doodle-blue{background-image:url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22640%22%20viewBox%3D%220%200%20640%20640%22%20fill%3D%22none%22%20stroke%3D%22%232563FF%22%20stroke-opacity%3D%220.1%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cg%20transform%3D%22translate(60%2070)%22%3E%3Cpath%20d%3D%22M0%2018%2032%204l32%2014-32%2014z%22%2F%3E%3Cpath%20d%3D%22M14%2025v14c10%208%2026%208%2036%200V25%22%2F%3E%3Cpath%20d%3D%22M64%2018v18%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate(420%20200)%20rotate(8)%22%3E%3Cpath%20d%3D%22M0%208c12-6%2024-6%2034%202%2010-8%2022-8%2034-2v44c-12-6-24-6-34%202-10-8-22-8-34-2z%22%2F%3E%3Cpath%20d%3D%22M34%2010v44%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate(150%20430)%20rotate(14)%22%3E%3Ccircle%20cx%3D%2224%22%20cy%3D%2224%22%20r%3D%224%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%2224%22%20rx%3D%2226%22%20ry%3D%2210%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%2224%22%20rx%3D%2226%22%20ry%3D%2210%22%20transform%3D%22rotate(60%2024%2024)%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%2224%22%20rx%3D%2226%22%20ry%3D%2210%22%20transform%3D%22rotate(120%2024%2024)%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E);background-size:640px 640px}
 .doodle-white{background-image:url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22640%22%20height%3D%22640%22%20viewBox%3D%220%200%20640%20640%22%20fill%3D%22none%22%20stroke%3D%22%23FFFFFF%22%20stroke-opacity%3D%220.12%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cg%20transform%3D%22translate(60%2070)%22%3E%3Cpath%20d%3D%22M0%2018%2032%204l32%2014-32%2014z%22%2F%3E%3Cpath%20d%3D%22M14%2025v14c10%208%2026%208%2036%200V25%22%2F%3E%3Cpath%20d%3D%22M64%2018v18%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate(420%20200)%20rotate(8)%22%3E%3Cpath%20d%3D%22M0%208c12-6%2024-6%2034%202%2010-8%2022-8%2034-2v44c-12-6-24-6-34%202-10-8-22-8-34-2z%22%2F%3E%3Cpath%20d%3D%22M34%2010v44%22%2F%3E%3C%2Fg%3E%3Cg%20transform%3D%22translate(150%20430)%20rotate(14)%22%3E%3Ccircle%20cx%3D%2224%22%20cy%3D%2224%22%20r%3D%224%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%2224%22%20rx%3D%2226%22%20ry%3D%2210%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%2224%22%20rx%3D%2226%22%20ry%3D%2210%22%20transform%3D%22rotate(60%2024%2024)%22%2F%3E%3Cellipse%20cx%3D%2224%22%20cy%3D%2224%22%20rx%3D%2226%22%20ry%3D%2210%22%20transform%3D%22rotate(120%2024%2024)%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E);background-size:640px 640px}
@@ -444,11 +444,43 @@ document.querySelectorAll('[data-faq]').forEach(function (item, i) {
   document.querySelector('[aria-label="Next review"]').addEventListener('click', function () { stop(); show(cur + 1); });
   show(0); timer = setInterval(function () { show(cur + 1); }, 7000);
 })();
-document.getElementById('lead').addEventListener('submit', function (e) {
-  e.preventDefault();
-  var f = e.target, body = 'Name: ' + f.name.value + '\nEmail: ' + f.email.value + '\nMobile: ' + f.phone.value + '\nYear group: ' + f.year.value;
-  location.href = 'mailto:international@atmoschool.com?subject=' + encodeURIComponent('Call request from website') + '&body=' + encodeURIComponent(body);
-});
+(function () {
+  var f = document.getElementById('lead'), btn = f.querySelector('button[type="submit"]');
+  var URL_ = 'https://api-eu1.hsforms.com/submissions/v3/integration/submit/149190779/821f2347-63df-420a-88ab-5e65d0d7d3d4';
+  var CONSENT = 'ATMO School may contact me about this request by phone, email or WhatsApp.';
+  var note = document.createElement('div'); note.textContent = CONSENT; note.style.cssText = 'font-size:12px;line-height:1.4;color:#56607A'; f.appendChild(note);
+  var err = document.createElement('div'); err.hidden = true; err.setAttribute('role', 'alert'); err.style.cssText = 'font-size:14px;line-height:1.4;color:#C2410C';
+  err.textContent = "Sorry, that didn't send. Please try again, or call +44 7441 429616."; btn.after(err);
+  function ref() { try { return sessionStorage.getItem('atmo_ref') || ''; } catch (e) { return ''; } }
+  function hutk() { var m = document.cookie.match(/(?:^|; )hubspotutk=([^;]*)/); return m ? decodeURIComponent(m[1]) : ''; }
+  f.addEventListener('submit', function (e) {
+    e.preventDefault(); err.hidden = true;
+    var parts = f.name.value.trim().split(/\s+/), first = parts.shift() || '', last = parts.join(' ');
+    var from = ref(), label = btn.textContent;
+    var msg = 'Website call request | ' + f.year.value + ' | From: ' + (from || 'main page');
+    var body = { fields: [
+      { objectTypeId: '0-1', name: 'firstname', value: first },
+      { objectTypeId: '0-1', name: 'lastname', value: last },
+      { objectTypeId: '0-1', name: 'email', value: f.email.value.trim() },
+      { objectTypeId: '0-1', name: 'phone', value: f.phone.value.trim() },
+      { objectTypeId: '0-1', name: 'what_grade_is_your_child_in', value: f.year.value },
+      { objectTypeId: '0-1', name: 'message', value: msg }
+    ], context: { pageUri: location.href, pageName: document.title },
+      legalConsentOptions: { consent: { consentToProcess: true, text: CONSENT } } };
+    var t = hutk(); if (t) body.context.hutk = t;
+    btn.disabled = true; btn.textContent = 'Sending…';
+    fetch(URL_, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(function (r) {
+      if (!r.ok) throw new Error('HubSpot ' + r.status);
+      try { sessionStorage.removeItem('atmo_ref'); } catch (x) {}
+      var box = document.createElement('div'); box.style.cssText = 'display:flex;flex-direction:column;gap:12px;color:#0B1437';
+      var h = document.createElement('div'); h.style.cssText = 'font-family:Unbounded,sans-serif;font-weight:700;font-size:24px;line-height:1.2;letter-spacing:-.02em'; h.textContent = first ? 'Thank you, ' + first + '.' : 'Thank you.';
+      var p = document.createElement('div'); p.style.cssText = 'font-size:16px;line-height:1.5;color:#3A4668'; p.textContent = 'An advisor will call you to talk through your child\'s year group, subjects and goals. Want to pick a time yourself?';
+      var a = document.createElement('a'); a.href = 'https://meetings-eu1.hubspot.com/kpishchakova'; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Choose a time for the call';
+      a.style.cssText = 'display:flex;align-items:center;justify-content:center;min-height:54px;border-radius:14px;background:#1E4FCC;color:#fff;font-size:17px;font-weight:700;text-decoration:none';
+      box.appendChild(h); box.appendChild(p); box.appendChild(a); f.replaceChildren(box);
+    }).catch(function () { err.hidden = false; btn.disabled = false; btn.textContent = label; });
+  });
+})();
 </script>
 </body>
 </html>
