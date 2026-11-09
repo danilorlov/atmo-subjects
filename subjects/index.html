@@ -1,0 +1,831 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Pay only for the subjects you need. Cambridge and Pearson Edexcel self-study courses from ATMO School, from £85 per subject.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>ATMO School — Subjects from £85</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<script type="text/javascript" id="hs-script-loader" async defer src="https://js-eu1.hs-scripts.com/149190779.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap">
+<style>
+/* Layout: Ledger — ink-navy bands around a paper builder; one sticky dark receipt; hairline rules over boxes. Single committed brand look. */
+:root{
+  --ground:#EEF3FF; --raised:#ffffff; --ink:#0B1437; --ink-2:#17234f; --ink-rule:#2b3a6b;
+  --text:#3A4668; --muted:#56607A; --brand:#1E4FCC; --brand-strong:#173fa6; --brand-soft:#E3EBFF;
+  --on-ink:#ffffff; --on-ink-text:#D3DBEE; --on-ink-muted:#AEB8D6; --on-ink-brand:#8FB0F0; --gold:#FFC53D;
+  --ember:#c8451c; --rule:#DCE3F5; --field:#B9C3DE; --track:#DCE3F5;
+  --serif:"Unbounded","Inter",system-ui,sans-serif;
+  --sans:"Inter",system-ui,"Helvetica Neue",Arial,sans-serif;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ink)}
+a{color:var(--brand)}a:hover{color:var(--brand-strong)}
+button{font-family:var(--sans)}
+:focus-visible{outline:3px solid var(--on-ink-brand);outline-offset:2px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--ink);margin:0;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.label{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.label.brand{color:var(--brand)}
+.dark{background:var(--ink);color:var(--on-ink-text)}
+.dark h1,.dark h2,.dark h3{color:var(--on-ink)}
+.dark .label{color:var(--on-ink-muted)}
+.dark .label.brand{color:var(--on-ink-brand)}
+.it{font-style:italic;color:var(--brand)}
+.dark .it{color:var(--on-ink-brand)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 26px;border-radius:10px;font-weight:600;font-size:17px;text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-ink{background:var(--ink);color:var(--on-ink)}
+.btn-ink:hover{color:var(--on-ink);background:var(--ink-2)}
+.btn-paper{background:var(--on-ink);color:var(--ink)}
+.btn-paper:hover{color:var(--ink);background:#fff}
+.btn-line{border-color:var(--on-ink);color:var(--on-ink);background:transparent}
+.btn-line:hover{color:var(--on-ink);background:rgba(246,243,236,.08)}
+.btn-block{width:100%}
+.chip{display:inline-flex;font-size:14px;font-weight:600;color:var(--ink);background:var(--ground);padding:9px 14px;border-radius:10px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* header */
+.top{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding-block:24px}
+.brandname{font-family:var(--serif);font-weight:500;font-size:26px;letter-spacing:-.01em;color:var(--on-ink);text-decoration:none}
+.brandname:hover{color:var(--on-ink)}
+.nav{display:flex;flex-wrap:wrap;gap:8px 28px;align-items:center;font-size:15px}
+.nav a.plain{color:var(--on-ink-text);text-decoration:none}
+.nav a.plain:hover{color:var(--on-ink)}
+.nav .btn{min-height:44px;padding:0 18px;font-size:15px}
+
+/* hero */
+.hero{display:flex;flex-wrap:wrap;gap:64px;align-items:center;padding-block:56px 112px}
+.hero-copy{flex:999 1 540px;min-width:0;display:flex;flex-direction:column;gap:30px}
+.pill{align-self:flex-start;border:1px solid var(--ink-rule);padding:8px 14px;border-radius:10px;font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--on-ink-brand)}
+.hero h1{font-size:clamp(50px,7vw,96px);line-height:.98;letter-spacing:-.02em}
+.hero .lede{font-size:21px;max-width:500px}
+.row{display:flex;flex-wrap:wrap;gap:14px}
+.awards-line{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--on-ink-muted)}
+.awards-line b{color:var(--on-ink);letter-spacing:.08em;font-size:13px}
+.hero-card{flex:1 1 380px;min-width:0;position:relative;padding:28px 0 0 28px}
+.hero-card::before{content:"";position:absolute;top:0;left:0;right:28px;bottom:28px;background:var(--ink-2);border:1px solid var(--ink-rule);border-radius:18px}
+.receipt{position:relative;background:var(--raised);color:var(--text);border-radius:18px;padding:30px;display:flex;flex-direction:column;gap:18px}
+.receipt-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.tag-ink{font-size:12px;font-weight:700;letter-spacing:.04em;padding:6px 10px;border-radius:10px;background:var(--ink);color:var(--on-ink)}
+.rlist{border-top:2px solid var(--ink)}
+.rline{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--rule)}
+.mono{width:40px;height:40px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--ink);color:var(--on-ink);border-radius:18px;font-family:var(--serif);font-weight:600;font-size:18px}
+.rname{flex:1;min-width:0;display:flex;flex-direction:column}
+.rname b{font-size:16px;color:var(--ink);font-weight:600}
+.rname span{font-size:13px;color:var(--muted)}
+.rprice{font-family:var(--serif);font-weight:600;font-size:22px;color:var(--ink);font-variant-numeric:tabular-nums}
+.rfoot{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.big{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.save{font-size:15px;font-weight:700;color:var(--brand)}
+
+/* anchor */
+.anchor{background:var(--raised);border-bottom:1px solid var(--rule)}
+.anchor .wrap{display:flex;flex-wrap:wrap;gap:48px;align-items:center;justify-content:space-between;padding-block:96px}
+.anchor-copy{flex:1 1 400px;display:flex;flex-direction:column;gap:16px}
+.anchor h2{font-size:clamp(34px,4vw,52px);line-height:1.05}
+.anchor-fig{flex:1 1 520px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:16px 40px}
+.fig{display:flex;flex-direction:column;gap:4px}
+.struck{font-family:var(--serif);font-size:clamp(52px,6vw,76px);line-height:1;color:var(--muted);text-decoration:line-through;text-decoration-color:var(--ember);text-decoration-thickness:5px}
+.now{font-size:clamp(84px,11vw,128px);line-height:.9}
+.chips{flex-basis:100%;display:flex;flex-wrap:wrap;gap:10px}
+
+/* builder */
+.builder{padding-block:120px;display:flex;flex-direction:column;gap:56px}
+.sec-head{display:flex;flex-direction:column;gap:16px;max-width:720px}
+.sec-head h2{font-size:clamp(38px,5vw,64px);line-height:1.02;letter-spacing:-.015em}
+.bgrid{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
+.steps{flex:999 1 620px;min-width:0;display:flex;flex-direction:column;gap:72px}
+.step{display:flex;flex-direction:column;gap:22px}
+.step-h{display:flex;align-items:center;gap:16px}
+.num{width:40px;height:40px;flex:none;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--ink);color:var(--on-ink);font-weight:700;font-size:16px}
+.step-h h3{font-size:32px}
+.hint{font-size:15px;color:var(--muted)}
+.seg{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;background:var(--raised);border:1px solid var(--rule);border-radius:18px;padding:8px}
+.seg button{text-align:left;cursor:pointer;border-radius:12px;padding:14px 18px;border:0;background:transparent;color:var(--ink);transition:background .15s ease}
+.seg button:hover{background:var(--ground)}
+.seg button[aria-selected="true"]{background:var(--ink);color:var(--on-ink)}
+.seg .n{display:block;font-family:var(--serif);font-weight:500;font-size:24px}
+.seg .c{display:block;font-size:13px;margin-top:3px;opacity:.82}
+.subjects{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;align-items:start}
+.card{background:var(--raised);border:1px solid var(--rule);border-radius:18px;padding:18px 20px 12px;display:flex;flex-direction:column;gap:6px;transition:border-color .15s ease}
+.card.on{border-color:var(--brand);box-shadow:inset 0 0 0 1px var(--brand)}
+.card-top{display:flex;align-items:center;gap:16px}
+.card .mono{width:48px;height:48px;font-size:20px;transition:background .15s ease}
+.mono svg{width:56%;height:56%;display:block}
+.card.on .mono{background:var(--brand)}
+.card .meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.card .meta b{font-size:17px;color:var(--ink);font-weight:600}
+.card .meta span{font-size:13px;color:var(--muted)}
+.toggle{width:44px;height:44px;flex:none;border-radius:50%;cursor:pointer;font-size:20px;font-weight:600;line-height:1;background:var(--raised);color:var(--ink);border:1px solid var(--ink);transition:background .15s ease,color .15s ease}
+.toggle:hover{background:var(--ground)}
+.card.on .toggle{background:var(--brand);color:#fff;border-color:var(--brand)}
+.card-sub{display:flex;align-items:center;gap:12px;padding-left:64px;min-height:36px}
+.scratch{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--brand)}
+.more{margin-left:auto;background:transparent;border:0;color:var(--brand);font-weight:600;font-size:14px;cursor:pointer;padding:8px 0}
+.details{border-top:1px solid var(--rule);padding:14px 0 6px;display:flex;flex-direction:column;gap:10px}
+.details p{font-size:15px}
+.topics{display:flex;flex-wrap:wrap;gap:6px}
+.topics span{font-size:13px;padding:6px 10px;background:var(--ground);border-radius:10px;color:var(--ink)}
+.need{font-size:13px;color:var(--muted)}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;padding-top:14px}
+.plan{position:relative;text-align:left;cursor:pointer;border-radius:18px;padding:28px 24px 24px;display:flex;flex-direction:column;background:var(--raised);border:1px solid var(--rule);color:var(--text);transition:transform .15s ease}
+.plan:hover{transform:translateY(-2px)}
+.plan[aria-pressed="true"]{outline:3px solid var(--brand);outline-offset:3px}
+.plan.best{background:var(--ink);border-color:var(--ink);color:var(--on-ink-text)}
+.plan .ribbon{position:absolute;top:-13px;left:24px;font-size:12px;font-weight:700;letter-spacing:.06em;padding:6px 12px;border-radius:10px;background:var(--on-ink-brand);color:var(--ink)}
+.plan .pl{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.plan.best .pl{color:var(--on-ink-muted)}
+.plan .pp{margin-top:14px;font-size:56px}
+.plan.best .pp{color:var(--on-ink)}
+.plan .pw{display:flex;align-items:center;gap:10px;min-height:26px;margin-top:8px}
+.plan .was{font-size:16px;text-decoration:line-through;color:var(--muted)}
+.plan.best .was{color:var(--on-ink-muted)}
+.plan .off{font-size:12px;font-weight:700;padding:5px 8px;border-radius:10px;background:var(--brand-soft);color:var(--brand-strong)}
+.plan.best .off{background:var(--on-ink-brand);color:var(--ink)}
+.plan .ps{font-size:14px;margin-top:12px}
+
+.summary{flex:1 1 340px;min-width:0;position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);align-self:flex-start;border-radius:18px;padding:34px 30px;display:flex;flex-direction:column;gap:22px}
+.sum-head{display:flex;justify-content:space-between;align-items:center}
+.sum-lines{border-top:1px solid var(--ink-rule)}
+.sline{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--ink-rule)}
+.sline .sn{display:flex;flex-direction:column;min-width:0}
+.sline .sn b{font-size:16px;color:var(--on-ink);font-weight:600}
+.sline .sn span{font-size:13px;color:var(--on-ink-muted)}
+.sline .sp{display:flex;align-items:center}
+.sline .sp span{font-family:var(--serif);font-weight:600;font-size:22px;color:var(--on-ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.x{width:44px;height:44px;background:transparent;border:0;color:var(--on-ink-muted);cursor:pointer;font-size:20px}
+.x:hover{color:var(--on-ink)}
+.sum-total{display:flex;flex-direction:column;gap:6px}
+.sum-total .big{color:var(--on-ink);font-size:80px}
+.badge-save{align-self:flex-start;font-size:14px;font-weight:700;color:var(--ink);background:var(--on-ink-brand);padding:6px 10px;border-radius:10px}
+.small-muted{font-size:14px;color:var(--on-ink-muted)}
+.nudge{font-size:14px;color:var(--on-ink-text);border:1px dashed var(--ink-rule);padding:12px 14px;border-radius:10px}
+
+/* inside */
+.inside{background:var(--raised);border-block:1px solid var(--rule)}
+.inside .wrap{display:flex;flex-wrap:wrap;gap:64px;align-items:center;padding-block:120px}
+.inside-copy{flex:1 1 380px;display:flex;flex-direction:column;gap:24px}
+.inside h2{font-size:clamp(34px,4.5vw,56px);line-height:1.04}
+.inc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;border-top:2px solid var(--ink)}
+.inc div{border-bottom:1px solid var(--rule);padding:15px 0;font-weight:600;color:var(--ink)}
+.fine{font-size:14px;color:var(--muted)}
+.mock-wrap{flex:1.3 1 520px;min-width:0;display:flex;flex-direction:column;gap:10px}
+.platform-video{display:block;width:100%;max-width:100%;aspect-ratio:16/9;background:var(--ink);border-radius:18px;border:1px solid var(--rule)}
+.mock{background:var(--ground);border:1px solid var(--rule);border-radius:18px;overflow:hidden}
+.mock-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--rule);background:var(--raised);font-size:13px;color:var(--muted)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--rule)}
+.mock-body{display:flex;flex-wrap:wrap}
+.mock-side{flex:1 1 180px;padding:20px;border-right:1px solid var(--rule);background:var(--raised);display:flex;flex-direction:column;gap:14px}
+.mt{display:flex;flex-direction:column;gap:6px;font-size:14px}
+.mt.cur{font-weight:700;color:var(--ink)}
+.bar{display:block;height:4px;background:var(--track);border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--ink)}
+.mt.cur .bar i{background:var(--brand)}
+.mock-main{flex:2 1 280px;padding:24px;display:flex;flex-direction:column;gap:16px}
+.video{aspect-ratio:16/9;max-width:100%;background:var(--ink);border-radius:18px;display:flex;align-items:center;justify-content:center;position:relative}
+.video em{position:absolute;top:14px;left:16px;font-family:var(--serif);font-size:22px;color:var(--on-ink)}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.tiles span{background:var(--raised);border:1px solid var(--rule);border-radius:10px;padding:12px;font-size:13px;font-weight:600;color:var(--ink)}
+
+/* why */
+.why{padding-block:120px;display:flex;flex-direction:column;gap:72px}
+.why-head{display:flex;flex-wrap:wrap;gap:28px 72px;align-items:flex-end}
+.why-head div{flex:1 1 520px;display:flex;flex-direction:column;gap:20px}
+.why-head h2{font-size:clamp(40px,5.5vw,72px);line-height:1;letter-spacing:-.015em}
+.why-head p{flex:1 1 340px;font-size:18px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--ink);border-bottom:1px solid var(--rule)}
+.stats div{padding:34px 24px 34px 0;display:flex;flex-direction:column;gap:8px}
+.stats .big{font-size:72px}
+.stats span{font-size:15px;color:var(--muted)}
+.points{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:44px}
+.points div{display:flex;flex-direction:column;gap:12px}
+.points em{font-family:var(--serif);font-size:22px;color:var(--brand)}
+.points h3{font-size:26px;line-height:1.2}
+.points p{font-size:16px}
+.awards{border-radius:18px;padding:40px;display:flex;flex-wrap:wrap;gap:28px;align-items:center}
+.awards .label{flex:1 1 200px}
+.aw{flex:1 1 220px;display:flex;flex-direction:column;gap:4px;border-left:1px solid var(--ink-rule);padding-left:24px}
+.aw b{font-family:var(--serif);font-weight:500;font-size:22px;color:var(--on-ink)}
+.aw span{font-size:14px;color:var(--on-ink-muted)}
+
+/* faq */
+.faq{padding-block:0 120px;display:flex;flex-wrap:wrap;gap:40px 72px}
+.faq h2{flex:1 1 300px;font-size:clamp(34px,4.5vw,56px)}
+.faq-list{flex:2 1 560px;min-width:0;border-top:2px solid var(--ink)}
+.faq-item{border-bottom:1px solid var(--rule)}
+.faq-item button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;background:transparent;border:0;padding:22px 0;cursor:pointer;text-align:left;font-family:var(--serif);font-weight:500;font-size:23px;color:var(--ink)}
+.faq-item button span:last-child{font-family:var(--sans);color:var(--brand)}
+.faq-item p{padding-bottom:22px;max-width:640px}
+
+/* cta + footer */
+.cta .wrap{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-end;justify-content:space-between;padding-block:120px}
+.cta .wrap div{flex:999 1 540px;display:flex;flex-direction:column;gap:20px}
+.cta h2{font-size:clamp(40px,5.5vw,72px);line-height:1;letter-spacing:-.015em}
+.foot{display:flex;flex-wrap:wrap;gap:12px 48px;justify-content:space-between;padding-block:36px 52px;font-size:13px;color:var(--muted)}
+.foot b{letter-spacing:.1em}
+
+/* apply */
+.apply{display:flex;flex-wrap:wrap;min-height:100vh}
+.apply-side{flex:1 1 420px;padding:36px max(24px,env(safe-area-inset-right,0px)) 56px max(24px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:40px}
+@media (min-width:900px){.apply-side{padding-left:48px;padding-right:48px}}
+.apply-side .inner{display:flex;flex-direction:column;gap:22px;max-width:440px}
+.apply-side .sum-total .big{font-size:80px}
+.ticks{margin-top:auto;display:flex;flex-direction:column;gap:12px;font-size:15px}
+.ghost{align-self:flex-start;background:transparent;border:1px solid var(--ink-rule);color:var(--on-ink);font-weight:600;font-size:15px;padding:12px 16px;min-height:44px;border-radius:10px;cursor:pointer}
+.back{background:transparent;border:0;color:var(--on-ink-brand);font-weight:600;font-size:15px;cursor:pointer;min-height:44px;padding:0}
+.apply-main{flex:1.4 1 520px;padding:64px max(24px,env(safe-area-inset-right,0px)) 80px max(24px,env(safe-area-inset-left,0px));display:flex;justify-content:center}
+form{width:100%;max-width:560px;display:flex;flex-direction:column;gap:26px}
+form h1{font-size:clamp(40px,5vw,60px);line-height:1.02}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{font-size:15px;font-weight:600;color:var(--ink)}
+.field input,.field select{font:400 17px/1.4 var(--sans);padding:15px 16px;border:1px solid var(--field);border-radius:10px;background:var(--raised);color:var(--ink);width:100%}
+.field input:focus,.field select:focus{border-color:var(--brand);outline:none;box-shadow:0 0 0 3px var(--brand-soft)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:15px}
+.consent input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--ink);flex:none}
+.err{font-size:14px;color:var(--ember);font-weight:600}
+
+/* thanks */
+.thanks{min-height:100vh}
+.thanks-grid{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;padding-block:96px 120px}
+.thanks-copy{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:26px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 40px)}
+.thanks h1{font-size:clamp(44px,6vw,80px);line-height:.98;letter-spacing:-.02em}
+.mail{flex:1.3 1 520px;min-width:0;background:var(--raised);color:var(--text);border-radius:18px;overflow:hidden}
+.mail-bar{display:flex;align-items:center;gap:8px;padding:12px 18px;background:var(--ground);border-bottom:1px solid var(--rule);font-size:13px;color:var(--muted)}
+.mail-head{padding:26px 36px 20px;border-bottom:1px solid var(--rule);display:flex;flex-direction:column;gap:16px}
+.mail-from{display:flex;align-items:center;gap:14px;font-size:14px}
+.mail-from>span:nth-child(2){display:flex;flex-direction:column;min-width:0;flex:1}
+.mail-from b{color:var(--ink);font-size:15px}
+.mail-from span span{color:var(--muted);overflow-wrap:anywhere}
+.avatar{width:44px;height:44px;flex:none;border-radius:50%;background:var(--ink);color:var(--on-ink);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;font-size:20px}
+.mail-time{font-size:13px;color:var(--muted)}
+.mail-subj{font-size:clamp(26px,3vw,34px);line-height:1.15}
+.mail-body{padding:32px 36px 36px;display:flex;flex-direction:column;gap:20px;font-size:17px;line-height:1.6;max-width:680px}
+.mail-plan{background:var(--ground);border-radius:18px;padding:20px 22px;display:flex;flex-direction:column;gap:4px}
+.mail-plan .ml{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--rule);font-size:16px;color:var(--ink)}
+.mail-plan .ml span:last-child{font-family:var(--serif);font-weight:600;font-variant-numeric:tabular-nums}
+.mail-plan .mt2{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-top:12px;color:var(--ink);font-weight:600}
+.mail-plan .mt2 span:last-child{font-family:var(--serif);font-size:30px;font-variant-numeric:tabular-nums}
+.mail-k{font-weight:600;color:var(--ink)}
+.mail-list{list-style:none;margin:-6px 0 0;padding:0;border-top:2px solid var(--ink)}
+.mail-list li{display:flex;flex-direction:column;gap:2px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.mail-list b{color:var(--ink);font-size:17px}
+.mail-list span{font-size:15px}
+.mail-foot{padding:18px 36px;border-top:1px solid var(--rule);font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+@media (max-width:900px){.thanks-copy{position:static}}
+.dark .mail h1,.dark .mail h2,.dark .mail h3{color:var(--ink)}
+.dark .mail .label{color:var(--muted)}
+.dark .mail .btn-ink{color:var(--on-ink)}
+@media (max-width:520px){.mail-head,.mail-body,.mail-foot{padding-left:20px;padding-right:20px}}
+.thanks .row2{border-top:1px solid var(--ink-rule);padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--on-ink)}
+
+/* ===== ATMO main-page look ===== */
+h1,h2,h3{font-weight:700;letter-spacing:-.02em}
+.it{font-style:normal}
+.annc{background:var(--ink);color:#fff;text-align:center;font-size:14px;font-weight:600;padding:10px 24px}
+.annc .ts{display:none}
+@media (max-width:760px){.annc .tl{display:none}.annc .ts{display:inline}}
+.site-head{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--rule)}
+.site-head .top{padding-block:12px}
+.brandname{display:inline-flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:18px;letter-spacing:-.01em;color:var(--ink)}
+.brandname:hover{color:var(--ink)}
+.nav{gap:8px 22px;font-size:14px;font-weight:500}
+.nav a.plain{color:var(--ink)}
+.nav a.plain:hover{color:var(--brand)}
+.nav .btn{min-height:44px;border-radius:12px;font-size:14px}
+@media (max-width:760px){.nav a.plain{display:none}}
+.btn{border-radius:14px;font-weight:700}
+.btn-brand{background:var(--brand);color:#fff}
+.btn-brand:hover{background:var(--brand-strong);color:#fff}
+.btn-outline{background:#fff;color:var(--ink);border-color:var(--ink);font-weight:600}
+.btn-outline:hover{color:var(--ink);background:var(--ground)}
+.dark .btn-paper{background:var(--gold);color:var(--ink)}
+.dark .btn-paper:hover{background:#ffd365;color:var(--ink)}
+.hero-sec{background:#fff;border-bottom:1px solid var(--rule)}
+.hero{padding-block:64px 88px}
+.hero h1{font-size:clamp(34px,4.6vw,58px);line-height:1.06;letter-spacing:-.03em}
+.hero .lede{font-size:20px;color:var(--text);max-width:540px}
+.pill{border:0;padding:0;border-radius:0;font-size:13px;font-weight:600;letter-spacing:.12em;color:var(--brand)}
+.awards-line{color:var(--muted)}
+.awards-line b{color:var(--ink)}
+.hero-card::before{background:var(--ground);border:0;border-radius:22px}
+.receipt{border-radius:22px;border:1px solid var(--rule);box-shadow:0 18px 40px rgba(11,20,55,.12)}
+.label.brand{letter-spacing:.12em;font-weight:600}
+.anchor h2,.sec-head h2{font-size:clamp(28px,3.4vw,40px);line-height:1.15}
+.why .sec-head h2,.why h2{font-size:clamp(28px,3.4vw,40px);line-height:1.15}
+.step-h h3{font-size:22px}
+.seg .n{font-size:18px;font-weight:700}
+.struck{font-size:clamp(40px,4.6vw,60px)}
+.now{font-size:clamp(64px,8vw,104px);line-height:1}
+.card,.plan,.summary,.awards,.mail,.receipt{border-radius:22px}
+.card:hover{box-shadow:0 12px 28px rgba(11,20,55,.08)}
+.faq-item button{font-family:var(--sans);font-weight:600;font-size:19px}
+.points em{font-family:var(--sans);font-style:normal;font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.aw b{font-size:16px}
+.cta h2{font-size:clamp(30px,4vw,48px);line-height:1.12}
+.inside h2,.faq h2{font-size:clamp(28px,3.4vw,40px);line-height:1.15}
+.stats .big{font-size:clamp(40px,4.4vw,56px);color:var(--ink)}
+form h1{font-size:clamp(30px,3.8vw,44px);line-height:1.1}
+.thanks h1{font-size:clamp(34px,4.6vw,58px);line-height:1.06}
+.mail-subj{font-size:clamp(22px,2.4vw,28px)}
+</style>
+</head>
+<body>
+
+<!-- ============ LANDING ============ -->
+<div id="view-landing">
+  <div class="annc"><span class="tl">Registered online Cambridge International School · UCAS Registered Centre · Pearson Edexcel courses</span><span class="ts">Cambridge School · UCAS Centre</span></div>
+  <div class="site-head">
+    <div class="wrap">
+      <header class="top">
+        <a class="brandname" href="/"><img src="data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%2286%22%20viewBox%3D%2230%209%2050%2043%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M60.7148%2012.0114L76.5776%2048.5744H76.7411C77.0192%2048.5744%2077.2447%2048.7998%2077.2447%2049.078V50.0577C77.2447%2050.3358%2077.0192%2050.5613%2076.7411%2050.5613H67.7433C67.4651%2050.5613%2067.2397%2050.3358%2067.2397%2050.0577V49.0287C67.2397%2048.7778%2067.4431%2048.5744%2067.6941%2048.5744L63.2523%2038.3346L61.7892%2034.8476L56.1978%2021.6599L44.5266%2048.5744C44.7457%2048.5744%2044.9233%2048.752%2044.9233%2048.9711V50.0575C44.9233%2050.3357%2044.6978%2050.5613%2044.4196%2050.5613H38.7858C38.5077%2050.5613%2038.2822%2050.3358%2038.2822%2050.0577V49.078C38.2822%2048.7998%2038.5077%2048.5744%2038.7858%2048.5744H38.9272L53.6999%2015.8119L55.4305%2011.9737C55.8975%2010.938%2056.9282%2010.2722%2058.0643%2010.2722C59.2154%2010.2722%2060.2566%2010.9554%2060.7148%2012.0114Z%22%20fill%3D%22%231B2A55%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M78.9251%2018.4379C81.0147%2022.297%2072.2262%2031.0567%2059.3202%2037.8562C46.4141%2044.6556%2034.307%2047.0446%2032.2174%2043.1855C30.4095%2039.8466%2037.4132%2032.6201%2047.5126%2026.3878L45.3699%2030.5147C40.3698%2034.7479%2037.9794%2038.7324%2039.0197%2040.6865C40.6176%2043.688%2049.4481%2039.3073%2061.0636%2033.1816C72.6791%2027.056%2077.1572%2022.1036%2076.8632%2019.7519C76.5793%2017.48%2071.6823%2017.3841%2064.6355%2019.7862L64.1319%2018.5023C71.6925%2016.0691%2077.5328%2015.8664%2078.9251%2018.4379Z%22%20fill%3D%22%232A5DBC%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E" alt="" width="38" height="32">ATMO School</a>
+        <nav class="nav" aria-label="Main">
+          <a class="plain" href="#subjects" data-scroll="builder">Subjects</a>
+          <a class="plain" href="#pricing" data-scroll="pricing">Pricing</a>
+          <a class="plain" href="#why" data-scroll="why">Why ATMO</a>
+          <a class="btn btn-ink" href="#apply">Apply now</a>
+        </nav>
+      </header>
+    </div>
+  </div>
+  <section class="hero-sec">
+    <div class="wrap">
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="pill">NEW · SELF-STUDY BY SUBJECT</span>
+          <h1>Pay only for the subjects <span class="it">you need.</span></h1>
+          <p class="lede">Cambridge and Pearson Edexcel courses from a British online school. Build your plan in a minute.</p>
+          <div class="row">
+            <a class="btn btn-brand" href="#subjects" data-scroll="builder">Build your plan</a>
+            <a class="btn btn-outline" href="#pricing" data-scroll="pricing">See prices</a>
+          </div>
+          <div class="awards-line"><b>SHORTLISTED 2026</b><span>The PIEoneer Awards</span><span aria-hidden="true">·</span><span>National Tutoring Awards</span><span aria-hidden="true">·</span><span>WDEA AIED Top 100</span></div>
+        </div>
+        <div class="hero-card">
+          <div class="receipt">
+            <div class="receipt-head"><span class="label">Example plan · 12 months</span><span class="tag-ink">Best value</span></div>
+            <div class="rlist" id="hero-lines"></div>
+            <div class="rfoot">
+              <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:13px;color:var(--muted)">Total for the year</span><span class="big" style="font-size:56px" id="hero-total"></span></div>
+              <span class="save" id="hero-save"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="anchor" id="pricing">
+    <div class="wrap">
+      <div class="anchor-copy">
+        <span class="label brand">One subject for a full year</span>
+        <h2>The same courses. A much smaller bill.</h2>
+      </div>
+      <div class="anchor-fig">
+        <div class="fig"><span class="label">Before</span><span class="struck">£960</span></div>
+        <div class="fig"><span class="label brand">Now</span><span class="big now" id="anchor-now"></span></div>
+        <div class="chips"><span class="chip" id="chip-3"></span><span class="chip" id="chip-d2"></span><span class="chip" id="chip-d3"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap builder" id="builder">
+    <div class="sec-head">
+      <span class="label brand">Build your plan</span>
+      <h2>Three steps. One price.</h2>
+    </div>
+    <div class="bgrid">
+      <div class="steps">
+        <div class="step">
+          <div class="step-h"><span class="num">1</span><h3>Choose a level</h3></div>
+          <div class="seg" role="tablist" aria-label="Level" id="levels"></div>
+          <p class="hint" id="level-info"></p>
+        </div>
+        <div class="step">
+          <div class="step-h"><span class="num">2</span><h3>Choose subjects</h3></div>
+          <div class="subjects" id="subjects"></div>
+        </div>
+        <div class="step">
+          <div class="step-h"><span class="num">3</span><h3>Choose how long</h3></div>
+          <p class="hint" id="dur-hint"></p>
+          <div class="plans" id="plans"></div>
+        </div>
+      </div>
+      <aside class="summary dark" aria-label="Your plan" id="summary"></aside>
+    </div>
+  </section>
+
+  <section class="inside">
+    <div class="wrap">
+      <div class="inside-copy">
+        <span class="label brand">How we teach</span>
+        <h2>Everything to learn the subject on your own.</h2>
+        <div class="inc"><div>Video lessons</div><div>Study notes</div><div>Podcasts</div><div>Flashcards</div><div>Exam-style tasks</div><div>Tests</div></div>
+        <p class="fine">Self-study: no live lessons, teacher marking, mock exams or predicted grades. Exam entry is arranged separately.</p>
+      </div>
+      <div class="mock-wrap">
+        <video class="platform-video" controls preload="metadata" playsinline poster="/media/atmo-platform-poster.jpg" aria-label="Video tour of the ATMO School learning platform">
+          <source src="/media/atmo-platform.mp4" type="video/mp4">
+        </video>
+        <span class="fine">A tour of the ATMO learning platform</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap why" id="why">
+    <div class="why-head">
+      <div><span class="label brand">Why ATMO School</span><h2>A real British school. <span class="it">Not a video library.</span></h2></div>
+      <p>The same courses our full-time students learn from, now open subject by subject.</p>
+    </div>
+    <div class="stats">
+      <div><span class="big">1,000+</span><span>students</span></div>
+      <div><span class="big">95%</span><span>exam success rate</span></div>
+      <div><span class="big">96%</span><span>university acceptance</span></div>
+      <div><span class="big">40+</span><span>countries</span></div>
+    </div>
+    <div class="points">
+      <div><em>Registered</em><h3>With the exam boards</h3><p>A Cambridge International School, a Pearson Edexcel centre and a UCAS Registered Centre.</p></div>
+      <div><em>Teachers</em><h3>Written by British teachers</h3><p>Every course is built by qualified teachers to the current syllabus, topic by topic.</p></div>
+      <div><em>Platform</em><h3>Award-shortlisted</h3><p>Our LIP learning platform is in the WDEA AIED Top 100 for 2026.</p></div>
+      <div><em>Guidance</em><h3>Help choosing subjects</h3><p>A 120-question career test, about 30 minutes, shows which subjects fit your child.</p></div>
+    </div>
+    <div class="awards dark">
+      <span class="label brand">Shortlisted in 2026</span>
+      <div class="aw"><b>The PIEoneer Awards</b><span>Secondary School International Innovation</span></div>
+      <div class="aw"><b>National Tutoring Awards</b><span>Online School of the Year</span></div>
+      <div class="aw"><b>WDEA AIED Top 100</b><span>ATMO LIP platform</span></div>
+    </div>
+  </section>
+
+  <section class="wrap faq">
+    <h2>Questions</h2>
+    <div class="faq-list" id="faq"></div>
+  </section>
+
+  <section class="dark cta">
+    <div class="wrap">
+      <div><span class="label brand" id="cta-from"></span><h2>Premium British education. <span class="it">Without leaving home.</span></h2></div>
+      <a class="btn btn-paper" href="#apply" style="min-height:60px;padding:0 32px">Apply now</a>
+    </div>
+  </section>
+
+  <footer class="wrap foot">
+    <b>CAMBRIDGE INTERNATIONAL SCHOOL · PEARSON EDEXCEL · UCAS REGISTERED CENTRE</b>
+    <span>Qualifications are awarded by the exam boards. Prices [INCLUDE / EXCLUDE] VAT.</span>
+  </footer>
+</div>
+
+<!-- ============ APPLY ============ -->
+<div id="view-apply" hidden>
+  <div class="apply">
+    <aside class="apply-side dark" aria-label="Your plan">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px">
+        <a class="brandname" href="/" style="font-size:24px">ATMO School</a>
+        <a class="back" href="#subjects" data-scroll="builder">← Back</a>
+      </div>
+      <div class="inner" id="apply-plan"></div>
+      <div class="ticks"><span>✓ No payment now</span><span>✓ An adviser confirms the subjects with you</span><span>✓ Cambridge and Pearson Edexcel courses</span></div>
+    </aside>
+    <section class="apply-main">
+      <form id="apply-form" novalidate>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <span class="label brand">Application</span>
+          <h1>Almost there.</h1>
+          <p style="font-size:18px">Leave your details. We will call to confirm the plan and open access.</p>
+        </div>
+        <div class="two">
+          <div class="field"><label for="f-first">Parent’s first name</label><input id="f-first" name="firstname" type="text" autocomplete="given-name" required></div>
+          <div class="field"><label for="f-last">Last name</label><input id="f-last" name="lastname" type="text" autocomplete="family-name" required></div>
+        </div>
+        <div class="two">
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="f-phone">Mobile number</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+        </div>
+        <div class="field"><label for="f-year">Student’s year group</label>
+          <select id="f-year" name="year" required><option value="">Choose a year</option><option>Year 9</option><option>Year 10</option><option>Year 11</option><option>Year 12</option><option>Year 13</option><option>Other</option></select>
+        </div>
+        <div class="consent"><input id="f-consent" name="consent" type="checkbox" required><label for="f-consent">ATMO School may contact me about this application by phone, email or WhatsApp.</label></div>
+        <p class="err" id="form-err" hidden>Please fill in every field and tick the consent box.</p>
+        <p class="err" id="send-err" hidden>We could not send your application. Please check your connection and try again.</p>
+        <button class="btn btn-brand btn-block" type="submit" id="f-submit" style="min-height:60px;font-size:18px">Send application</button>
+      </form>
+    </section>
+  </div>
+</div>
+
+<!-- ============ THANKS ============ -->
+<div id="view-thanks" hidden>
+  <section class="dark thanks">
+    <div class="wrap thanks-grid">
+      <div class="thanks-copy">
+        <svg width="64" height="64" viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="34" fill="none" stroke="#8fb0f0" stroke-width="2"></circle><path d="M23 37 L32 46 L50 27" fill="none" stroke="#f6f3ec" stroke-width="3" stroke-linecap="square"></path></svg>
+        <h1 id="thanks-h">Thank you.</h1>
+        <p style="font-size:20px">Your application is in. We have sent the next step to <b style="color:var(--on-ink)" id="thanks-email">your inbox</b>.</p>
+        <div class="row2"><span id="thanks-plan"></span><span class="big" style="font-size:32px;color:var(--on-ink)" id="thanks-total"></span></div>
+        <div class="row"><a class="btn btn-paper" href="https://meetings-eu1.hubspot.com/kpishchakova" target="_blank" rel="noopener">Book your call now</a><a class="btn btn-line" href="#">Back to the page</a></div>
+      </div>
+
+      <article class="mail" aria-label="Email preview">
+        <div class="mail-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span style="margin-left:10px">Inbox</span></div>
+        <div class="mail-head">
+          <div class="mail-from"><span class="avatar">K</span><span><b>Kateryna · ATMO School</b><span>to <span id="mail-to">you</span></span></span><span class="mail-time">Just now</span></div>
+          <h2 class="mail-subj" id="mail-subj">Your ATMO plan: next step</h2>
+        </div>
+        <div class="mail-body">
+          <p id="mail-dear">Dear parent,</p>
+          <p>Thank you for choosing ATMO School. Your plan is reserved, and I would like to walk you through it before we open access.</p>
+          <div class="mail-plan" id="mail-plan"></div>
+          <p class="mail-k">On a short video call I will show you:</p>
+          <ul class="mail-list">
+            <li><b>How the platform works</b><span>Lessons, notes, practice and tests, and how progress is tracked.</span></li>
+            <li><b>A study plan to the exam</b><span>How to pace each subject towards the exam series you are aiming for.</span></li>
+            <li><b>The right subjects</b><span>How our career test helps confirm your choice.</span></li>
+            <li><b>Room to grow</b><span>How to add live lessons with our teachers later, if your child needs them.</span></li>
+          </ul>
+          <div><a class="btn btn-ink" href="https://meetings-eu1.hubspot.com/kpishchakova" target="_blank" rel="noopener">Choose a time for the call</a></div>
+          <p>No payment is taken until we have agreed the plan together.</p>
+          <p>Kind regards,<br><b style="color:var(--ink)">Kateryna</b><br><span style="color:var(--muted)">Admissions, ATMO School</span></p>
+        </div>
+        <div class="mail-foot">Cambridge International School · Pearson Edexcel · UCAS Registered Centre</div>
+      </article>
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  var PRICES = {3:85, 6:155, 12:290};
+  var D2 = 10, D3 = 20;
+  var LEVELS = [
+    {id:'igcse', name:'IGCSE', info:'Pearson Edexcel International GCSE · first year'},
+    {id:'as', name:'AS Level', info:'Cambridge International · first year of A Level'},
+    {id:'a2', name:'A2 Level', info:'Cambridge International · second year of A Level'}
+  ];
+  var LSHORT = {igcse:'IGCSE', gcse:'GCSE', as:'AS Level', a2:'A2 Level'};
+  var BOARD = {igcse:'Pearson Edexcel', gcse:'Pearson Edexcel', as:'Cambridge', a2:'Cambridge'};
+  var MONO = {'Mathematics':'Ma','Mathematics A':'Ma','Physics':'Ph','Chemistry':'Ch','Biology':'Bi','Computer Science':'Cs','English Language':'En','Business':'Bu','Geography':'Ge','Geography A':'Ge','History':'Hi','Science (Double Award)':'Sc','Combined Science':'Sc'};
+  var IC = {
+    math:'<path d="M5 7h5M7.5 4.5v5M14 7h5M5.8 15.2l3.4 3.4M9.2 15.2l-3.4 3.4M14 15.5h5M14 18.5h5"/>',
+    physics:'<circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)"/>',
+    chemistry:'<path d="M9.5 3h5M10.5 3v6.5L5.2 18.8A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.3-2.2L13.5 9.5V3"/><path d="M7.6 15h8.8"/>',
+    biology:'<path d="M7 3c0 4.5 10 4.5 10 9s-10 4.5-10 9M17 3c0 4.5-10 4.5-10 9s10 4.5 10 9M9.2 6.5h5.6M9.2 17.5h5.6M10.5 12h3"/>',
+    code:'<path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 4.5l-3 15"/>',
+    english:'<path d="M3 5.5c3-1.3 6-1.3 9 .5v14c-3-1.8-6-1.8-9-.5zM21 5.5c-3-1.3-6-1.3-9 .5v14c3-1.8 6-1.8 9-.5z"/>',
+    business:'<path d="M4 20.5h16M6.5 17.5v-4M11 17.5v-6M15.5 17.5v-8.5M4.5 10l5-4 4 2.5 6-4.5M16.5 4h3v3"/>',
+    geography:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z"/>',
+    history:'<path d="M3 9l9-5 9 5M5.5 9.5v8M10 9.5v8M14 9.5v8M18.5 9.5v8M4 17.5h16M3 21h18"/>',
+    science:'<path d="M7 3v12.5a2.5 2.5 0 0 0 5 0V3M6 3h7M7 10h5M15.5 3v9a2 2 0 0 0 4 0V3M14.8 3h5.4M15.5 8h4"/>',
+    economics:'<circle cx="12" cy="12" r="9"/><path d="M14.5 8.2a2.6 2.6 0 0 0-4.6 1.6V16M8.5 12.5h4.5M8.5 16h7"/>',
+    psychology:'<path d="M9 21v-3.2a6.5 6.5 0 1 1 7.6-1.6c-.7.8-1.1 1.6-1.1 2.6V21"/><path d="M10 9.5a2 2 0 0 1 3.6-1.2M12.6 12.6a2 2 0 0 0 2-2"/>'
+  };
+  var ICON_FOR = {'Mathematics':'math','Mathematics A':'math','Physics':'physics','Chemistry':'chemistry','Biology':'biology','Computer Science':'code','English Language':'english','Business':'business','Geography':'geography','Geography A':'geography','History':'history','Science (Double Award)':'science','Combined Science':'science','Economics':'economics','Psychology':'psychology'};
+  function icon(name){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(IC[ICON_FOR[name]]||IC.english)+'</svg>';}
+  function S(id,level,name,code,blurb,topics,prereq,scratch){return {id:id,level:level,name:name,code:code,blurb:blurb,topics:topics,prereq:prereq,scratch:scratch};}
+  var SUBJECTS = [
+    S('ig-math','igcse','Mathematics A','4MA1','Number, algebra, geometry and data, from core methods to exam-level problems.',['Number and ratio','Algebra and functions','Graphs','Geometry and trigonometry','Statistics and probability'],'basic arithmetic and simple algebra.',false),
+    S('ig-eng','igcse','English Language','','Read and analyse fiction and non-fiction, and write clearly for different audiences and purposes.',['Reading non-fiction','Reading literary texts','Language and structure','Transactional writing','Imaginative writing'],'a solid foundation in English.',false),
+    S('ig-sci','igcse','Combined Science','4XSD1','Biology, chemistry and physics in one qualification.',['Biology','Chemistry','Physics','Untiered exams'],'Key Stage 3 science.',false),
+    S('ig-cs','igcse','Computer Science','4CP0','Algorithms, programming in Python, data, hardware and networks.',['Algorithms','Python 3','Binary and encryption','Hardware','Networks and cyber security'],'nothing, start from the basics.',true),
+    S('ig-hist','igcse','History','4XHI1','Modern world history through four topics, with source work and argument.',['First World War','Changes in medicine','Nazi Germany','The Cold War'],'nothing formal; English at B2 recommended.',true),
+    S('ig-geo','igcse','Geography','4XGE1','Rivers, coasts and hazards alongside cities, development and global issues.',['Rivers and coasts','Natural hazards','Urban and rural environments','Climate change and migration','Fieldwork'],'nothing formal; English at B2 recommended.',true),
+    S('as-econ','as','Economics','9708','How markets work, why governments step in, and how whole economies grow, inflate and trade.',['Basic economic ideas','The price system','Government microeconomic intervention','The macroeconomy','Government macroeconomic intervention'],'no previous Economics needed; confident English and basic maths.',true),
+    S('as-math','as','Mathematics','9709','Pure Mathematics 1 and Probability and Statistics 1.',['Functions','Trigonometry','Series','Calculus','Probability'],'IGCSE Extended or GCSE Higher maths.',false),
+    S('as-eng','as','English Language','9093','Analyse texts and write for different audiences and purposes.',['Text types','Language and meaning','Directed writing','Text analysis','Creative writing'],'strong English, IGCSE level.',false),
+    S('as-hist','as','History','9489','European, American and international history, 1774–1941.',['European option','American option','International option'],'IGCSE History.',false),
+    S('as-phys','as','Physics','9702','Mechanics, materials, waves, electricity and particle physics.',['Measurement','Mechanics','Materials','Waves','Electricity','Particle physics'],'IGCSE Physics and sound maths.',false),
+    S('as-chem','as','Chemistry','9701','Physical, inorganic and organic chemistry, all 22 AS topics.',['Atoms and bonding','Energetics and kinetics','Periodicity','Organic chemistry','Analysis'],'IGCSE Chemistry.',false),
+    S('as-bio','as','Biology','9700','Cells, molecules, genetics and human physiology.',['Cells','Molecules and enzymes','Cell cycle','DNA','Transport','Immunity'],'IGCSE Biology.',false),
+    S('as-geo','as','Geography','9696','Rivers, climate, tectonics, population, water and cities.',['Rivers','Climate','Tectonics','Population','Water','Cities'],'IGCSE Geography.',false),
+    S('as-bus','as','Business','9609','How businesses work: people, marketing, operations and finance.',['Business environment','People','Marketing','Operations','Finance'],'nothing, no prior Business needed.',true),
+    S('as-cs','as','Computer Science','9618','Data, hardware, networks, databases and algorithms in pseudocode.',['Data and networks','The processor','Security and ethics','Databases and SQL','Algorithms'],'IGCSE Computer Science helps.',true),
+    S('as-psych','as','Psychology','9990','How psychologists study behaviour, through key studies and the research methods behind them.',['Research methods','Biological approach','Cognitive approach','Learning approach','Social approach'],'no previous Psychology needed; confident English.',true),
+    S('a2-econ','a2','Economics','9708','Deeper micro and macroeconomics, market failure and the international economy.',['Price system and market structures','Government microeconomic intervention','The macroeconomy','Government macroeconomic intervention','International economic issues'],'AS Economics.',false),
+    S('a2-math','a2','Mathematics','9709','Pure Mathematics 3 and Mechanics: the second half of A Level.',['Logarithms','Further calculus','Vectors','Complex numbers','Mechanics'],'AS Mathematics.',false),
+    S('a2-eng','a2','English Language','9093','Language change, child language, global English and identity.',['Language change','Child language','English in the world','Language and the self'],'AS English Language.',false),
+    S('a2-hist','a2','History','9489','Historical interpretations and twentieth-century depth studies.',['Interpretations','Interwar dictatorships','USA 1945–93','International depth study'],'AS History.',false),
+    S('a2-phys','a2','Physics','9702','Gravitation, fields, quantum and nuclear physics, and astronomy.',['Gravitation','Thermal physics','Oscillations','Fields','Quantum and nuclear','Cosmology'],'AS Physics.',false),
+    S('a2-chem','a2','Chemistry','9701','Advanced physical, inorganic and organic chemistry, plus NMR.',['Electrochemistry','Transition elements','Organic chemistry','Synthesis','NMR'],'AS Chemistry.',false),
+    S('a2-bio','a2','Biology','9700','Respiration, photosynthesis, homeostasis, inheritance and genetic technology.',['Respiration','Photosynthesis','Homeostasis','Inheritance','Genetic technology'],'AS Biology.',false),
+    S('a2-geo','a2','Geography','9696','Tropical and hazardous environments, environment, trade and tourism.',['Tropical environments','Hazards','Environmental management','Trade and tourism'],'AS Geography.',false),
+    S('a2-bus','a2','Business','9609','Strategy, analysis and complex business decisions.',['Strategy','People','Marketing','Operations','Finance'],'AS Business.',false),
+    S('a2-cs','a2','Computer Science','9618','Advanced theory and programming in Python, Java or VB.NET.',['Protocols','Boolean algebra','Encryption and AI','Recursion','OOP'],'AS Computer Science and programming.',false)
+  ];
+  var FAQ = [
+    ['What does “3 months” mean?','You pay once and get full access to that subject for 3 months. A full IGCSE or A Level usually takes two years, so 12 months is the best value.'],
+    ['What are the numbers next to each subject?','They are the official syllabus codes from Cambridge International or Pearson Edexcel, for example 9709 for Cambridge A Level Mathematics. Exam centres use them to identify the exact exam.'],
+    ['Are exams included?','No. Exam entry is arranged separately through an exam centre.'],
+    ['Can I mix levels?','Yes. For example, AS Mathematics with IGCSE Combined Science. Every subject costs the same.'],
+    ['What if my child needs a teacher?','Then the Full Programme is the better fit: live lessons, marked work and predicted grades.']
+  ];
+
+  var state = {level:'as', sel:['as-math','as-phys'], dur:12, open:null, faq:-1};
+  try { var saved = JSON.parse(localStorage.getItem('atmo-plan') || 'null'); if (saved && Array.isArray(saved.sel)) { state.sel = saved.sel.filter(function(id){return SUBJECTS.some(function(s){return s.id===id;});}); if ([3,6,12].indexOf(saved.dur) !== -1) state.dur = saved.dur; if (saved.level) state.level = saved.level; } } catch(e) {}
+  function persist(){ try { localStorage.setItem('atmo-plan', JSON.stringify({sel:state.sel, dur:state.dur, level:state.level})); } catch(e) {} }
+
+  function $(id){return document.getElementById(id);}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function fmt(x){return Math.round(x).toLocaleString('en-GB');}
+  function rate(i){return i===0?0:(i===1?D2:D3);}
+  function sumFor(n,unit){var t=0;for(var i=0;i<n;i++)t+=Math.round(unit*(1-rate(i)/100));return t;}
+  function byId(id){for(var i=0;i<SUBJECTS.length;i++)if(SUBJECTS[i].id===id)return SUBJECTS[i];return null;}
+  function plural(n){return n===1?'subject':'subjects';}
+
+  function staticBits(){
+    var names=[['Mathematics','AS Level'],['Physics','AS Level'],['Chemistry','AS Level']];
+    $('hero-lines').innerHTML = names.map(function(h,i){return '<div class="rline"><span class="mono">'+icon(h[0])+'</span><span class="rname"><b>'+h[0]+'</b><span>'+h[1]+(rate(i)?' · −'+rate(i)+'%':'')+'</span></span><span class="rprice">£'+fmt(PRICES[12]*(1-rate(i)/100))+'</span></div>';}).join('');
+    var ht=sumFor(3,PRICES[12]);
+    $('hero-total').textContent='£'+fmt(ht);
+    $('hero-save').textContent='You save £'+fmt(PRICES[3]*4*3-ht);
+    $('anchor-now').textContent='£'+fmt(PRICES[12]);
+    $('chip-3').textContent='or £'+PRICES[3]+' for 3 months';
+    $('chip-d2').textContent='2nd subject −'+D2+'%';
+    $('chip-d3').textContent='3rd and more −'+D3+'%';
+    $('cta-from').textContent='From £'+PRICES[3]+' per subject';
+  }
+
+  function renderLevels(){
+    $('levels').innerHTML = LEVELS.map(function(lv){
+      var c=state.sel.filter(function(id){var s=byId(id);return s&&s.level===lv.id;}).length;
+      var total=SUBJECTS.filter(function(s){return s.level===lv.id;}).length;
+      return '<button type="button" role="tab" data-level="'+lv.id+'" aria-selected="'+(state.level===lv.id)+'"><span class="n">'+lv.name+'</span><span class="c">'+(c?c+' in your plan':total+' subjects')+'</span></button>';
+    }).join('');
+    var lv=LEVELS.filter(function(l){return l.id===state.level;})[0];
+    $('level-info').textContent = lv?lv.info:'';
+  }
+
+  function renderSubjects(){
+    $('subjects').innerHTML = SUBJECTS.filter(function(s){return s.level===state.level;}).map(function(s){
+      var on=state.sel.indexOf(s.id)!==-1, open=state.open===s.id;
+      var html='<div class="card'+(on?' on':'')+'"><div class="card-top"><span class="mono">'+icon(s.name)+'</span><span class="meta"><b>'+esc(s.name)+'</b><span>'+BOARD[s.level]+(s.code?' · syllabus '+s.code:'')+'</span></span>'+
+        '<button type="button" class="toggle" data-toggle="'+s.id+'" aria-pressed="'+on+'" aria-label="'+(on?'Remove ':'Add ')+esc(s.name)+'">'+(on?'✓':'+')+'</button></div>'+
+        '<div class="card-sub">'+(s.scratch?'<span class="scratch">START FROM SCRATCH</span>':'')+'<button type="button" class="more" data-open="'+s.id+'" aria-expanded="'+open+'">'+(open?'Less':'What you’ll study')+'</button></div>';
+      if(open){html+='<div class="details"><p>'+esc(s.blurb)+'</p><div class="topics">'+s.topics.map(function(t){return '<span>'+esc(t)+'</span>';}).join('')+'</div><span class="need">You need: '+esc(s.prereq)+'</span></div>';}
+      return html+'</div>';
+    }).join('');
+  }
+
+  function renderPlans(){
+    var n=state.sel.length, k=Math.max(n,1);
+    $('dur-hint').textContent = n===0?'Prices for one subject. Add subjects to see your total.':'Prices for your '+n+' '+plural(n)+', paid once for the whole period.';
+    $('plans').innerHTML=[3,6,12].map(function(m){
+      var tot=sumFor(k,PRICES[m]), was=PRICES[3]*(m/3)*k, save=Math.round((1-tot/was)*100), best=m===12;
+      return '<button type="button" class="plan'+(best?' best':'')+'" data-dur="'+m+'" aria-pressed="'+(state.dur===m)+'">'+(best?'<span class="ribbon">BEST VALUE</span>':'')+
+        '<span class="pl">'+m+' months</span><span class="big pp">£'+fmt(tot)+'</span>'+
+        '<span class="pw">'+(was>tot?'<span class="was">£'+fmt(was)+'</span>':'')+(save>0?'<span class="off">−'+save+'%</span>':'')+'</span>'+
+        '<span class="ps">'+(k===1?'for 1 subject':'for '+k+' subjects · £'+fmt(tot/k)+' each')+'</span></button>';
+    }).join('');
+  }
+
+  function planNumbers(){
+    var unit=PRICES[state.dur], n=state.sel.length, total=sumFor(n,unit), was=PRICES[3]*(state.dur/3)*n;
+    return {unit:unit,n:n,total:total,saving:was-total};
+  }
+
+  function linesHtml(removable){
+    var unit=PRICES[state.dur];
+    return state.sel.map(function(id,i){var s=byId(id);var r=rate(i);
+      return '<div class="sline"><span class="sn"><b>'+esc(s.name)+'</b><span>'+LSHORT[s.level]+(r?' · −'+r+'%':'')+'</span></span><span class="sp"><span>£'+fmt(unit*(1-r/100))+'</span>'+(removable?'<button type="button" class="x" data-remove="'+id+'" aria-label="Remove '+esc(s.name)+'">×</button>':'')+'</span></div>';
+    }).join('');
+  }
+
+  function renderSummary(){
+    var p=planNumbers(), d=state.dur+' months', html='<div class="sum-head"><span class="label">Your plan</span><span class="small-muted">'+d+'</span></div>';
+    if(!p.n){html+='<p>Add a subject to see your price.</p>';}
+    else{
+      var nudge=p.n===1?'Add a second subject for £'+fmt(p.unit*(1-D2/100))+' instead of £'+fmt(p.unit)+'.':'Add another subject for just £'+fmt(p.unit*(1-D3/100))+'.';
+      html+='<div class="sum-lines">'+linesHtml(true)+'</div>'+
+        '<div class="sum-total"><span>'+p.n+' '+plural(p.n)+' · '+d+'</span><span class="big">£'+fmt(p.total)+'</span>'+(p.saving>0?'<span class="badge-save">You save £'+fmt(p.saving)+'</span>':'')+'<span class="small-muted">One payment for '+d+' of access.</span></div>'+
+        '<a class="btn btn-paper btn-block" href="#apply" style="min-height:56px;font-size:18px">Apply now</a><div class="nudge">'+nudge+'</div>';
+    }
+    $('summary').innerHTML=html;
+  }
+
+  function renderApplyPlan(){
+    var p=planNumbers(), d=state.dur+' months', html='<span class="label">Your plan</span>';
+    if(!p.n){html+='<p style="font-size:17px">No subjects chosen yet. Leave your details and choose them with an adviser.</p>';}
+    else{html+='<div class="sum-lines">'+linesHtml(false)+'</div><div class="sum-total"><span>'+p.n+' '+plural(p.n)+' · '+d+'</span><span class="big">£'+fmt(p.total)+'</span>'+(p.saving>0?'<span class="badge-save">You save £'+fmt(p.saving)+'</span>':'')+'</div>';}
+    html+='<a class="ghost" href="#subjects" data-scroll="builder" style="text-decoration:none">Change plan</a>';
+    $('apply-plan').innerHTML=html;
+    $('thanks-plan').textContent=p.n?p.n+' '+plural(p.n)+' · '+d:'Plan to be chosen with an adviser';
+    $('thanks-total').textContent=p.n?'£'+fmt(p.total):'';
+    $('mail-plan').innerHTML = p.n
+      ? '<span class="label">Your plan · '+d+'</span>'+state.sel.map(function(id,i){var s=byId(id);return '<div class="ml"><span>'+esc(s.name)+' · '+LSHORT[s.level]+'</span><span>£'+fmt(p.unit*(1-rate(i)/100))+'</span></div>';}).join('')+
+        '<div class="mt2"><span>Total'+(p.saving>0?' · you save £'+fmt(p.saving):'')+'</span><span>£'+fmt(p.total)+'</span></div>'
+      : '<span class="label">Your plan</span><p>We will choose the subjects together on the call.</p>';
+  }
+
+  function renderFaq(){
+    $('faq').innerHTML=FAQ.map(function(f,i){var open=state.faq===i;
+      return '<div class="faq-item"><button type="button" data-faq="'+i+'" aria-expanded="'+open+'"><span>'+f[0]+'</span><span aria-hidden="true">'+(open?'–':'+')+'</span></button>'+(open?'<p>'+f[1]+'</p>':'')+'</div>';
+    }).join('');
+  }
+
+  function renderAll(){renderLevels();renderSubjects();renderPlans();renderSummary();renderApplyPlan();renderFaq();}
+
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-level],[data-toggle],[data-open],[data-dur],[data-remove],[data-faq]');
+    if(!t)return;
+    if(t.dataset.level){state.level=t.dataset.level;state.open=null;}
+    else if(t.dataset.toggle){var id=t.dataset.toggle,i=state.sel.indexOf(id);if(i===-1)state.sel.push(id);else state.sel.splice(i,1);}
+    else if(t.dataset.open){state.open=state.open===t.dataset.open?null:t.dataset.open;}
+    else if(t.dataset.dur){state.dur=+t.dataset.dur;}
+    else if(t.dataset.remove){state.sel=state.sel.filter(function(x){return x!==t.dataset.remove;});}
+    else if(t.dataset.faq){var f=+t.dataset.faq;state.faq=state.faq===f?-1:f;}
+    persist();renderAll();
+  });
+
+  // routing: #apply, #thanks are views; #subjects, #pricing, #why scroll on the landing view
+  var SECTION={subjects:'builder',pricing:'pricing',why:'why'};
+  function route(){
+    var h=(location.hash||'').replace('#','');
+    var view=h==='apply'?'apply':(h==='thanks'?'thanks':'landing');
+    $('view-landing').hidden=view!=='landing';
+    $('view-apply').hidden=view!=='apply';
+    $('view-thanks').hidden=view!=='thanks';
+    if(view==='landing'&&SECTION[h]){var el=$(SECTION[h]);if(el)requestAnimationFrame(function(){el.scrollIntoView({behavior:'smooth',block:'start'});});}
+    else window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',route);
+
+  // HubSpot: portal 149190779 (EU data centre). Fill FORM_ID with the form's GUID from HubSpot.
+  var HUBSPOT = { portal: '149190779', form: 'a3ebc7a3-dba3-487d-aaef-86c5bdf53d2c', url: 'https://api-eu1.hsforms.com/submissions/v3/integration/submit/' };
+
+  // Levels in the plan, in catalogue order, e.g. "AS Level" or "IGCSE/AS Level". Used for the HubSpot lead name "One-subject | <levels>".
+  function planLevels(){
+    var seen={};state.sel.forEach(function(id){var s=byId(id);if(s)seen[s.level]=true;});
+    return LEVELS.filter(function(l){return seen[l.id];}).map(function(l){return LSHORT[l.id];}).join('/');
+  }
+
+  // One line for HubSpot "Order comment": access period, each subject with its price and discount, total.
+  function planSummary(){
+    var p=planNumbers();
+    if(!p.n) return 'No subjects chosen yet: to choose with an adviser.';
+    var items=state.sel.map(function(id,i){var s=byId(id);var r=rate(i);return s.name+' ('+LSHORT[s.level]+') £'+fmt(p.unit*(1-r/100))+(r?' (−'+r+'%)':'');});
+    return items.join('; ')+'. Total £'+fmt(p.total)+(p.saving>0?', saves £'+fmt(p.saving):'')+'.';
+  }
+  function planSubjects(){
+    return state.sel.map(function(id){var s=byId(id);return s.name+' ('+LSHORT[s.level]+')';}).join(', ');
+  }
+  function readCookie(name){var m=document.cookie.match(new RegExp('(?:^|; )'+name+'=([^;]*)'));return m?decodeURIComponent(m[1]):undefined;}
+
+  function sendToHubSpot(d){
+    var body={
+      fields:[
+        {objectTypeId:'0-1',name:'firstname',value:d.first},
+        {objectTypeId:'0-1',name:'lastname',value:d.last},
+        {objectTypeId:'0-1',name:'email',value:d.email},
+        {objectTypeId:'0-1',name:'phone',value:d.phone},
+        {objectTypeId:'0-1',name:'what_grade_is_your_child_in',value:d.year},
+        {objectTypeId:'0-1',name:'message',value:planSummary()},
+        {objectTypeId:'0-1',name:'selfstudy_level',value:planLevels()||'Not chosen'},
+        {objectTypeId:'0-1',name:'selfstudy_subjects',value:planSubjects()||'Not chosen'},
+        {objectTypeId:'0-1',name:'selfstudy_subject_count',value:String(state.sel.length)},
+        {objectTypeId:'0-1',name:'selfstudy_duration',value:state.dur+' months'}
+      ],
+      context:{pageUri:location.href,pageName:document.title},
+      legalConsentOptions:{consent:{consentToProcess:true,text:'ATMO School may contact me about this application by phone, email or WhatsApp.'}}
+    };
+    var hutk=readCookie('hubspotutk'); if(hutk) body.context.hutk=hutk;
+    return fetch(HUBSPOT.url+HUBSPOT.portal+'/'+HUBSPOT.form,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+      .then(function(r){if(!r.ok) throw new Error('HubSpot '+r.status);});
+  }
+
+  $('apply-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=e.target, ok=f.checkValidity();
+    $('form-err').hidden=ok;
+    $('send-err').hidden=true;
+    if(!ok){var bad=f.querySelector(':invalid');if(bad)bad.focus();return;}
+    var d={
+      first:(f.elements.firstname.value||'').trim(),
+      last:(f.elements.lastname.value||'').trim(),
+      email:(f.elements.email.value||'').trim(),
+      phone:(f.elements.phone.value||'').trim(),
+      year:f.elements.year.value
+    };
+    var full=(d.first+' '+d.last).trim();
+    var btn=$('f-submit'); btn.disabled=true; btn.textContent='Sending…';
+    sendToHubSpot(d).then(function(){
+      $('thanks-h').textContent=d.first?'Thank you, '+d.first+'.':'Thank you.';
+      $('thanks-email').textContent=d.email||'your inbox';
+      $('mail-to').textContent=d.email?full+' <'+d.email+'>':full;
+      $('mail-dear').textContent='Dear '+(full||'parent')+',';
+      $('mail-subj').textContent='Your ATMO plan is ready'+(d.first?', '+d.first:'');
+      renderApplyPlan();
+      f.reset();
+      location.hash='thanks';
+    }).catch(function(){
+      $('send-err').hidden=false;
+    }).then(function(){btn.disabled=false;btn.textContent='Send application';});
+  });
+
+  staticBits();renderAll();route();
+})();
+</script>
+</body>
+</html>
