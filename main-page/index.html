@@ -457,7 +457,7 @@ document.querySelectorAll('[data-faq]').forEach(function (item, i) {
     e.preventDefault(); err.hidden = true;
     var parts = f.name.value.trim().split(/\s+/), first = parts.shift() || '', last = parts.join(' ');
     var from = ref(), label = btn.textContent;
-    var msg = 'Website call request | ' + f.year.value + ' | From: ' + (from || 'main page');
+    var msg = 'Main page | ' + f.year.value + ' | From: ' + (from || 'main page');
     var body = { fields: [
       { objectTypeId: '0-1', name: 'firstname', value: first },
       { objectTypeId: '0-1', name: 'lastname', value: last },
@@ -465,7 +465,7 @@ document.querySelectorAll('[data-faq]').forEach(function (item, i) {
       { objectTypeId: '0-1', name: 'phone', value: f.phone.value.trim() },
       { objectTypeId: '0-1', name: 'what_grade_is_your_child_in', value: f.year.value },
       { objectTypeId: '0-1', name: 'message', value: msg }
-    ], context: { pageUri: location.href, pageName: document.title },
+    ], context: { pageUri: location.href, pageName: 'Main page' },
       legalConsentOptions: { consent: { consentToProcess: true, text: CONSENT } } };
     var t = hutk(); if (t) body.context.hutk = t;
     btn.disabled = true; btn.textContent = 'Sending…';
