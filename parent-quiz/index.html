@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Answer a few questions about your child and get a personal, year-by-year track to a top university.">
+<title>Your child's personal track | ATMO School</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap">
+<style>
+/* Layout: the quiz only, in one 592px column under a centred logo and segmented progress. Type, radii and blue/yellow from atmo-school.com. Yellow marker on the key phrase is the one highlight device. */
+:root {
+  --bg:#ffffff; --fg:#0b1437; --text:#3a4668; --muted:#56607a; --tint:#eef3ff; --tint-2:#dce7ff; --field:#b4bfda; --surface:#ffffff;
+  --accent:#1e4fcc; --accent-hover:#183fa3; --on-accent:#ffffff; --glow:rgba(30,79,204,.32);
+  --yellow:#ffc53d; --on-yellow:#0b1437; --deep:#0b1437; --on-deep:#ffffff; --on-deep-2:#d3dbee; --err:#b3261e;
+  --logo-a:#1b2a55; --logo-o:#2a5dbc;
+  --head:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg:#0b1437; --fg:#eef3ff; --text:#d3dbee; --muted:#a7b3d1; --tint:#16214d; --tint-2:#2a3770; --field:#46538c; --surface:#16214d;
+  --accent:#8fb3ff; --accent-hover:#a9c5ff; --on-accent:#0b1437; --glow:rgba(143,179,255,.32);
+  --deep:#16214d; --err:#ff9a8f; --logo-a:#f6f3ec; --logo-o:#8fb3ff; color-scheme:dark; } }
+:root[data-theme="dark"] {
+  --bg:#0b1437; --fg:#eef3ff; --text:#d3dbee; --muted:#a7b3d1; --tint:#16214d; --tint-2:#2a3770; --field:#46538c; --surface:#16214d;
+  --accent:#8fb3ff; --accent-hover:#a9c5ff; --on-accent:#0b1437; --glow:rgba(143,179,255,.32);
+  --deep:#16214d; --err:#ff9a8f; --logo-a:#f6f3ec; --logo-o:#8fb3ff; color-scheme:dark; }
+* { box-sizing:border-box; }
+html,body { background:var(--bg); }
+body { color:var(--fg); font:400 16px/1.5 var(--body); -webkit-font-smoothing:antialiased; }
+h2,h3,p { margin:0; }
+button,input,select { font:inherit; }
+a { color:var(--accent); }
+:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+mark { background:var(--yellow); color:var(--on-yellow); padding:.02em .2em; border-radius:.26em; -webkit-box-decoration-break:clone; box-decoration-break:clone; }
+.col { max-width:592px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); }
+body::before { content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top, 0px); z-index:10; background:var(--bg); }
+.bar { position:sticky; top:env(safe-area-inset-top, 0px); z-index:5; background:var(--bg); }
+.bar .col { padding-block:10px 12px; display:grid; gap:8px; }
+.bar-top { display:grid; grid-template-columns:44px 1fr 44px; align-items:center; }
+.ib { width:44px; height:44px; display:grid; place-items:center; border:0; background:none; color:var(--fg); cursor:pointer; border-radius:12px; }
+.ib svg { width:24px; height:24px; }
+.logo { justify-self:center; display:inline-flex; align-items:center; gap:7px; font:700 17px/1 var(--head); letter-spacing:-.02em; }
+.logo svg { width:32px; height:28px; display:block; }
+.m-a { fill:var(--logo-a); } .m-o { fill:var(--logo-o); }
+.sec { font-size:14px; font-weight:600; color:var(--muted); text-align:center; }
+.segs { display:flex; gap:4px; }
+.seg { flex:1; height:6px; border-radius:999px; background:var(--tint); overflow:hidden; }
+.seg i { display:block; height:100%; border-radius:999px; background:var(--accent); transition:width .25s; }
+
+#q { padding-block:20px 56px; display:grid; gap:18px; }
+#q > * { min-width:0; }
+@media (prefers-reduced-motion: no-preference) { #q.in > * { animation:rise .2s ease-out; } }
+@keyframes rise { from { transform:translateY(6px); } to { transform:none; } }
+h2 { font:700 clamp(23px, 5vw, 29px)/1.2 var(--head); letter-spacing:-.025em; text-wrap:balance; }
+h3 { font:700 18px/1.25 var(--head); letter-spacing:-.02em; }
+.eyebrow { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); }
+.hint { color:var(--muted); margin-top:-8px; }
+.opts { display:grid; gap:10px; }
+.opt { display:flex; align-items:center; gap:12px; width:100%; min-height:58px; padding:12px 18px; text-align:left; background:var(--tint); color:var(--fg); border:2px solid var(--tint); border-radius:14px; font-weight:600; cursor:pointer; transition:border-color .12s, background .12s; }
+.opt:hover:not(:disabled) { border-color:var(--accent); }
+.opt[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
+.opt:disabled { cursor:default; }
+.opt small { display:block; margin-top:2px; font-size:14px; font-weight:400; color:var(--muted); }
+.opt[aria-pressed="true"] small, .opt[aria-pressed="true"] .h, .opt[aria-pressed="true"] .k { color:var(--on-accent); }
+.opt .tx { flex:1; min-width:0; }
+.opt .k { flex:none; font:700 15px/1 var(--head); color:var(--accent); width:20px; }
+.agree { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+.agree .opt { justify-content:center; text-align:center; padding:10px 6px; }
+.quote { background:var(--tint); border-radius:22px; padding:24px; font:500 clamp(18px, 4vw, 21px)/1.35 var(--head); letter-spacing:-.02em; }
+.btn { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; min-height:60px; padding:12px 20px; border:0; border-radius:14px; background:var(--accent); color:var(--on-accent); font-size:17px; font-weight:700; cursor:pointer; }
+.btn:hover { background:var(--accent-hover); }
+.btn svg { width:20px; height:20px; }
+
+/* First screen */
+.intro { display:grid; justify-items:center; text-align:center; gap:18px; padding-top:8px; }
+.crowd { position:relative; display:flex; align-items:center; justify-content:center; height:170px; }
+.ava { display:block; border-radius:50%; box-shadow:0 0 0 6px var(--bg); }
+.ava.s { width:112px; height:112px; }
+.ava.l { width:150px; height:150px; margin-inline:-14px; position:relative; z-index:1; }
+.badge { position:absolute; z-index:2; top:2px; right:-14px; rotate:6deg; padding:8px 14px; border-radius:999px; background:var(--yellow); color:var(--on-yellow); font:700 15px/1 var(--head); letter-spacing:-.02em; white-space:nowrap; }
+.intro h2 { font-size:clamp(30px, 7.4vw, 42px); line-height:1.16; letter-spacing:-.035em; }
+.intro p { color:var(--muted); font-size:18px; max-width:30em; }
+.pills { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; }
+.pills span { display:inline-flex; align-items:center; gap:8px; padding:10px 15px; border-radius:999px; background:var(--tint); font-size:15px; font-weight:500; }
+.pills svg { width:18px; height:18px; color:var(--accent); }
+.go-big { border-radius:999px; min-height:66px; margin-top:6px; box-shadow:0 14px 30px -10px var(--glow); }
+@media (prefers-reduced-motion: no-preference) { .badge { animation:bob 3.2s ease-in-out infinite; } }
+@keyframes bob { 50% { translate:0 -5px; } }
+
+/* Statistics */
+.big { font:700 clamp(72px, 19vw, 104px)/1 var(--head); letter-spacing:-.04em; color:var(--accent); font-variant-numeric:tabular-nums; }
+.big small { font:500 20px/1 var(--head); letter-spacing:-.02em; color:var(--muted); margin-left:4px; }
+.grid100 { display:grid; grid-template-columns:repeat(20,1fr); gap:5px; }
+.grid100 i { aspect-ratio:1; border-radius:50%; background:var(--tint-2); }
+.grid100 i.on { background:var(--accent); } .grid100 i.mid { background:var(--yellow); }
+.key { display:flex; flex-wrap:wrap; gap:6px 16px; font-size:14px; color:var(--muted); }
+.key span { display:inline-flex; align-items:center; gap:6px; }
+.key i { width:11px; height:11px; border-radius:50%; background:var(--tint-2); }
+.key i.on { background:var(--accent); } .key i.mid { background:var(--yellow); }
+.src { font-size:14px; color:var(--muted); }
+.say { font-size:18px; line-height:1.45; }
+.ans { font-size:15px; color:var(--muted); }
+.hb { display:grid; gap:14px; }
+.hb .lab { display:flex; justify-content:space-between; gap:12px; font-size:15px; margin-bottom:5px; }
+.hb .lab b { font-weight:700; white-space:nowrap; }
+.hb .tr { height:14px; border-radius:999px; background:var(--tint); overflow:hidden; }
+.hb .tr i { display:block; height:100%; border-radius:999px; background:var(--accent); }
+.hb .tr i.y { background:var(--yellow); }
+.blocks { display:grid; grid-template-columns:repeat(15,1fr); gap:5px; }
+.blocks i { height:30px; border-radius:6px; background:var(--tint-2); }
+.blocks i.y { background:var(--yellow); }
+.figs { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.figs div { background:var(--tint); border-radius:16px; padding:18px 16px; }
+.figs b { display:block; font:700 clamp(30px, 8vw, 40px)/1.05 var(--head); letter-spacing:-.03em; color:var(--accent); }
+.figs span { display:block; font-size:15px; line-height:1.35; margin-top:8px; }
+.dark { background:var(--deep); color:var(--on-deep); border-radius:22px; padding:28px 24px; display:grid; gap:18px; }
+.dark h2 { color:var(--on-deep); }
+.proof3 { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+.proof3 b { display:block; font:700 clamp(26px, 6vw, 34px)/1.05 var(--head); letter-spacing:-.03em; color:var(--yellow); }
+.proof3 span { display:block; font-size:14px; line-height:1.3; margin-top:6px; color:var(--on-deep-2); }
+.dark p { color:var(--on-deep-2); font-size:15px; }
+.gaprow { display:grid; grid-template-columns:minmax(0,1fr) 44px 44px; gap:10px; align-items:center; width:100%; }
+.gaprow .h { display:block; font-size:12px; font-weight:600; color:var(--muted); margin-bottom:2px; text-align:center; }
+.gaprow .v { display:block; font:700 20px/1 var(--head); text-align:center; }
+
+/* Snapshot, loading */
+.snap { background:var(--tint); border-radius:22px; padding:22px; display:grid; gap:14px; }
+.chips { display:flex; flex-wrap:wrap; gap:8px; }
+.chip { padding:6px 12px; border-radius:999px; background:var(--bg); font-size:14px; font-weight:600; }
+.snap-q { display:flex; align-items:center; justify-content:space-between; gap:12px; font-weight:600; border-top:1px solid var(--tint-2); padding-top:14px; }
+.snap-q b { font:700 34px/1 var(--head); color:var(--accent); }
+.ticks { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+.ticks li { display:flex; align-items:center; gap:12px; padding:14px 16px; border-radius:14px; background:var(--tint); color:var(--muted); font-weight:500; }
+.ticks li i { width:20px; height:20px; border-radius:50%; flex:none; background:var(--tint-2); display:grid; place-items:center; color:transparent; }
+.ticks li.done { color:var(--fg); }
+.ticks li.done i { background:var(--accent); color:var(--on-accent); }
+.ticks svg { width:12px; height:12px; }
+.loader { display:grid; justify-items:center; gap:18px; text-align:center; padding-top:8px; }
+.loader .ticks { width:100%; text-align:left; }
+.ringw { position:relative; width:190px; height:190px; }
+.ringw svg { width:100%; height:100%; transform:rotate(-90deg); display:block; }
+.ringw circle { fill:none; stroke-width:10; }
+.ringw .bg { stroke:var(--tint); }
+.ringw .fg { stroke:var(--accent); stroke-linecap:round; }
+.ringw b { position:absolute; inset:0; display:grid; place-items:center; font:700 44px/1 var(--head); letter-spacing:-.03em; font-variant-numeric:tabular-nums; }
+.loader .now-doing { color:var(--muted); min-height:24px; }
+.subs { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.subs .opt { min-height:48px; padding:8px 12px; font-size:15px; }
+.checkrows { display:grid; gap:10px; }
+.checkrow { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 16px; border-radius:14px; background:var(--tint); font-weight:600; }
+.checkrow span { flex:none; padding:4px 10px; border-radius:999px; font-size:13px; font-weight:700; }
+.checkrow .ok { background:var(--accent); color:var(--on-accent); }
+.checkrow .no { background:var(--yellow); color:var(--on-yellow); }
+
+/* Result */
+.ba { display:grid; grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr); gap:6px; align-items:center; }
+.ba > div { border-radius:18px; padding:16px; align-self:stretch; display:grid; gap:6px; align-content:start; }
+.ba .now { background:var(--tint); }
+.ba .then { background:var(--yellow); color:var(--on-yellow); }
+.ba small { font-size:13px; font-weight:600; opacity:.8; }
+.ba b { font:700 21px/1.15 var(--head); letter-spacing:-.02em; }
+.ba ul { list-style:none; margin:4px 0 0; padding:0; display:grid; gap:4px; font-size:14px; line-height:1.3; }
+.ba .arrow { color:var(--accent); display:grid; place-items:center; }
+.ba .arrow svg { width:22px; height:22px; }
+.tiles { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.tiles div { background:var(--tint); border-radius:16px; padding:14px 16px; }
+.tiles small { display:block; font-size:13px; color:var(--muted); }
+.tiles b { font-weight:700; line-height:1.3; }
+.risks { display:grid; gap:10px; }
+.risk { border:2px solid var(--tint-2); border-radius:16px; padding:14px 16px; }
+.risk strong { display:block; font-weight:700; line-height:1.3; }
+.risk p { font-size:15px; line-height:1.4; color:var(--text); margin-top:3px; }
+.locked { filter:blur(5px); user-select:none; }
+.tk-box { border:2px solid var(--tint-2); border-radius:22px; padding:22px 20px; }
+.tk { list-style:none; margin:0; padding:0; position:relative; display:grid; gap:16px; }
+.tk::before { content:""; position:absolute; left:10px; top:8px; bottom:12px; width:2px; background:var(--tint-2); }
+.tk li { position:relative; padding-left:36px; }
+.tk li::before { content:""; position:absolute; left:2px; top:3px; width:18px; height:18px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--bg); }
+.tk li.goal::before { background:var(--yellow); }
+.tk small { display:block; font-size:13px; font-weight:600; color:var(--muted); }
+.tk strong { display:block; font-weight:700; line-height:1.3; }
+.tk p { font-size:15px; line-height:1.4; color:var(--text); margin-top:2px; }
+form { display:grid; gap:12px; scroll-margin-top:130px; }
+.fld { display:grid; gap:5px; }
+.fld label { font-size:14px; font-weight:600; }
+.fld input,.fld select { width:100%; height:48px; padding:0 14px; background:var(--surface); color:var(--fg); border:1px solid var(--field); border-radius:10px; font-size:16px; }
+.err { font-size:14px; font-weight:600; color:var(--err); }
+.fine { font-size:13px; line-height:1.45; color:var(--muted); }
+.note { background:var(--tint); border-radius:14px; padding:14px 16px; font-size:15px; color:var(--text); }
+.review { background:var(--tint); border-radius:22px; padding:22px; display:grid; gap:10px; }
+.review p { font-size:17px; line-height:1.45; }
+.review span { font-size:14px; color:var(--muted); }
+.review b { font-weight:700; }
+@media (max-width:400px) { .ava.l { width:128px; height:128px; } .ava.s { width:96px; height:96px; } .crowd { height:150px; } .badge { right:-8px; } }
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+
+<div class="bar" id="bar"><div class="col">
+  <div class="bar-top">
+    <button class="ib" id="back" type="button" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <span class="logo"><svg viewBox="30 9 50 43" aria-hidden="true"><path class="m-a" d="M60.7148 12.0114L76.5776 48.5744H76.7411C77.0192 48.5744 77.2447 48.7998 77.2447 49.078V50.0577C77.2447 50.3358 77.0192 50.5613 76.7411 50.5613H67.7433C67.4651 50.5613 67.2397 50.3358 67.2397 50.0577V49.0287C67.2397 48.7778 67.4431 48.5744 67.6941 48.5744L63.2523 38.3346L61.7892 34.8476L56.1978 21.6599L44.5266 48.5744C44.7457 48.5744 44.9233 48.752 44.9233 48.9711V50.0575C44.9233 50.3357 44.6978 50.5613 44.4196 50.5613H38.7858C38.5077 50.5613 38.2822 50.3358 38.2822 50.0577V49.078C38.2822 48.7998 38.5077 48.5744 38.7858 48.5744H38.9272L53.6999 15.8119L55.4305 11.9737C55.8975 10.938 56.9282 10.2722 58.0643 10.2722C59.2154 10.2722 60.2566 10.9554 60.7148 12.0114Z"/><path class="m-o" d="M78.9251 18.4379C81.0147 22.297 72.2262 31.0567 59.3202 37.8562C46.4141 44.6556 34.307 47.0446 32.2174 43.1855C30.4095 39.8466 37.4132 32.6201 47.5126 26.3878L45.3699 30.5147C40.3698 34.7479 37.9794 38.7324 39.0197 40.6865C40.6176 43.688 49.4481 39.3073 61.0636 33.1816C72.6791 27.056 77.1572 22.1036 76.8632 19.7519C76.5793 17.48 71.6823 17.3841 64.6355 19.7862L64.1319 18.5023C71.6925 16.0691 77.5328 15.8664 78.9251 18.4379Z"/></svg>ATMO School</span>
+    <a class="ib" href="https://atmo-school.com/main-page/" aria-label="Close quiz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></a>
+  </div>
+  <div class="sec" id="sec"></div><div class="segs" id="segs"></div>
+</div></div>
+<main class="col" id="q"></main>
+
+<script>
+(() => {
+  const q = document.getElementById('q');
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const TICK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M5 13l4 4 10-11"/></svg>';
+  const ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg>';
+  const ICON = {
+    user:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M5 20c1-4 4-6 7-6s6 2 7 6"/></svg>',
+    cases:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>',
+    map:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>'
+  };
+  const RG = '<a href="https://www.kingcharlesschool.co.uk/wp-content/uploads/2023/10/RussellGroupRecommendations.pdf" target="_blank" rel="noopener">Russell Group subject guidance</a>';
+  const SECS = ['Your child','School today','The route','Your track'];
+
+  const YEARS = {y9:'Year 9',y10:'Year 10',y11:'Year 11',y12:'Year 12',y13:'Year 13'};
+  const SCHOOLS = {state:'State school',day:'Private day school',board:'Boarding school',home:'Home or online'};
+  const DIRS = {med:'Medicine, dentistry or veterinary',eng:'Engineering or physics',econ:'Economics or finance',law:'Law or humanities',open:'Not sure yet'};
+  const PROGRAMME = {full:'Full Programme',core:'Core Programme',single:'Single Subject'};
+  const SUBJECTS = ['Biology','Chemistry','Physics','Mathematics','Computer Science','English Language','Business','Economics','History','Psychology','Sociology','Geography'];
+  const NEEDS = {
+    med:[{label:'Chemistry',any:['Chemistry']},{label:'Biology',any:['Biology']}],
+    eng:[{label:'Mathematics',any:['Mathematics']},{label:'Physics',any:['Physics']}],
+    econ:[{label:'Mathematics',any:['Mathematics']}],
+    law:[{label:'An essay subject',any:['History','English Language']}],
+    open:[{label:'Maths or a science',any:['Mathematics','Physics','Chemistry','Biology']},{label:'An essay subject',any:['History','English Language']}]
+  };
+  const L = {
+    nbs:'https://assets.publishing.service.gov.uk/media/691dd17a513046b952c50093/National_behaviour_suvery_report_2024_to_2025.pdf',
+    abs:'https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england/2025-26-autumn-and-spring-term',
+    iop:'https://www.nfer.ac.uk/blogs/a-widespread-lack-of-specialist-physics-teachers-persists-due-to-recruitment-and-retention-challenges/',
+    maths:'https://www.tes.com/magazine/analysis/general/teacher-shortages-recruitment-schools-education',
+    cls:'https://explore-education-statistics.service.gov.uk/find-statistics/school-pupils-and-their-characteristics/2025-26',
+    eef:'https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/small-group-tuition',
+    ehe:'https://explore-education-statistics.service.gov.uk/find-statistics/elective-home-education/2025-26-autumn-term',
+    isc:'https://www.isc.co.uk/media/5rmduu0j/2026-06-isc-census-2026.pdf',
+    pred:'https://www.timeshighereducation.com/news/report-urges-change-uks-inaccurate-predicted-grades-system'
+  };
+  const link = (k, t='Source') => `<a href="${L[k]}" target="_blank" rel="noopener">${t}</a>`;
+  const KS = y => ({y9:'ks3',y10:'ks4',y11:'ks4',y12:'ks5',y13:'ks5'})[y];
+  const ENJOY = {ks3:61,ks4:54,ks5:64}, KS_NAME = {ks3:'Years 7–9',ks4:'Years 10–11',ks5:'Years 12–13'};
+  const gbp = n => '£' + n.toLocaleString('en-GB');
+  const hbars = rows => `<div class="hb">${rows.map(([t,v,w,y]) => `<div><div class="lab"><span>${t}</span><b>${v}</b></div><div class="tr"><i class="${y?'y':''}" style="width:${w}%"></i></div></div>`).join('')}</div>`;
+  const go = (l='Continue') => `<button class="btn" id="go" type="button">${l}${ARROW}</button>`;
+  const statEnd = (bridge, src) => `<p class="say">${bridge}</p><p class="src">${src}</p>${go()}`;
+  const yearlyFee = () => { const six = st.year === 'y12' || st.year === 'y13'; return ({day:six?20262:19476, board:six?46803:44205})[st.school]; };
+
+  const STATS = {
+    enjoy:() => { const k = KS(st.year), e = ENJOY[k]; return `<span class="big">${e}<small>%</small></span>
+      <h2>of pupils in ${KS_NAME[k]} enjoy school every day or most days</h2>
+      ${hbars([['Secondary parents who say their child does','73%',73],[`Pupils in ${KS_NAME[k]} who say they do`,e+'%',e,true]])}
+      ${statEnd('Parents often see a better picture than their children report. The Parent Dashboard shows progress, predicted grades and early alerts, so you are not guessing.', `DfE National Behaviour Survey, May 2025. ${link('nbs')}`)}`; },
+    lost:() => `<span class="big">6<small>minutes in every 30</small></span>
+      <h2>of secondary lesson time is lost to misbehaviour</h2>
+      <div class="blocks" aria-hidden="true">${Array.from({length:30},(_,k)=>`<i class="${k<6?'y':''}"></i>`).join('')}</div>
+      ${statEnd('In a live online lesson, a teacher can mute a disruption in one click. Lessons are recorded too, so nothing is lost for revision.', `Secondary teachers' estimate, down from 7 minutes in 2024. DfE National Behaviour Survey, May 2025. ${link('nbs')}`)}`,
+    well:() => `<h2>You are right to take this seriously</h2>
+      <div class="figs"><div><b>21%</b><span>of pupils in Years 7–13 were bullied in the past 12 months</span></div><div><b>21.55%</b><span>of state secondary pupils are persistently absent</span></div></div>
+      ${statEnd('Learning from home changes the school day your child has to face. If they are struggling, speak to the school and your GP as well.', `DfE National Behaviour Survey, May 2025. ${link('nbs')}. DfE pupil absence, autumn and spring 2025/26; persistent absence means missing 10% or more of sessions. ${link('abs')}`)}`,
+    spec:() => `<h2>Who is teaching your child's key subjects?</h2>
+      <div class="figs"><div><b>600+</b><span>secondary schools have no physics specialist in their science department</span></div><div><b>45%</b><span>of secondary schools used non-specialists for at least some maths lessons</span></div></div>
+      ${statEnd('Every ATMO School tutor holds QTS or an equivalent.', `Physics: NFER for the Institute of Physics, 2025, just over a quarter of schools analysed. ${link('iop')}. Maths: NFER school leader surveys, 2020 and 2021. ${link('maths')}`)}`,
+    size:() => `<h2>Smaller groups make a measurable difference</h2>
+      <div class="figs"><div><b>22.6</b><span>pupils in the average secondary class in England</span></div><div><b>+4</b><span>months of extra progress a year, on average, from small-group tuition</span></div></div>
+      ${statEnd('ATMO School teaches live lessons in small groups.', `DfE, January 2026. ${link('cls')}. Education Endowment Foundation toolkit, 62 studies on tuition; impact falls beyond six or seven learners. ${link('eef')}`)}`,
+    move:() => `<span class="big" style="font-size:clamp(56px,15vw,84px)">126,000</span>
+      <h2>children were home-educated in England in autumn 2025</h2>
+      ${hbars([['Autumn 2024','111,700',Math.round(111700/126000*100)],['Autumn 2025','126,000',100,true]])}
+      ${statEnd('That is up 12.8% in a year, so more families are looking beyond the school gate. Online school keeps the structure: live lessons, British qualifications and UCAS support.', `DfE elective home education, autumn 2025/26. Home education is a wider group than online school. ${link('ehe')}`)}`,
+    fee:() => { const f = yearlyFee(); return `<h2>The same qualifications. A very different bill.</h2>
+      ${hbars([[st.school === 'board' ? 'Average boarding school, a year' : 'Average private day school, a year', gbp(f), 100],['ATMO School Full Programme, a year', '£8,640', Math.round(8640/f*100), true]])}
+      ${statEnd('The Cambridge and Pearson Edexcel qualifications are the same.', `ISC Census 2026 average termly fees × 3, before VAT. ATMO School: plus £100 enrolment. ${link('isc')}`)}`; }
+  };
+
+  const STEPS = [
+    { id:'intro', sec:0, type:'intro' },
+    { id:'year', sec:0, title:'Which year group is your child in?', opts:Object.entries(YEARS).map(([v,t]) => ({v,t})) },
+    { id:'school', sec:0, title:'Where do they study now?', opts:[{v:'state',t:'State school or academy'},{v:'day',t:'Private day school'},{v:'board',t:'Boarding school'},{v:'home',t:'Home or online'}] },
+    { id:'dir', sec:0, title:'What might they study at university?', opts:Object.entries(DIRS).map(([v,t]) => ({v,t})) },
+    { id:'s_enjoy', sec:1, type:'data', k:'enjoy' },
+    { id:'fine', sec:1, type:'statement', text:'My child says school is fine, but I am not sure it is.' },
+    { id:'concern', sec:1, title:'What worries you most right now?', opts:[{v:'grades',t:'Grades are not where they should be'},{v:'stretch',t:'School is not stretching them'},{v:'unhappy',t:'They are unhappy or missing school'},{v:'uni',t:'University applications'},{v:'fees',t:'School fees'},{v:'move',t:'We are moving or live abroad'}] },
+    { id:'s_well', sec:1, type:'data', k:'well', when:() => st.concern === 'unhappy' },
+    { id:'disrupt', sec:1, type:'statement', text:'My child complains that lessons get disrupted.' },
+    { id:'s_lost', sec:1, type:'data', k:'lost' },
+    { id:'specialist', sec:1, title:'Does a subject specialist teach them every key subject?', opts:[{v:'yes',t:'Yes'},{v:'unsure',t:'I am not sure'},{v:'no',t:'No'}] },
+    { id:'s_spec', sec:1, type:'data', k:'spec' },
+    { id:'attention', sec:1, title:'How much individual attention do they get from teachers?', opts:[{v:'lot',t:'A lot'},{v:'some',t:'Some'},{v:'little',t:'Hardly any'}] },
+    { id:'s_size', sec:1, type:'data', k:'size' },
+    { id:'pred', sec:2, title:'Do you know their current predicted or target grades?', opts:[{v:'all',t:'Yes, for every subject'},{v:'some',t:'For some subjects'},{v:'no',t:'Not at the moment'}] },
+    { id:'stat', sec:2, type:'stat' },
+    { id:'subj', sec:2, title:'Have you checked their subjects against real course requirements?', opts:[{v:'yes',t:'Yes, on the course pages'},{v:'school',t:'We relied on the school\'s advice'},{v:'no',t:'Not yet'}] },
+    { id:'vis', sec:2, type:'statement', text:'I find out how my child is doing when the report comes home.' },
+    { id:'snap', sec:2, type:'snap' },
+    { id:'subjects', sec:2, type:'multi', title:'Which subjects are they taking or considering?', hint:'Pick all that apply' },
+    { id:'scheck', sec:2, type:'scheck' },
+    { id:'close', sec:2, title:'How close are they to the grades their goal needs?', opts:[{v:'above',t:'At or above'},{v:'one',t:'About one grade short'},{v:'two',t:'Two or more grades short'},{v:'dk',t:'I don\'t know'}] },
+    { id:'s_move', sec:3, type:'data', k:'move' },
+    { id:'online', sec:3, title:'Have you thought about online school before?', opts:[{v:'serious',t:'Yes, seriously'},{v:'crossed',t:'It has crossed my mind'},{v:'new',t:'This is new to me'}] },
+    { id:'proof', sec:3, type:'proof' },
+    { id:'teach', sec:3, title:'What kind of study would suit them best?', opts:[{v:'full',t:'Live lessons with a teacher',s:'Small groups, as their main school'},{v:'core',t:'Independent study with support',s:'Three subjects at their own pace'},{v:'single',t:'One subject alongside school',s:'Extra help where it matters'}] },
+    { id:'s_fee', sec:3, type:'data', k:'fee', when:() => st.school === 'day' || st.school === 'board' },
+    { id:'start', sec:3, title:'When would you like your child to start?', opts:[{v:'now',t:'As soon as possible'},{v:'term',t:'Next term'},{v:'sept',t:'September 2027'},{v:'explore',t:'Just exploring for now'}] },
+    { id:'load', sec:3, type:'load' },
+    { id:'form', sec:3, type:'form' }
+  ];
+  const st = {};
+  let i = 0, timer = null;
+  const active = s => !s.when || s.when();
+
+  const needCheck = () => NEEDS[st.dir].map(n => ({ label:n.label, ok:n.any.some(s => (st.subjects||[]).includes(s)) }));
+  const matchSc = () => { const c = needCheck(); return Math.round(c.filter(x => x.ok).length / c.length * 100); };
+  const closeSc = () => ({above:100,one:50,two:10,dk:20})[st.close] || 0;
+  const score = () => Math.round(matchSc()*.35 + closeSc()*.15 + (({all:100,some:50,no:0})[st.pred]||0)*.2 + (({yes:100,school:60,no:15})[st.subj]||0)*.2 + (({no:100,some:50,yes:10})[st.vis]||0)*.1);
+
+  const KEY = {med:'Chemistry and Biology',eng:'Maths and Physics',econ:'Maths',law:'English and History',open:'Maths, science and English'};
+  const GOAL = {med:'Medicine, dentistry or veterinary',eng:'Engineering or physics',econ:'Economics or finance',law:'Law or humanities',open:'The right course for them'};
+
+  function risks(){
+    const key = KEY[st.dir], out = [], missing = needCheck().filter(x => !x.ok).map(x => x.label).join(' and ');
+    if (missing) out.push([`${missing} not on the list`, `Confirm ${missing} against three course pages before subjects are signed off.`]);
+    else if (st.subj !== 'yes') out.push(['Subjects are not checked against real courses', `Check ${key} against three course pages before subjects are signed off.`]);
+    out.push({
+      grades:['Grades are below where they need to be','Start with the subject furthest from its target and set a date to close the gap.'],
+      stretch:['School is not stretching them','Move the strongest subjects up a level with harder past-paper work.'],
+      unhappy:['School is wearing them down','Find out which lessons or people make the day hard, and compare the options together.'],
+      uni:['University applications are unclear','Map every UCAS step and deadline for their year group.'],
+      fees:['Fees may be out of proportion','Compare what you pay each year with what each option delivers.'],
+      move:['A move could interrupt their studies','Keep one exam board and one timetable through the move.']
+    }[st.concern]);
+    if (st.pred !== 'all') out.push(['Predicted grades are not clear yet', 'Ask who sets predicted grades and when, then track them each term.']);
+    if (st.vis !== 'no') out.push(['You may hear about problems too late', 'See marks, predicted grades and early alerts in one Parent Dashboard.']);
+    if (st.close !== 'above' && st.concern !== 'grades') out.push(['Grades may fall short of typical offers', 'Compare each subject with the offers for target courses, then start with the biggest gap.']);
+    if (out.length < 2) out.push(['There is no written plan to Year 13','Agree one decision for each remaining school year.']);
+    return out.slice(0,4);
+  }
+  const risksHTML = locked => `<div class="risks">${risks().map(([t,f]) => `<div class="risk"><strong>${t}</strong><p${locked ? ' class="locked" aria-hidden="true"' : ''}>${f}</p></div>`).join('')}</div>`;
+
+  function trackHTML(locked){
+    const key = KEY[st.dir], order = ['y9','y10','y11','y12','y13'];
+    const items = {
+      y9:['Choose the right GCSEs',`Keep ${key} strong on the options form.`],
+      y10:['Protect the key subjects',`Check sets and tiers in ${key}.`],
+      y11:['Secure the grades',`Use mocks to set priorities, starting with ${key}, and match A-Level choices to sixth-form entry requirements.`],
+      y12:['Earn the predicted grades', st.pred === 'all' ? 'Review predicted grades every term against the offers you want.' : 'Find out who sets predicted grades and when, then close the gaps.'],
+      y13:['Apply with confidence','Plan UCAS, offers and results day, step by step.']
+    };
+    const rows = order.slice(order.indexOf(st.year)).map((y,k) => `<li><small>${YEARS[y]}</small><strong>${items[y][0]}</strong><p${locked && k > 0 ? ' class="locked" aria-hidden="true"' : ''}>${items[y][1]}</p></li>`).join('');
+    return `<ol class="tk">${rows}<li class="goal"><small>The goal</small><strong>${GOAL[st.dir]}</strong></li></ol>`;
+  }
+
+  /* Same HubSpot form as the #call block on atmo-school.com. */
+  const HS_URL = 'https://api-eu1.hsforms.com/submissions/v3/integration/submit/149190779/821f2347-63df-420a-88ab-5e65d0d7d3d4';
+  const CONSENT = 'ATMO School may contact me about this request by phone, email or WhatsApp.';
+  const hutk = () => { const m = document.cookie.match(/(?:^|; )hubspotutk=([^;]*)/); return m ? decodeURIComponent(m[1]) : ''; };
+  function sendLead(l){
+    const parts = l.name.split(/\s+/), first = parts.shift() || '', last = parts.join(' ');
+    const p = new URLSearchParams(location.search), from = ['utm_source','utm_medium','utm_campaign','utm_content'].map(k => p.get(k)).filter(Boolean).join(' / ');
+    const a = l.answers;
+    const msg = ['Parent quiz', YEARS[l.year], 'Route score ' + l.score + '/100', 'Goal: ' + GOAL[a.dir], 'School: ' + SCHOOLS[a.school], 'Worry: ' + a.concern,
+      'Subjects: ' + (a.subjects || []).join(', '), 'Best fit: ' + PROGRAMME[a.teach], 'Start: ' + a.start, 'Considered online: ' + a.online, 'Risks: ' + l.risks.join('; '), 'From: ' + (from || 'direct')].join(' | ');
+    const body = { fields: [
+      { objectTypeId:'0-1', name:'firstname', value:first },
+      { objectTypeId:'0-1', name:'lastname', value:last },
+      { objectTypeId:'0-1', name:'email', value:l.email },
+      { objectTypeId:'0-1', name:'phone', value:l.phone },
+      { objectTypeId:'0-1', name:'what_grade_is_your_child_in', value:YEARS[l.year] },
+      { objectTypeId:'0-1', name:'message', value:msg }
+    ], context:{ pageUri:location.href, pageName:document.title }, legalConsentOptions:{ consent:{ consentToProcess:true, text:CONSENT } } };
+    const t = hutk(); if (t) body.context.hutk = t;
+    return fetch(HS_URL, { method:'POST', headers:{ 'Content-Type':'application/json' }, body:JSON.stringify(body) }).then(r => { if (!r.ok) throw new Error('HubSpot ' + r.status); });
+  }
+
+  function avatar(k, cls){
+    const p = {a:{skin:'#f2c9a5',hair:'#3b2a20',shirt:'#1e4fcc',bg:'#dce7ff',bun:true}, b:{skin:'#c98e66',hair:'#1f2433',shirt:'#0b1437',bg:'#ffe9b8',cap:true}, c:{skin:'#8a5a3c',hair:'#1f2433',shirt:'#ffc53d',bg:'#eef3ff',curly:true}}[k];
+    const fringe = `<path d="M39 50a21 21 0 0 1 42 0c-5-8-12-11-21-11s-16 3-21 11z" fill="${p.hair}"/>`;
+    const hair = p.curly ? [[41,44],[46,36],[54,31],[63,30],[71,33],[78,40],[80,48],[40,50]].map(([x,y]) => `<circle cx="${x}" cy="${y}" r="8" fill="${p.hair}"/>`).join('') : fringe;
+    const cap = p.cap ? `<path d="M60 18L96 32 60 46 24 32z" fill="#0b1437"/><path d="M42 39v8c10 5 26 5 36 0v-8" fill="#16214d"/><path d="M92 33v20" stroke="#ffc53d" stroke-width="3" stroke-linecap="round"/><circle cx="92" cy="56" r="4" fill="#ffc53d"/>` : '';
+    return `<svg class="ava ${cls}" viewBox="0 0 120 120" aria-hidden="true"><defs><clipPath id="c${k}"><circle cx="60" cy="60" r="60"/></clipPath></defs><g clip-path="url(#c${k})"><circle cx="60" cy="60" r="60" fill="${p.bg}"/>${p.bun ? `<circle cx="60" cy="25" r="10" fill="${p.hair}"/>` : ''}<path d="M20 120c2-22 18-36 40-36s38 14 40 36z" fill="${p.shirt}"/><rect x="52" y="64" width="16" height="18" rx="7" fill="${p.skin}"/><circle cx="60" cy="50" r="20" fill="${p.skin}"/>${hair}${cap}<circle cx="53" cy="53" r="2.2" fill="#1f2433"/><circle cx="67" cy="53" r="2.2" fill="#1f2433"/><path d="M54 60q6 5 12 0" stroke="#1f2433" stroke-width="2.2" fill="none" stroke-linecap="round"/></g></svg>`;
+  }
+
+  function progress(){
+    const s = STEPS[i], inSec = STEPS.filter(x => x.sec === s.sec && active(x)), pos = inSec.indexOf(s);
+    document.getElementById('segs').innerHTML = SECS.map((_,k) => `<span class="seg"><i style="width:${k<s.sec?100:k>s.sec?0:Math.round((pos+1)/inSec.length*100)}%"></i></span>`).join('');
+    document.getElementById('sec').textContent = SECS[s.sec];
+    document.getElementById('back').style.visibility = (i === 0 || s.type === 'load') ? 'hidden' : 'visible';
+  }
+  const next = () => { do { i++; } while (!active(STEPS[i])); render(); };
+  const opt = (o, on, k) => `<button class="opt" type="button" data-v="${esc(o.v)}" aria-pressed="${!!on}">${k ? `<span class="k">${k}</span>` : ''}<span class="tx">${o.t}${o.s ? `<small>${o.s}</small>` : ''}</span></button>`;
+  const bindGo = () => { const b = document.getElementById('go'); if (b) b.onclick = next; };
+  const pick = id => q.querySelectorAll('.opt').forEach(b => b.onclick = () => {
+    st[id] = b.dataset.v; q.querySelectorAll('.opt').forEach(x => x.setAttribute('aria-pressed', x === b)); setTimeout(next, 200); });
+
+  function render(){
+    clearTimeout(timer);
+    const s = STEPS[i];
+    progress(); window.scrollTo(0,0);
+    q.classList.remove('in'); void q.offsetWidth; q.classList.add('in');
+    if (s.type === 'intro') {
+      q.innerHTML = `<div class="intro">
+        <div class="crowd">${avatar('a','s')}${avatar('b','l')}${avatar('c','s')}<span class="badge">Year 13 ready</span></div>
+        <h2>Get your child's <mark>personal track</mark> to a top university</h2>
+        <p>A few questions about your child. We check their route to university and build a year-by-year track.</p>
+        <div class="pills"><span>${ICON.user}About your child</span><span>${ICON.cases}Route check</span><span>${ICON.map}Personal track</span></div>
+        <button class="btn go-big" id="go" type="button">Let's start${ARROW}</button></div>`;
+      bindGo();
+    }
+    if (s.opts) {
+      q.innerHTML = `<h2>${s.title}</h2><div class="opts">${s.opts.map(o => opt(o, st[s.id] === o.v)).join('')}</div>`;
+      pick(s.id);
+    }
+    if (s.type === 'statement') {
+      q.innerHTML = `<h2>Does this sound like you?</h2><p class="quote">${s.text}</p><div class="agree">${[['no','Not me'],['some','Sometimes'],['yes','That\'s me']].map(([v,t]) => opt({v,t}, st[s.id]===v)).join('')}</div>`;
+      pick(s.id);
+    }
+    if (s.type === 'data') { q.innerHTML = STATS[s.k](); bindGo(); }
+    if (s.type === 'stat') {
+      q.innerHTML = `<span class="big">16<small>in 100</small></span><h2>applicants had their best three A-Level grades predicted correctly</h2>
+        <div class="grid100" aria-hidden="true">${Array.from({length:100},(_,k)=>`<i class="${k<16?'on':k<91?'mid':''}"></i>`).join('')}</div>
+        <div class="key"><span><i class="on"></i>Predicted correctly, 16</span><span><i class="mid"></i>Predicted too high, 75</span><span><i></i>Too low or other, 9</span></div>
+        <p class="say">Universities make offers on predicted grades, before results exist.</p>
+        <p class="src">Gill Wyness, UCL Institute of Education, for UCU, 2016. UCAS data, 2013–15 entry; UCAS has disputed how the figure is read. ${link('pred')}</p>${go()}`;
+      bindGo();
+    }
+    if (s.type === 'snap') {
+      q.innerHTML = `<h2>Here is your child so far</h2>
+        <div class="snap"><div class="chips"><span class="chip">${YEARS[st.year]}</span><span class="chip">${SCHOOLS[st.school]}</span><span class="chip">${GOAL[st.dir]}</span></div>
+        <div class="snap-q"><span>Route score</span><b>?</b></div></div>
+        <p class="say">Next we check their subjects. This is where the route to university most often breaks.</p>${go('Check their subjects')}`;
+      bindGo();
+    }
+    if (s.type === 'proof') {
+      q.innerHTML = `<div class="dark"><h2>Our students get into top universities</h2>
+        <div class="proof3"><div><b>96%</b><span>university acceptance</span></div><div><b>45+</b><span>Russell Group placements</span></div><div><b>15+</b><span>Oxbridge offers in 2024</span></div></div>
+        <p>Our graduates study at Cambridge, Oxford, Imperial College London, LSE, UCL and Edinburgh.</p></div>${go()}`;
+      bindGo();
+    }
+    if (s.type === 'multi') {
+      st[s.id] = st[s.id] || [];
+      q.innerHTML = `<h2>${s.title}</h2><p class="hint">${s.hint}</p><div class="subs">${SUBJECTS.map(t => opt({v:t,t}, st[s.id].includes(t))).join('')}</div>${go()}`;
+      const b = document.getElementById('go'), upd = () => b.disabled = !st[s.id].length; upd();
+      q.querySelectorAll('.opt').forEach(x => x.onclick = () => {
+        const v = x.dataset.v; st[s.id] = st[s.id].includes(v) ? st[s.id].filter(y => y !== v) : [...st[s.id], v];
+        x.setAttribute('aria-pressed', st[s.id].includes(v)); upd(); });
+      b.onclick = next;
+    }
+    if (s.type === 'scheck') {
+      const c = needCheck(), miss = c.filter(x => !x.ok), goal = GOAL[st.dir];
+      q.innerHTML = `<span class="eyebrow">Your first finding</span>
+        <h2>${miss.length ? `We found a <mark>gap</mark> in the subject list` : `The key subjects are <mark>in place</mark>`}</h2>
+        <div class="checkrows">${c.map(x => `<div class="checkrow">${x.label}<span class="${x.ok ? 'ok' : 'no'}">${x.ok ? 'On the list' : 'Missing'}</span></div>`).join('')}</div>
+        <p class="say">${miss.length ? `For ${st.dir === 'open' ? 'keeping doors open' : esc(goal.toLowerCase())}, this is the first thing to sort out.` : 'Next, do the grades match what the offers will ask for?'}</p>
+        <p class="src">Based on ${RG}. Requirements vary, so check each course page.</p>${go()}`;
+      bindGo();
+    }
+    if (s.type === 'load') {
+      const items = [`Comparing subjects with ${st.dir === 'open' ? 'university courses' : 'courses in ' + GOAL[st.dir].toLowerCase()}`,'Looking for risks on the route',`Building the track from ${YEARS[st.year]}`];
+      const C = 2 * Math.PI * 80, DUR = 3800;
+      q.innerHTML = `<div class="loader"><h2>Analysing your answers</h2>
+        <div class="ringw"><svg viewBox="0 0 190 190" aria-hidden="true"><circle class="bg" cx="95" cy="95" r="80"/><circle class="fg" id="fg" cx="95" cy="95" r="80" stroke-dasharray="${C}" stroke-dashoffset="${C}"/></svg><b id="pct">0%</b></div>
+        <ul class="ticks">${items.map(t => `<li><i>${TICK}</i>${t}</li>`).join('')}</ul></div>`;
+      const fg = q.querySelector('#fg'), pct = q.querySelector('#pct'), lis = q.querySelectorAll('.ticks li'), t0 = performance.now();
+      const frame = now => {
+        if (STEPS[i] !== s) return;
+        const p = Math.min(1, (now - t0) / DUR), v = Math.round(p * 100);
+        pct.textContent = v + '%';
+        fg.setAttribute('stroke-dashoffset', C * (1 - p));
+        lis.forEach((li, k) => li.classList.toggle('done', v >= [30,65,100][k]));
+        if (p < 1) requestAnimationFrame(frame); else timer = setTimeout(next, 450);
+      };
+      requestAnimationFrame(frame);
+    }
+    if (s.type === 'form') renderForm();
+  }
+
+  function renderForm(){
+    const n = score(), r = risks(), count = r.length + ' risks';
+    const tiles = `<div class="tiles"><div><small>Goal</small><b>${GOAL[st.dir]}</b></div><div><small>Best fit</small><b>${PROGRAMME[st.teach]}</b></div></div>`;
+    q.innerHTML = `<span class="eyebrow">Your child's track is ready</span>
+      <h2>We found <mark>${count}</mark> on your child's route</h2>
+      <div class="ba">
+        <div class="now"><small>Today</small><b>${n}/100</b><ul><li>${r[0][0]}</li></ul></div>
+        <span class="arrow">${ARROW}</span>
+        <div class="then"><small>With a track</small><b>Clear plan</b><ul><li>Every risk has a fix and a date</li></ul></div>
+      </div>
+      ${tiles}
+      <button class="btn" id="jump" type="button">Unlock the fixes${ARROW}</button>
+      <h3>The risks, and how to fix them</h3>${risksHTML(true)}
+      <h3>Your child's track to ${YEARS.y13}</h3><div class="tk-box">${trackHTML(true)}</div>
+      <p class="src">The score shows how much of the route has been checked. It does not measure your child's ability.</p>
+      <h2>Get every fix and the full track on a free call</h2>
+      <form id="lead" novalidate>
+        <div class="fld"><label for="ln">Your name</label><input id="ln" autocomplete="name"></div>
+        <div class="fld"><label for="le">Email</label><input id="le" type="email" autocomplete="email"></div>
+        <div class="fld"><label for="lp">Mobile phone</label><input id="lp" type="tel" autocomplete="tel"></div>
+        <div class="fld"><label for="ly">Child's year group</label><select id="ly">${Object.entries(YEARS).map(([v,t]) => `<option value="${v}"${v === st.year ? ' selected' : ''}>${t}</option>`).join('')}</select></div>
+        <p class="err" id="ferr" role="alert" hidden></p>
+        <button class="btn" type="submit">Request a free call${ARROW}</button>
+        <p class="fine">14-day money-back guarantee on enrolment. ${CONSENT}</p>
+      </form>
+      <div class="review"><p>“As a parent, I was skeptical about online education. But ATMO School exceeded all expectations. The progress reports and parent communication were exceptional.”</p><span><b>Emma Rodriguez</b> · Daughter accepted to LSE</span></div>`;
+    q.querySelector('#jump').onclick = () => { const f = q.querySelector('#lead'); f.scrollIntoView({behavior:'smooth', block:'start'}); q.querySelector('#ln').focus({preventScroll:true}); };
+    q.querySelector('#lead').onsubmit = e => {
+      e.preventDefault();
+      const v = id => q.querySelector(id).value.trim(), err = q.querySelector('#ferr');
+      const name = v('#ln'), email = v('#le'), phone = v('#lp');
+      const msg = !name ? 'Enter your name.' : !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) ? 'Enter a valid email address, such as name@example.com.' : phone.replace(/\D/g,'').length < 10 ? 'Enter a mobile number with the country code, so an advisor can call you.' : '';
+      if (msg) { err.textContent = msg; err.hidden = false; return; }
+      err.hidden = true;
+      const btn = q.querySelector('#lead button[type=submit]'), label = btn.innerHTML;
+      btn.disabled = true; btn.textContent = 'Sending…';
+      sendLead({ name, email, phone, year: q.querySelector('#ly').value, score: n, risks: r.map(x => x[0]), answers: { ...st } }).then(() => {
+        q.innerHTML = `<h2>Thank you, ${esc(name.split(' ')[0])}. Here is the full track.</h2><p class="say">An advisor will call you to go through it. Want to pick a time yourself?</p><a class="btn" style="text-decoration:none" href="https://meetings-eu1.hubspot.com/kpishchakova" target="_blank" rel="noopener">Choose a time for the call${ARROW}</a>${tiles}<h3>The risks, and how to fix them</h3>${risksHTML(false)}<div class="tk-box">${trackHTML(false)}</div>`;
+        window.scrollTo(0,0);
+        document.getElementById('back').style.visibility = 'hidden';
+      }).catch(() => {
+        btn.disabled = false; btn.innerHTML = label;
+        err.textContent = "Sorry, that didn't send. Please try again, or call +44 7441 429616."; err.hidden = false;
+      });
+    };
+  }
+
+  document.getElementById('back').onclick = () => {
+    if (i > 0) { do { i--; } while (i > 0 && (!active(STEPS[i]) || STEPS[i].type === 'load')); render(); }
+  };
+  render();
+})();
+</script>
+
+</body>
+</html>
