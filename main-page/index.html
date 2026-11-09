@@ -178,6 +178,18 @@ html{scroll-behavior:smooth;scroll-padding-top:80px}section{scroll-margin-top:80
 [c="46"]{position:fixed;right:20px;bottom:20px;z-index:30;display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 20px;border-radius:999px;background:#0B1437;color:#FFFFFF;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 10px 28px rgba(11,20,55,.28)}
 </style>
 <style id="mobile">
+.tw{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+.trow{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(200px,22%,250px);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 14px;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.5) transparent}
+.tch{margin:0;scroll-snap-align:start;background:#fff;border-radius:22px;overflow:hidden;color:#0B1437;display:flex;flex-direction:column}
+.tph{position:relative;aspect-ratio:352/500;background:#EEF3FF}
+.tph img,.tph video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.tplay{position:absolute;left:12px;bottom:12px;display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 14px;border:0;border-radius:999px;background:rgba(11,20,55,.82);color:#fff;font:600 13px Inter,sans-serif;cursor:pointer}
+.tplay:hover{background:#0B1437}
+.tch figcaption{padding:14px 16px 16px;display:flex;flex-direction:column;gap:2px}
+.tch b{font-size:17px}.tch span{font-size:14px;color:#56607A}
+.tcta{display:flex;justify-content:center}
+@media (max-width:760px){.trow{grid-auto-columns:68%;margin:0 -20px;padding:4px 20px 14px;scroll-padding:0 20px}.tcta a{width:100%;justify-content:center;box-sizing:border-box}}
+
 .ts{display:none}
 @media (min-width:761px) and (max-width:1080px){[c="b"]{flex-wrap:nowrap}[c="c"]{flex:1 1 56%}[c="n"]{flex:1 1 44%}}
 @media (max-width:760px){
@@ -336,10 +348,21 @@ a[aria-label^="Message ATMO"]{right:14px;bottom:14px;min-height:46px;padding:0 1
 </div>
 </section>
 <section id="team" class="doodle-white" c=2p>
+<div class="tw">
 <div c=2q>
 <h2 c=18>Taught by top British teachers</h2>
-<p c=2r>Every tutor holds QTS or an equivalent qualification.</p>
-<a href="#call" c=2s>Book a call with our team</a>
+<p c=2r>Every tutor holds QTS or an equivalent qualification. Meet some of the teachers behind our lessons.</p>
+</div>
+<div class="trow">
+<figure class="tch"><div class="tph"><img src="https://a-level-cms.s3.eu-central-1.amazonaws.com/Isabelle_L_Chemistry_eb5abdc640.webp" alt="Isabelle L., Chemistry teacher at ATMO School" width="352" height="500" loading="lazy"><button type="button" class="tplay" data-v="https://a-level-cms.s3.eu-central-1.amazonaws.com/a_level_isabelle_l_opt_1105bb12ee.mp4" aria-label="Watch Isabelle L. introduce themselves"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>Watch intro</button></div><figcaption><b>Isabelle L.</b><span>Chemistry</span></figcaption></figure>
+<figure class="tch"><div class="tph"><img src="https://a-level-cms.s3.eu-central-1.amazonaws.com/Benjamin_L_History_3e65d37a3a.webp" alt="Benjamin L., History teacher at ATMO School" width="352" height="500" loading="lazy"><button type="button" class="tplay" data-v="https://a-level-cms.s3.eu-central-1.amazonaws.com/a_level_teaching_team_benjamin_opt_77363b0194.mp4" aria-label="Watch Benjamin L. introduce themselves"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>Watch intro</button></div><figcaption><b>Benjamin L.</b><span>History</span></figcaption></figure>
+<figure class="tch"><div class="tph"><img src="https://a-level-cms.s3.eu-central-1.amazonaws.com/Letty_M_English_054912b412.webp" alt="Letty M., English teacher at ATMO School" width="352" height="500" loading="lazy"><button type="button" class="tplay" data-v="https://a-level-cms.s3.eu-central-1.amazonaws.com/a_level_letty_m_opt_99d4bc63aa.mp4" aria-label="Watch Letty M. introduce themselves"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>Watch intro</button></div><figcaption><b>Letty M.</b><span>English</span></figcaption></figure>
+<figure class="tch"><div class="tph"><img src="https://a-level-cms.s3.eu-central-1.amazonaws.com/Rik_C_Biology_fa62d2a397.webp" alt="Rik C., Biology teacher at ATMO School" width="352" height="500" loading="lazy"><button type="button" class="tplay" data-v="https://a-level-cms.s3.eu-central-1.amazonaws.com/a_level_rik_c_opt_1fd5787791.mp4" aria-label="Watch Rik C. introduce themselves"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>Watch intro</button></div><figcaption><b>Rik C.</b><span>Biology</span></figcaption></figure>
+<figure class="tch"><div class="tph"><img src="https://a-level-cms.s3.eu-central-1.amazonaws.com/Catherine_C_Psychology_9b50f6c5fb.webp" alt="Catherine C., Psychology teacher at ATMO School" width="352" height="500" loading="lazy"><button type="button" class="tplay" data-v="https://a-level-cms.s3.eu-central-1.amazonaws.com/a_level_catherine_c_opt_ebf4013cb6.mp4" aria-label="Watch Catherine C. introduce themselves"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>Watch intro</button></div><figcaption><b>Catherine C.</b><span>Psychology</span></figcaption></figure>
+<figure class="tch"><div class="tph"><img src="https://a-level-cms.s3.eu-central-1.amazonaws.com/Carl_M_Math_Computer_Sciences_5a101ca427.webp" alt="Carl M., Maths & Computer Science teacher at ATMO School" width="352" height="500" loading="lazy"></div><figcaption><b>Carl M.</b><span>Maths &amp; Computer Science</span></figcaption></figure>
+<figure class="tch"><div class="tph"><img src="https://a-level-cms.s3.eu-central-1.amazonaws.com/a_level_teacher_karl_a_cropped_350x500_4748ed78df.webp" alt="Karl A., Physics teacher at ATMO School" width="352" height="500" loading="lazy"><button type="button" class="tplay" data-v="https://a-level-cms.s3.eu-central-1.amazonaws.com/a_level_karl_a_opt_36c61070bd.mp4" aria-label="Watch Karl A. introduce themselves"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>Watch intro</button></div><figcaption><b>Karl A.</b><span>Physics</span></figcaption></figure>
+</div>
+<div class="tcta"><a href="#call" c=2s>Book a call with our team</a></div>
 </div>
 </section>
 <section c=15>
@@ -482,5 +505,6 @@ document.querySelectorAll('[data-faq]').forEach(function (item, i) {
   });
 })();
 </script>
+<script>document.querySelectorAll('.tplay').forEach(function(b){b.addEventListener('click',function(){var v=document.createElement('video');v.src=b.getAttribute('data-v');v.controls=true;v.autoplay=true;v.setAttribute('playsinline','');v.setAttribute('aria-label',b.getAttribute('aria-label'));b.parentElement.appendChild(v);b.remove();var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){});});});</script>
 </body>
 </html>
