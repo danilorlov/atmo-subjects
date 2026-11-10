@@ -336,6 +336,41 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em}
 form h1{font-size:clamp(30px,3.8vw,44px);line-height:1.1}
 .thanks h1{font-size:clamp(34px,4.6vw,58px);line-height:1.06}
 .mail-subj{font-size:clamp(22px,2.4vw,28px)}
+
+.trust{background:#fff;border-bottom:1px solid var(--rule)}
+.trust .wrap{padding-block:40px 44px;display:flex;flex-direction:column;gap:36px}
+.trust-row{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px 28px}
+.trust-row li{display:flex;gap:14px;align-items:flex-start}
+.ti{flex:none;width:44px;height:44px;border-radius:12px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center}
+.trust-row b{display:block;color:var(--ink);font-size:16px}
+.trust-row span{font-size:14px;color:var(--muted)}
+.unis{display:flex;flex-wrap:wrap;align-items:center;gap:16px 40px;border-top:1px solid var(--rule);padding-top:28px}
+.unis .label{color:var(--muted)}
+.uni-logos{display:flex;flex-wrap:wrap;align-items:center;gap:20px 40px;flex:1}
+.uni-logos img{height:40px;width:auto;max-width:150px;object-fit:contain;filter:grayscale(1);opacity:.8}
+.story .wrap{padding-block:96px;display:flex;flex-direction:column;gap:48px}
+.story-head{display:flex;flex-direction:column;gap:16px;max-width:720px}
+.story-head h2{font-size:clamp(28px,3.4vw,40px);line-height:1.15}
+.story-head p{font-size:18px}
+.story-nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;border-top:1px solid var(--ink-rule);padding-top:32px}
+.story-nums div{display:flex;flex-direction:column;gap:8px}
+.story-nums .big{font-size:clamp(40px,4.4vw,56px);color:var(--gold)}
+.story-nums span:not(.big){color:var(--on-ink-text);font-size:15px}
+.team{padding-block:96px 24px;display:flex;flex-direction:column;gap:36px}
+.lede-s{font-size:18px;margin-top:12px}
+.team-row{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(180px,1fr);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+.tch{margin:0;scroll-snap-align:start;display:flex;flex-direction:column;gap:12px}
+.tch img{width:100%;aspect-ratio:352/500;object-fit:cover;border-radius:18px;background:var(--brand-soft)}
+.tch b{display:block;color:var(--ink)}
+.tch span{font-size:14px;color:var(--muted)}
+.reviews{padding-block:0 96px;display:flex;flex-direction:column;gap:36px}
+.rev-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.rev{margin:0;background:#fff;border:1px solid var(--rule);border-radius:22px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.rev blockquote{margin:0;font-size:17px;line-height:1.55;color:var(--ink)}
+.rev figcaption{display:flex;gap:12px;align-items:center}
+.rev img{width:52px;height:52px;border-radius:50%;object-fit:cover}
+.rev b{display:block;color:var(--ink)}
+.rev span{font-size:14px;color:var(--muted)}
 </style>
 <!-- Meta Pixel: a-levels-online -->
 <script>
@@ -388,6 +423,18 @@ fbq('init','1526831918648629');fbq('track','PageView');
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="trust" aria-label="Why families trust ATMO School">
+    <div class="wrap">
+      <ul class="trust-row">
+        <li><span class="ti"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><div><b>Cambridge &amp; Pearson Edexcel</b><span>Registered school, recognised worldwide</span></div></li>
+        <li><span class="ti"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/><path d="M22 9v6"/></svg></span><div><b>UCAS Registered Centre</b><span>Help with UK university applications</span></div></li>
+        <li><span class="ti"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="3.5"/><path d="M5 21c0-4 3.1-6.5 7-6.5s7 2.5 7 6.5"/></svg></span><div><b>Qualified British teachers</b><span>Every tutor holds QTS or equivalent</span></div></li>
+        <li><span class="ti"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.5 14l-1.5 7 5-3 5 3-1.5-7"/></svg></span><div><b>7 years, 6,000+ students</b><span>Recognised by 3 education awards in 2026</span></div></li>
+      </ul>
+      <div class="unis"><span class="label">Our graduates study at</span><div class="uni-logos"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Coat_of_Arms_of_the_University_of_Cambridge.svg/250px-Coat_of_Arms_of_the_University_of_Cambridge.svg.png" alt="University of Cambridge" loading="lazy"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/University_of_Oxford-Logo.wine.svg/330px-University_of_Oxford-Logo.wine.svg.png" alt="University of Oxford" loading="lazy"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Imperial_logo.svg/500px-Imperial_logo.svg.png" alt="Imperial College London" loading="lazy"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/London_school_of_economics_logo_with_name.svg/500px-London_school_of_economics_logo_with_name.svg.png" alt="London School of Economics" loading="lazy"><img src="https://www.atmoschool.com/images/logos/ucl.webp" alt="UCL" loading="lazy"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/University_of_Edinburgh_c%C3%ADmer.svg/250px-University_of_Edinburgh_c%C3%ADmer.svg.png" alt="University of Edinburgh" loading="lazy"></div></div>
     </div>
   </section>
 
@@ -448,16 +495,33 @@ fbq('init','1526831918648629');fbq('track','PageView');
     </div>
   </section>
 
+  <section class="dark story">
+    <div class="wrap">
+      <div class="story-head"><span class="label brand">Our story</span><h2>Built on seven years of real students&rsquo; data.</h2><p>ATMO School grew out of Atmospheric School: seven years of teaching online and more than 6,000 students. The self-study courses run on the same platform and materials as our full-time programme.</p></div>
+      <div class="story-nums">
+        <div><span class="big">6,000+</span><span>students educated, including Atmospheric School</span></div>
+        <div><span class="big">60k+</span><span>people use our educational platform</span></div>
+        <div><span class="big">27k+</span><span>training materials</span></div>
+        <div><span class="big">120M</span><span>education data points</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap team" id="team">
+    <div class="sec-head"><span class="label brand">Our teachers</span><h2>Courses by top British teachers.</h2><p class="lede-s">Every tutor holds QTS or an equivalent qualification.</p></div>
+    <div class="team-row"><figure class="tch"><img src="https://a-level-cms.s3.eu-central-1.amazonaws.com/Isabelle_L_Chemistry_eb5abdc640.webp" alt="Isabelle L., Chemistry teacher at ATMO School" width="352" height="500" loading="lazy"><figcaption><b>Isabelle L.</b><span>Chemistry</span></figcaption></figure><figure class="tch"><img src="https://a-level-cms.s3.eu-central-1.amazonaws.com/Benjamin_L_History_3e65d37a3a.webp" alt="Benjamin L., History teacher at ATMO School" width="352" height="500" loading="lazy"><figcaption><b>Benjamin L.</b><span>History</span></figcaption></figure><figure class="tch"><img src="https://a-level-cms.s3.eu-central-1.amazonaws.com/Letty_M_English_054912b412.webp" alt="Letty M., English teacher at ATMO School" width="352" height="500" loading="lazy"><figcaption><b>Letty M.</b><span>English</span></figcaption></figure><figure class="tch"><img src="https://a-level-cms.s3.eu-central-1.amazonaws.com/Rik_C_Biology_fa62d2a397.webp" alt="Rik C., Biology teacher at ATMO School" width="352" height="500" loading="lazy"><figcaption><b>Rik C.</b><span>Biology</span></figcaption></figure><figure class="tch"><img src="https://a-level-cms.s3.eu-central-1.amazonaws.com/Catherine_C_Psychology_9b50f6c5fb.webp" alt="Catherine C., Psychology teacher at ATMO School" width="352" height="500" loading="lazy"><figcaption><b>Catherine C.</b><span>Psychology</span></figcaption></figure><figure class="tch"><img src="https://a-level-cms.s3.eu-central-1.amazonaws.com/Carl_M_Math_Computer_Sciences_5a101ca427.webp" alt="Carl M., Maths &amp; Computer Science teacher at ATMO School" width="352" height="500" loading="lazy"><figcaption><b>Carl M.</b><span>Maths &amp; Computer Science</span></figcaption></figure><figure class="tch"><img src="https://a-level-cms.s3.eu-central-1.amazonaws.com/a_level_teacher_karl_a_cropped_350x500_4748ed78df.webp" alt="Karl A., Physics teacher at ATMO School" width="352" height="500" loading="lazy"><figcaption><b>Karl A.</b><span>Physics</span></figcaption></figure></div>
+  </section>
+
   <section class="wrap why" id="why">
     <div class="why-head">
       <div><span class="label brand">Why ATMO School</span><h2>A real British school. <span class="it">Not a video library.</span></h2></div>
       <p>The same courses our full-time students learn from, now open subject by subject.</p>
     </div>
     <div class="stats">
-      <div><span class="big">1,000+</span><span>students</span></div>
       <div><span class="big">95%</span><span>exam success rate</span></div>
-      <div><span class="big">96%</span><span>university acceptance</span></div>
-      <div><span class="big">40+</span><span>countries</span></div>
+      <div><span class="big">96%</span><span>university acceptance rate</span></div>
+      <div><span class="big">45+</span><span>Russell Group placements</span></div>
+      <div><span class="big">15+</span><span>Oxbridge offers in 2024</span></div>
     </div>
     <div class="points">
       <div><em>Registered</em><h3>With the exam boards</h3><p>A Cambridge International School, a Pearson Edexcel centre and a UCAS Registered Centre.</p></div>
@@ -471,6 +535,11 @@ fbq('init','1526831918648629');fbq('track','PageView');
       <div class="aw"><b>National Tutoring Awards</b><span>Online School of the Year</span></div>
       <div class="aw"><b>WDEA AIED Top 100</b><span>ATMO LIP platform</span></div>
     </div>
+  </section>
+
+  <section class="wrap reviews">
+    <div class="sec-head"><span class="label brand">Success stories</span><h2>What students and parents say.</h2></div>
+    <div class="rev-row"><figure class="rev"><blockquote>&ldquo;Living in Dubai, finding quality A-Level education was challenging until I discovered ATMO. The recorded lessons meant I could study on my schedule without compromising quality.&rdquo;</blockquote><figcaption><img src="https://www.atmoschool.com/images/testimonials/Ahmed_Hassan.webp" alt="" width="52" height="52" loading="lazy"><div><b>Ahmed Hassan</b><span>Accepted to Imperial College</span></div></figcaption></figure><figure class="rev"><blockquote>&ldquo;As a parent, I was skeptical about online education. But ATMO School exceeded all expectations. The progress reports and parent communication were exceptional.&rdquo;</blockquote><figcaption><img src="https://www.atmoschool.com/images/testimonials/Emma_Rodriguez.webp" alt="" width="52" height="52" loading="lazy"><div><b>Emma Rodriguez</b><span>Parent · daughter accepted to LSE</span></div></figcaption></figure><figure class="rev"><blockquote>&ldquo;ATMO School transformed my approach to studying. The personalized attention from tutors helped me achieve A*A*A in my A-Levels. I couldn&rsquo;t have done it without them!&rdquo;</blockquote><figcaption><img src="https://www.atmoschool.com/images/testimonials/Sarah_Chen.webp" alt="" width="52" height="52" loading="lazy"><div><b>Sarah Chen</b><span>Accepted to Cambridge</span></div></figcaption></figure></div>
   </section>
 
   <section class="wrap faq">
