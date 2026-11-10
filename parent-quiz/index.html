@@ -325,6 +325,21 @@ fbq('init','1526831918648629');fbq('track','PageView');
     { id:'form', sec:3, type:'form' }
   ];
   const st = {};
+
+  /* Step analytics: anonymous, no answers or contact details. Supabase project atmo-analytics. */
+  const SB_URL = 'https://zdmemmjgzbizugjqfjgo.supabase.co/rest/v1/quiz_events';
+  const SB_KEY = 'sb_publishable_kSQYBBxkKqMwK0hpztpaRw_0JbMwmDb';
+  const SID = (() => { try { let v = sessionStorage.getItem('atmo_quiz_sid'); if (!v) { v = Math.random().toString(36).slice(2) + Date.now().toString(36); sessionStorage.setItem('atmo_quiz_sid', v); } return v; } catch (e) { return Math.random().toString(36).slice(2) + Date.now().toString(36); } })();
+  const UTM = new URLSearchParams(location.search);
+  const DEVICE = matchMedia('(max-width: 700px)').matches ? 'mobile' : 'desktop';
+  const seen = new Set();
+  function track(event, idx, id){
+    if (event === 'view') { if (seen.has(idx)) return; seen.add(idx); }
+    try {
+      fetch(SB_URL, { method:'POST', keepalive:true, headers:{ apikey:SB_KEY, 'Content-Type':'application/json', Prefer:'return=minimal' },
+        body: JSON.stringify({ session_id:SID, step_index:idx, step_id:id, event, utm_source:(UTM.get('utm_source')||'').slice(0,80)||null, utm_campaign:(UTM.get('utm_campaign')||'').slice(0,120)||null, device:DEVICE }) }).catch(() => {});
+    } catch (e) {}
+  }
   let i = 0, timer = null;
   const active = s => !s.when || s.when();
 
@@ -413,6 +428,7 @@ fbq('init','1526831918648629');fbq('track','PageView');
 
   function render(){
     clearTimeout(timer);
+    track('view', i, STEPS[i].id);
     const s = STEPS[i];
     progress(); window.scrollTo(0,0);
     q.classList.remove('in'); void q.offsetWidth; q.classList.add('in');
@@ -530,10 +546,12 @@ fbq('init','1526831918648629');fbq('track','PageView');
       const btn = q.querySelector('#lead button[type=submit]'), label = btn.innerHTML;
       btn.disabled = true; btn.textContent = 'Sending…';
       sendLead({ name, email, phone, year: q.querySelector('#ly').value, score: n, risks: r.map(x => x[0]), answers: { ...st } }).then(() => {
+        track('lead', 99, 'lead');
         q.innerHTML = `<h2>Thank you, ${esc(name.split(' ')[0])}. Here is the full track.</h2><p class="say">An advisor will call you to go through it. Want to pick a time yourself?</p><a class="btn" style="text-decoration:none" href="https://meetings-eu1.hubspot.com/kpishchakova" target="_blank" rel="noopener">Choose a time for the call${ARROW}</a>${tiles}<h3>The risks, and how to fix them</h3>${risksHTML(false)}<div class="tk-box">${trackHTML(false)}</div>`;
         window.scrollTo(0,0);
         document.getElementById('back').style.visibility = 'hidden';
       }).catch(() => {
+        track('lead_error', 98, 'lead_error');
         btn.disabled = false; btn.innerHTML = label;
         err.textContent = "Sorry, that didn't send. Please try again, or call +44 7441 429616."; err.hidden = false;
       });
