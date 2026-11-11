@@ -332,14 +332,31 @@ fbq('init','1526831918648629');fbq('track','PageView');
   const SID = (() => { try { let v = sessionStorage.getItem('atmo_quiz_sid'); if (!v) { v = Math.random().toString(36).slice(2) + Date.now().toString(36); sessionStorage.setItem('atmo_quiz_sid', v); } return v; } catch (e) { return Math.random().toString(36).slice(2) + Date.now().toString(36); } })();
   const UTM = new URLSearchParams(location.search);
   const DEVICE = matchMedia('(max-width: 700px)').matches ? 'mobile' : 'desktop';
+  const BROWSER = (() => { const u = navigator.userAgent;
+    if (/Instagram/i.test(u)) return 'instagram'; if (/FBAN|FBAV|FB_IAB|FBIOS/i.test(u)) return 'facebook';
+    if (/musical_ly|TikTok|BytedanceWebview/i.test(u)) return 'tiktok'; if (/Telegram/i.test(u)) return 'telegram';
+    if (/SamsungBrowser/i.test(u)) return 'samsung'; if (/Edg\//i.test(u)) return 'edge'; if (/Firefox|FxiOS/i.test(u)) return 'firefox';
+    if (/Chrome|CriOS/i.test(u)) return 'chrome'; if (/Safari/i.test(u)) return 'safari'; return 'other'; })();
   const seen = new Set();
-  function track(event, idx, id){
-    if (event === 'view') { if (seen.has(idx)) return; seen.add(idx); }
+  let cur = null, curAt = 0, left = false;
+  function send(row){
     try {
       fetch(SB_URL, { method:'POST', keepalive:true, headers:{ apikey:SB_KEY, 'Content-Type':'application/json', Prefer:'return=minimal' },
-        body: JSON.stringify({ session_id:SID, step_index:idx, step_id:id, event, utm_source:(UTM.get('utm_source')||'').slice(0,80)||null, utm_campaign:(UTM.get('utm_campaign')||'').slice(0,120)||null, device:DEVICE }) }).catch(() => {});
+        body: JSON.stringify(Object.assign({ session_id:SID, device:DEVICE, browser:BROWSER,
+          utm_source:(UTM.get('utm_source')||'').slice(0,80)||null, utm_campaign:(UTM.get('utm_campaign')||'').slice(0,120)||null, utm_content:(UTM.get('utm_content')||'').slice(0,120)||null }, row)) }).catch(() => {});
     } catch (e) {}
   }
+  function track(event, idx, id){
+    if (event === 'view') { cur = { idx, id }; curAt = Date.now(); left = false; if (seen.has(idx)) return; seen.add(idx); }
+    send({ step_index:idx, step_id:id, event });
+  }
+  /* Time on the screen where the parent closed or switched away. */
+  function leave(){
+    if (!cur || left) return; left = true;
+    send({ step_index:cur.idx, step_id:cur.id, event:'leave', duration_ms:Math.min(86400000, Date.now() - curAt) });
+  }
+  addEventListener('pagehide', leave);
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') leave(); else if (cur) left = false; });
   let i = 0, timer = null;
   const active = s => !s.when || s.when();
 
