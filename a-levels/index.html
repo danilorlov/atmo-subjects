@@ -197,13 +197,22 @@ a.sj{color:var(--n);text-decoration:none;cursor:pointer}a.sj .go{font-style:norm
 .wc b{font-size:18px}.wc span{font-size:15px;line-height:1.55;color:var(--t)}
 @media (max-width:1000px){.wgrid{grid-template-columns:1fr 1fr}}
 @media (max-width:600px){.wgrid{grid-template-columns:1fr;gap:12px}.wc{padding:20px}}
+.wl{display:flex;flex-direction:column;gap:10px}.wl div{padding-left:28px;color:#D3DBEE;font-size:16px;background:no-repeat 0 3px/18px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFC53D' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E")}
+.lform{background:#fff;color:var(--n);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:14px;box-sizing:border-box}
+.lrow{display:grid;gap:12px}.lrow.two2{grid-template-columns:1fr 1fr}
+.lform label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--m)}
+.lform input,.lform select{min-height:48px;border:1px solid var(--r);border-radius:12px;padding:0 14px;font:500 16px Inter,sans-serif;color:var(--n);background:#fff;box-sizing:border-box;width:100%}
+.lform input:focus,.lform select:focus{outline:2px solid var(--b);outline-offset:1px;border-color:var(--b)}
+.lerr{color:#C2410C;font-size:14px}.lnote{font-size:12px;color:var(--m);line-height:1.4}
+.lok{display:flex;flex-direction:column;gap:12px}.lok b{font-family:Unbounded,sans-serif;font-size:24px;letter-spacing:-.02em}.lok p{margin:0;color:var(--t)}
+@media (max-width:760px){.lrow.two2{grid-template-columns:1fr}.lform{padding:20px}}
 </style>
 </head>
 <body>
 <div class="top"><span class="tl">Registered online Cambridge International School · UCAS Registered Centre · 14-day money-back guarantee</span><span class="ts">Registered Cambridge School · UCAS Centre · 14-day refund</span></div>
 <header><div class="wrap bar">
 <a class="brand" href="/"><img src="data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%2286%22%20viewBox%3D%2230%209%2050%2043%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M60.7148%2012.0114L76.5776%2048.5744H76.7411C77.0192%2048.5744%2077.2447%2048.7998%2077.2447%2049.078V50.0577C77.2447%2050.3358%2077.0192%2050.5613%2076.7411%2050.5613H67.7433C67.4651%2050.5613%2067.2397%2050.3358%2067.2397%2050.0577V49.0287C67.2397%2048.7778%2067.4431%2048.5744%2067.6941%2048.5744L63.2523%2038.3346L61.7892%2034.8476L56.1978%2021.6599L44.5266%2048.5744C44.7457%2048.5744%2044.9233%2048.752%2044.9233%2048.9711V50.0575C44.9233%2050.3357%2044.6978%2050.5613%2044.4196%2050.5613H38.7858C38.5077%2050.5613%2038.2822%2050.3358%2038.2822%2050.0577V49.078C38.2822%2048.7998%2038.5077%2048.5744%2038.7858%2048.5744H38.9272L53.6999%2015.8119L55.4305%2011.9737C55.8975%2010.938%2056.9282%2010.2722%2058.0643%2010.2722C59.2154%2010.2722%2060.2566%2010.9554%2060.7148%2012.0114Z%22%20fill%3D%22%231B2A55%22%3E%3C%2Fpath%3E%3Cpath%20d%3D%22M78.9251%2018.4379C81.0147%2022.297%2072.2262%2031.0567%2059.3202%2037.8562C46.4141%2044.6556%2034.307%2047.0446%2032.2174%2043.1855C30.4095%2039.8466%2037.4132%2032.6201%2047.5126%2026.3878L45.3699%2030.5147C40.3698%2034.7479%2037.9794%2038.7324%2039.0197%2040.6865C40.6176%2043.688%2049.4481%2039.3073%2061.0636%2033.1816C72.6791%2027.056%2077.1572%2022.1036%2076.8632%2019.7519C76.5793%2017.48%2071.6823%2017.3841%2064.6355%2019.7862L64.1319%2018.5023C71.6925%2016.0691%2077.5328%2015.8664%2078.9251%2018.4379Z%22%20fill%3D%22%232A5DBC%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E" alt="" width="38" height="32">ATMO School</a>
-<nav aria-label="Main"><a href="/#why">Why ATMO</a><a href="#subjects">Subjects</a><a href="#how">How it works</a><a href="/pricing/">Prices</a><a href="#faq">FAQ</a><a class="tel" href="tel:+447441429616">+44 7441 429616</a><a class="btn" href="/#call">Book a call</a></nav>
+<nav aria-label="Main"><a href="/#why">Why ATMO</a><a href="#subjects">Subjects</a><a href="#how">How it works</a><a href="/pricing/">Prices</a><a href="#faq">FAQ</a><a class="tel" href="tel:+447441429616">+44 7441 429616</a><a class="btn" href="#apply">Book a call</a></nav>
 </div></header>
 
 
@@ -212,7 +221,7 @@ a.sj{color:var(--n);text-decoration:none;cursor:pointer}a.sj .go{font-style:norm
 <div class="eyebrow">Online A-Levels</div>
 <h1>Cambridge A-Levels, <span style="color:var(--b)">taught live online</span></h1>
 <p class="lead">British teachers, a flexible timetable and a mentor from day one.</p>
-<div class="row"><a class="btn" href="/#call">Book a call</a><a class="btn line" href="/pricing/">See the fees</a></div>
+<div class="row"><a class="btn" href="#apply">Book a call</a><a class="btn line" href="/pricing/">See the fees</a></div>
 </div>
 <div class="pic"><img src="https://www.atmoschool.com/images/bg-homepage-new.webp" alt="ATMO School student in a graduation cap and gown"></div>
 </div></section>
@@ -244,7 +253,7 @@ a.sj{color:var(--n);text-decoration:none;cursor:pointer}a.sj .go{font-style:norm
 <section class="sec"><div class="wrap split">
 <div class="stack" style="gap:22px"><div class="eyebrow">Who it is for</div><h2>Made for ambitious families</h2>
 <div class="ticks"><div>Aiming for top universities</div><div>Families who move often</div><div>Athletes, performers, travellers</div><div>Anyone who wants to study in English</div></div>
-<div><a class="btn" href="/#call">Talk to an advisor</a></div></div>
+<div><a class="btn" href="#apply">Talk to an advisor</a></div></div>
 <div class="phc"><img src="https://a-level-cms.s3.eu-central-1.amazonaws.com/a_level_a_levels_online_who_is_for_4363d3c6f7.webp" alt="Three ATMO School students" width="500" height="750" loading="lazy"></div>
 </div></section>
 
@@ -263,14 +272,14 @@ a.sj{color:var(--n);text-decoration:none;cursor:pointer}a.sj .go{font-style:norm
 <section class="sec soft doodle-blue" id="fees"><div class="wrap stack">
 <div class="head"><h2>Fees</h2><a href="/pricing/" style="font-weight:600">All fees and payment plans</a></div>
 <div class="cards">
-<div class="card dark"><div class="badge">Most popular</div><div><div class="name">Full Programme</div><div class="lvl">Live lessons · 3 subjects</div></div><div><div class="pr"><span class="num">£720</span><span class="per">/ month</span></div><div class="note">£8,640 a year + £100 enrolment</div></div><a class="btn white" href="/#call">Apply now</a></div>
-<div class="card"><div><div class="name">A-Level Weekend</div><div class="lvl">Saturday lessons · 3 subjects</div></div><div><div class="pr"><span class="num">£480</span><span class="per">/ month</span></div><div class="note">Live small groups on Saturdays</div></div><a class="btn line" href="/#call">Ask about Weekend</a></div>
-<div class="card"><div><div class="name">Core Programme</div><div class="lvl">Self-study · 3 subjects</div></div><div><div class="pr"><span class="num">£240</span><span class="per">/ month</span></div><div class="note">£2,880 a year + £100 enrolment</div></div><a class="btn line" href="/#call">Start with Core</a></div>
+<div class="card dark"><div class="badge">Most popular</div><div><div class="name">Full Programme</div><div class="lvl">Live lessons · 3 subjects</div></div><div><div class="pr"><span class="num">£720</span><span class="per">/ month</span></div><div class="note">£8,640 a year + £100 enrolment</div></div><a class="btn white" href="#apply">Apply now</a></div>
+<div class="card"><div><div class="name">A-Level Weekend</div><div class="lvl">Saturday lessons · 3 subjects</div></div><div><div class="pr"><span class="num">£480</span><span class="per">/ month</span></div><div class="note">Live small groups on Saturdays</div></div><a class="btn line" href="#apply">Ask about Weekend</a></div>
+<div class="card"><div><div class="name">Core Programme</div><div class="lvl">Self-study · 3 subjects</div></div><div><div class="pr"><span class="num">£240</span><span class="per">/ month</span></div><div class="note">£2,880 a year + £100 enrolment</div></div><a class="btn line" href="#apply">Start with Core</a></div>
 </div>
 </div></section>
 
 <section class="sec dark-sec doodle-white" id="apply"><div class="wrap split">
-<div class="stack" style="gap:18px"><div class="eyebrow" style="color:#8FB3FF">How to apply</div><h2>Start this September</h2><div><a class="btn white" href="/#call">Start your application</a></div></div>
+<div class="stack" style="gap:18px"><div class="eyebrow" style="color:#8FB3FF">How to apply</div><h2>Start this September</h2><div><a class="btn white" href="#apply">Start your application</a></div></div>
 <div class="steps">
 <div class="step"><i>1</i><div><b>Apply online</b></div></div>
 <div class="step"><i>2</i><div><b>English test and interview</b></div></div>
@@ -289,10 +298,24 @@ a.sj{color:var(--n);text-decoration:none;cursor:pointer}a.sj .go{font-style:norm
 </div>
 </div></section>
 
+<section class="sec dark-sec doodle-white" id="apply"><div class="wrap split" style="align-items:flex-start">
+<div class="stack" style="gap:18px"><div class="eyebrow" style="color:#8FB3FF">Apply</div><h2>Start your A-Levels</h2><p>Leave your details and an advisor will call you back about subjects, the programme and fees.</p>
+<div class="wl"><div>Free call, no obligation</div><div>Subject and programme advice</div><div>14-day money-back guarantee</div></div></div>
+<form id="lead2" class="lform" data-page="A-Levels page">
+<div class="lrow"><label>Parent or student name<input name="name" autocomplete="name" required></label></div>
+<div class="lrow two2"><label>Email<input type="email" name="email" autocomplete="email" required></label><label>Mobile phone<input type="tel" name="phone" autocomplete="tel" required></label></div>
+<div class="lrow two2"><label>Year group<select name="year"><option>Year 10</option><option>Year 11</option><option selected>Year 12</option><option>Year 13</option><option>Adult learner</option></select></label>
+<label>Programme<select name="prog"><option>Not sure yet</option><option>Full Programme</option><option>Core Programme</option><option>A-Level Weekend</option><option>Single Subject</option></select></label></div>
+<button type="submit" class="btn" style="width:100%">Request a call</button>
+<div class="lerr" role="alert" hidden>Sorry, that didn’t send. Please try again, or call +44 7441 429616.</div>
+<div class="lnote">ATMO School may contact me about this request by phone, email or WhatsApp.</div>
+</form>
+</div></section>
+
 <section class="cta doodle-white"><div class="wrap">
 <h2>Premium British education. Without leaving home.</h2>
 <p style="margin:0;font-size:18px">Talk to an advisor about subjects and fees.</p>
-<div class="row" style="justify-content:center"><a class="btn white" href="/#call">Book a call</a><a class="btn ghost" href="https://wa.me/447549989688">WhatsApp us</a></div>
+<div class="row" style="justify-content:center"><a class="btn white" href="#apply">Book a call</a><a class="btn ghost" href="https://wa.me/447549989688">WhatsApp us</a></div>
 </div></section>
 
 <footer><div class="wrap">
@@ -302,5 +325,18 @@ a.sj{color:var(--n);text-decoration:none;cursor:pointer}a.sj .go{font-style:norm
 </div></footer>
 <a class="wa" href="https://wa.me/447549989688" aria-label="Message ATMO School on WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 1-13.300 7.900L3 21l1.100-4.700A9 9 0 1 1 21 12z"></path></svg>Ask us on WhatsApp</a>
 <script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="#call"]');if(!a)return;var c=a.closest('.card'),n=c&&c.querySelector('.name');try{sessionStorage.setItem('atmo_ref','A-Levels page: '+a.textContent.trim()+(n?' | '+n.textContent.trim():''))}catch(x){}});</script>
+<script>(function(){var f=document.getElementById('lead2');if(!f)return;var btn=f.querySelector('button[type=submit]'),err=f.querySelector('.lerr'),from='';
+var URL_='https://api-eu1.hsforms.com/submissions/v3/integration/submit/149190779/821f2347-63df-420a-88ab-5e65d0d7d3d4',CONSENT='ATMO School may contact me about this request by phone, email or WhatsApp.';
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href="#apply"]');if(!a)return;from=a.textContent.trim();var c=a.closest('.fee,.card'),nm=c&&c.querySelector('.name,b');if(nm){var t=nm.textContent.trim();[].forEach.call(f.prog.options,function(o){if(o.text===t)f.prog.value=o.value})}else if(/one subject|^Try /i.test(from)){f.prog.value='Single Subject'}});
+function hutk(){var m=document.cookie.match(/(?:^|; )hubspotutk=([^;]*)/);return m?decodeURIComponent(m[1]):''}
+f.addEventListener('submit',function(e){e.preventDefault();err.hidden=true;if(!f.checkValidity()){f.reportValidity();return}
+var parts=f.name.value.trim().split(/\s+/),first=parts.shift()||'',last=parts.join(' ');
+var msg='Website call request | '+f.getAttribute('data-page')+' | Programme: '+f.prog.value+' | '+f.year.value+(from?' | Clicked: '+from:'');
+var body={fields:[{objectTypeId:'0-1',name:'firstname',value:first},{objectTypeId:'0-1',name:'lastname',value:last},{objectTypeId:'0-1',name:'email',value:f.email.value.trim()},{objectTypeId:'0-1',name:'phone',value:f.phone.value.trim()},{objectTypeId:'0-1',name:'what_grade_is_your_child_in',value:f.year.value},{objectTypeId:'0-1',name:'message',value:msg}],context:{pageUri:location.href,pageName:document.title},legalConsentOptions:{consent:{consentToProcess:true,text:CONSENT}}};
+var t=hutk();if(t)body.context.hutk=t;var label=btn.textContent;btn.disabled=true;btn.textContent='Sending\u2026';
+fetch(URL_,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){if(!r.ok)throw new Error(r.status);
+var box=document.createElement('div');box.className='lok';var b=document.createElement('b');b.textContent=first?'Thank you, '+first+'.':'Thank you.';var p=document.createElement('p');p.textContent='An advisor will call you soon. Want to pick a time yourself?';
+var a=document.createElement('a');a.className='btn';a.href='https://meetings-eu1.hubspot.com/kpishchakova';a.target='_blank';a.rel='noopener';a.textContent='Choose a time for the call';box.appendChild(b);box.appendChild(p);box.appendChild(a);f.replaceChildren(box)})
+.catch(function(){err.hidden=false;btn.disabled=false;btn.textContent=label})})})();</script>
 </body>
 </html>
