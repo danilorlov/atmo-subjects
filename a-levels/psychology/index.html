@@ -231,6 +231,19 @@ a.sj{color:var(--n);text-decoration:none;cursor:pointer}a.sj .go{font-style:norm
 .fee{background:#fff;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:8px}.fee.on{background:var(--n);color:#fff}.fee b{font-size:17px}.fee .num{font-size:34px}.fee small{font-size:13px;color:var(--m)}.fee.on small{color:#AFC0E6}
 .faq .ul2{margin-bottom:18px}.faq details p{margin:0 0 12px}
 @media (max-width:860px){.shero .wrap,.two,.learn,.feeRow{grid-template-columns:1fr}.shero{padding:32px 20px 40px}.shero .wrap,.learn{gap:24px}.lcard{padding:18px;border-radius:22px}.tabs2 button{font-size:15px;min-height:42px}.pills2 span{font-size:14px;padding:8px 14px}.two{gap:40px}}
+/*m2*/@media (max-width:760px){
+.shero .lead{display:none}.shero h1{font-size:40px}.tagl{font-size:17px}
+.facts2{padding:20px}.facts2 div{padding:10px 0;font-size:13px}.facts2 div:nth-child(n+5){display:none}
+.bens{grid-template-columns:1fr 1fr;gap:10px}.ben{padding:16px;border-radius:16px}.ben b{font-size:14px;line-height:1.3}.ben span{display:none}
+.panel2{gap:12px}.panel2 p:not(.pi){display:none}.panel2 .pi{font-size:14px;line-height:1.5}.pills2{gap:7px}.pills2 span{font-size:13px;padding:7px 12px}
+.ul2{font-size:14px}
+.two .sub{display:none}.two .sub:first-of-type{display:block;font-size:15px}
+.ticks{gap:10px}.ticks div{font-size:15px}.ticks div:nth-child(n+5){display:none}
+.two>.stack:has(.skills){display:none}
+.lead2 span{font-size:13px;padding:8px 12px}
+#lesson .sub{display:none}
+.faq details p,.faq .ul2{font-size:14px}
+}
 </style>
 </head>
 <body>
@@ -315,5 +328,6 @@ fetch(URL_,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.
 var box=document.createElement('div');box.className='lok';var b=document.createElement('b');b.textContent=first?'Thank you, '+first+'.':'Thank you.';var p=document.createElement('p');p.textContent='An advisor will call you soon. Want to pick a time yourself?';
 var a=document.createElement('a');a.className='btn';a.href='https://meetings-eu1.hubspot.com/kpishchakova';a.target='_blank';a.rel='noopener';a.textContent='Choose a time for the call';box.appendChild(b);box.appendChild(p);box.appendChild(a);f.replaceChildren(box)})
 .catch(function(){err.hidden=false;btn.disabled=false;btn.textContent=label})})})();</script>
+<script>if(window.innerWidth<761)document.querySelectorAll(".faq details[open]").forEach(function(d){d.open=false});</script>
 </body>
 </html>
