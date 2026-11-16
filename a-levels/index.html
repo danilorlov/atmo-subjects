@@ -191,6 +191,12 @@ fbq('init','1526831918648629');fbq('track','PageView');
 @media (max-width:760px){.subj{grid-template-columns:1fr 1fr!important;gap:10px!important}.sj{display:block;padding:14px 16px;text-align:left}.sjh{display:flex;flex-direction:column;align-items:flex-start;gap:2px}.sjh b{font-size:15px;line-height:1.25}.phc img{height:320px}}
 a.sj{color:var(--n);text-decoration:none;cursor:pointer}a.sj .go{font-style:normal;font-size:13px;font-weight:600;color:var(--b);margin-top:auto}a.sj:hover{background:#fff;box-shadow:0 14px 32px rgba(11,20,55,.12)}
 @media (max-width:760px){a.sj .go{display:none}}
+.wgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.wc{background:var(--s);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.wc i{width:36px;height:36px;border-radius:50%;background:var(--b);color:#fff;display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:700;font-size:15px}
+.wc b{font-size:18px}.wc span{font-size:15px;line-height:1.55;color:var(--t)}
+@media (max-width:1000px){.wgrid{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.wgrid{grid-template-columns:1fr;gap:12px}.wc{padding:20px}}
 </style>
 </head>
 <body>
@@ -211,14 +217,18 @@ a.sj{color:var(--n);text-decoration:none;cursor:pointer}a.sj .go{font-style:norm
 <div class="pic"><img src="https://www.atmoschool.com/images/bg-homepage-new.webp" alt="ATMO School student in a graduation cap and gown"></div>
 </div></section>
 
-<section class="sec" id="what"><div class="wrap split">
-<div class="stack" style="gap:20px">
-<div class="eyebrow">What is A-Level</div>
-<h2>The route to top universities</h2>
-<p class="lead" style="font-size:18px">The UK’s university-entry qualification, accepted from Oxford to the Ivy League.</p>
-<div class="facts"><div><b class="num">2</b><span>years</span></div><div><b class="num">3</b><span>subjects</span></div><div><b class="num">15+</b><span>any age</span></div></div>
+<section class="sec" id="what"><div class="wrap stack" style="gap:36px">
+<div class="stack" style="gap:14px;max-width:780px"><div class="eyebrow">What is A-Level</div><h2>What are A-Levels?</h2><p class="lead" style="font-size:18px;max-width:none">A-Levels (Advanced Level) are the UK’s main qualification for getting into university. They have been taught since the 1950s and are often called the gold standard of school-leaving exams.</p></div>
+<div class="wgrid">
+<div class="wc"><i>1</i><b>How it works</b><span>Two years. Students choose 3 subjects and study them in depth: AS Level in year 1, full A Level in year 2.</span></div>
+<div class="wc"><i>2</i><b>Who can take it</b><span>Students who have finished 9–11 years of school, usually with IGCSEs or GCSEs. Most are 15–19, with no upper age limit.</span></div>
+<div class="wc"><i>3</i><b>Exams</b><span>Final exams are set and marked by Cambridge International. Grades run from A* to E.</span></div>
+<div class="wc"><i>4</i><b>Why it matters</b><span>Universities make offers based on A-Level grades, from Oxford and Cambridge to the Ivy League, Europe and Canada.</span></div>
 </div>
+<div class="split">
+<div class="stack" style="gap:16px"><h3 style="margin:0;font-size:22px">A-Levels at ATMO School</h3><p class="lead" style="font-size:17px">We guide every student from choosing subjects to university applications. ATMO School is a registered Cambridge International School.</p><div class="facts"><div><b class="num">2</b><span>years</span></div><div><b class="num">3</b><span>subjects</span></div><div><b class="num">15+</b><span>any age</span></div></div></div>
 <div class="stack" style="gap:12px"><video class="vid" controls playsinline preload="none" poster="https://a-level-cms.s3.eu-central-1.amazonaws.com/atmo_video_poster_5789906700.webp" src="https://a-level-cms.s3.eu-central-1.amazonaws.com/atmo_video_720p_c887383fe0.mp4" aria-label="How we teach at ATMO School"></video><div class="small">See how we teach in action</div></div>
+</div>
 </div></section>
 
 <section class="sec soft doodle-blue" id="why-online"><div class="wrap stack">
