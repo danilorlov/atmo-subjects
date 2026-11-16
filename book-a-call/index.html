@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a Call · ATMO School</title>
+<meta name="description" content="Book a free 15-minute call with ATMO School admissions: online Cambridge and Edexcel IGCSE and A-Levels taught live by qualified British teachers.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://atmo-school.com/book-a-call/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: calm, confident admissions desk in ATMO's voice
+   IDEA: a three-step booking card floating on a slow-moving ATMO-blue gradient (About → Book → Confirm)
+   PICTURE: ATMO's own students, tinted into the brand blue and fading into the page; no photos on phones
+   COLOUR and TYPE: navy #0B1437 → ATMO blue #1E4FCC gradient, frosted-glass cards, white type; Unbounded + Inter
+   LAYOUT: question column left, curved photo panel right from 1024px; one calm column on phones */
+:root{color-scheme:dark;--ink:#fff;--muted:rgba(255,255,255,.72);--line:rgba(255,255,255,.22);--glass:rgba(255,255,255,.08);--glass2:rgba(255,255,255,.16);--navy:#0B1437;--blue:#1E4FCC;--sky:#9db8ff;--ok:#5fe0a2}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip;min-height:100vh;
+ background:linear-gradient(-45deg,#0B1437,#16307f,#1E4FCC,#122461);background-size:400% 400%;background-color:#0B1437;animation:drift 22s ease infinite}
+@keyframes drift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+button,input,select{font:inherit;color:inherit}
+.wrap{display:grid;grid-template-columns:minmax(0,1fr) 40%;min-height:100vh}
+.main{display:flex;flex-direction:column;padding:28px clamp(18px,4.5vw,64px) 0}
+.top{display:flex;align-items:center;gap:22px 28px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:8px;font:700 19px Unbounded,sans-serif;color:#fff;text-decoration:none}
+.logo svg{width:36px;height:31px}
+.steps{display:flex;align-items:center;gap:8px;list-style:none;margin:0;padding:0;font-size:14px;color:var(--muted)}
+.steps li{display:flex;align-items:center;gap:6px;padding:6px 12px 6px 6px;border-radius:999px}
+.steps li i{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--glass);font-style:normal;font-size:12px}
+.steps li.on{background:var(--glass2);color:#fff;font-weight:600}.steps li.on i{box-shadow:0 0 0 2px var(--ok);color:#fff}
+.steps li.done i{background:var(--ok);color:var(--navy)}
+.steps .sep{width:18px;height:1px;background:var(--line);padding:0}
+.body{max-width:620px;width:100%;padding:44px 0 8px}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--glass);font-weight:500;font-size:14px;padding:6px 12px;border-radius:999px}
+.chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ok)}
+.sub{color:var(--muted);font-size:14px;margin:10px 0 0}
+h1{font:700 clamp(28px,3.4vw,40px)/1.12 Unbounded,sans-serif;margin:18px 0 12px;text-wrap:balance;letter-spacing:-.01em}
+.lead{font-size:17px;color:var(--muted);margin:0 0 24px;max-width:58ch}
+.opts{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+.opts.list{grid-template-columns:1fr}
+.opt{position:relative;text-align:left;background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px 46px 16px 16px;cursor:pointer;min-height:44px;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);transition:border-color .15s,background .15s}
+.opt b{display:block;font-weight:600}.opt span{display:block;color:var(--muted);font-size:14px;margin-top:4px}
+.opt::after{content:"";position:absolute;top:16px;right:16px;width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(255,255,255,.55)}
+.opt:hover{background:var(--glass2)}
+.opt[aria-pressed=true]{border-color:#fff;background:rgba(255,255,255,.24)}
+.ways .opt[aria-pressed=true]{background:#fff;color:var(--navy)}
+.opt[aria-pressed=true]::after{border-color:#fff;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%231E4FCC' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.ticks{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:12px}
+.ticks li{display:flex;gap:12px;align-items:flex-start}
+.ticks li::before{content:"";flex:0 0 24px;height:24px;border-radius:50%;background:rgba(95,224,162,.18) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%235fe0a2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.opt:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible,.slot:focus-visible,.day:focus-visible,a:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+.note{margin-top:16px;background:var(--glass2);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:15px}
+.note b{color:var(--ok)}
+.fees{display:grid;margin:0 0 20px;background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:4px 16px;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.fee{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line)}
+.fee:last-child{border:0}
+.fee small{display:block;color:var(--muted);font-size:13px}
+.fee>div{flex:1 1 auto}.fee strong{flex:0 0 auto;white-space:nowrap;font-variant-numeric:tabular-nums}
+.fee.pop strong{color:var(--ok)}
+.fine{font-size:13px;color:var(--muted);margin:0 0 22px}.fine a{color:#fff}
+label{display:block;font-weight:600;font-size:14px;margin:18px 0 6px}
+input,select{width:100%;height:50px;border:1px solid var(--line);border-radius:14px;padding:0 14px;background:var(--glass);font-size:16px}
+input::placeholder{color:rgba(255,255,255,.5)}
+select option{color:#0B1437}
+input:focus,select:focus{border-color:var(--sky);outline:none;background:var(--glass2)}
+.row{display:grid;grid-template-columns:130px minmax(0,1fr);gap:10px}
+.err{color:#ffb4b4;font-size:13px;margin-top:6px}
+.ways{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.ways .opt{padding:14px;text-align:center}.ways .opt::after{display:none}
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:16px}
+.day{flex:0 0 74px;border:1px solid var(--line);background:var(--glass);border-radius:14px;padding:10px 6px;text-align:center;cursor:pointer}
+.day b{display:block;font:700 18px Unbounded,sans-serif}.day small{color:var(--muted);font-size:13px}
+.day[aria-pressed=true]{border-color:var(--sky);background:rgba(157,184,255,.2)}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
+.slot{height:46px;border:1px solid var(--line);background:var(--glass);border-radius:12px;cursor:pointer;font-weight:600;font-variant-numeric:tabular-nums}
+.slot[aria-pressed=true]{background:#fff;border-color:#fff;color:var(--navy)}
+.sum{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:10px}
+.sum div{display:flex;justify-content:space-between;gap:16px;font-size:15px}.sum span{color:var(--muted)}.sum b{text-align:right}
+.next{margin:22px 0 0;padding-left:20px;color:var(--muted)}.next li{margin-bottom:6px}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:20px 0 40px;max-width:620px}
+.btn{height:52px;border-radius:999px;border:0;padding:0 26px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.btn.go{background:#fff;color:var(--navy);margin-left:auto;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.btn.go:disabled{background:var(--glass2);color:rgba(255,255,255,.55);box-shadow:none;cursor:not-allowed}
+.btn.back{background:none;color:var(--muted);padding:0 4px}
+.side{position:sticky;top:0;height:100vh;overflow:hidden}
+.side .ph{position:absolute;inset:0;clip-path:ellipse(100% 120% at 100% 50%);background:linear-gradient(160deg,#16307f,#0B1437)}
+.side img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;opacity:0;transition:opacity .7s}
+.side img.on{opacity:.62}
+.side .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,20,55,.55),transparent 40%),linear-gradient(0deg,rgba(11,20,55,.7),transparent 45%)}
+.trust{position:absolute;top:28px;right:28px;left:28px;display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;z-index:1}
+.trust span{background:var(--glass2);border:1px solid var(--line);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px}
+.stat{position:absolute;right:28px;bottom:28px;left:22%;text-align:right;z-index:1}
+.stat b{display:block;font:700 34px/1.1 Unbounded,sans-serif}
+.stat span{font-size:15px;color:var(--muted)}
+.hide{display:none!important}
+.demo{font-size:12px;color:var(--muted);margin-top:10px}
+@media(max-width:899px){.wrap{grid-template-columns:1fr}.side{display:none}.body{padding-top:32px}.main{padding-left:18px;padding-right:18px;padding-bottom:calc(96px + env(safe-area-inset-bottom))}.bar{position:fixed;left:0;right:0;bottom:0;z-index:5;max-width:none;margin:0;padding:12px 18px calc(12px + env(safe-area-inset-bottom));background:rgba(11,20,55,.28);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-top:1px solid var(--line)}}
+@media(max-width:520px){.steps li span{display:none}.steps li{padding:6px}.ways{grid-template-columns:1fr}.row{grid-template-columns:110px minmax(0,1fr)}.opts{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){body{animation:none}.side img{transition:none}}
+</style>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1526831918648629');fbq('track','PageView');
+</script>
+</head>
+<body>
+<div class="wrap">
+<main class="main">
+  <header class="top">
+    <a class="logo" href="https://atmo-school.com/" aria-label="ATMO School home">
+      <svg viewBox="30 9 50 43" aria-hidden="true"><path fill="currentColor" d="M60.7148 12.0114L76.5776 48.5744H76.7411C77.0192 48.5744 77.2447 48.7998 77.2447 49.078V50.0577C77.2447 50.3358 77.0192 50.5613 76.7411 50.5613H67.7433C67.4651 50.5613 67.2397 50.3358 67.2397 50.0577V49.0287C67.2397 48.7778 67.4431 48.5744 67.6941 48.5744L63.2523 38.3346L61.7892 34.8476L56.1978 21.6599L44.5266 48.5744C44.7457 48.5744 44.9233 48.752 44.9233 48.9711V50.0575C44.9233 50.3357 44.6978 50.5613 44.4196 50.5613H38.7858C38.5077 50.5613 38.2822 50.3358 38.2822 50.0577V49.078C38.2822 48.7998 38.5077 48.5744 38.7858 48.5744H38.9272L53.6999 15.8119L55.4305 11.9737C55.8975 10.938 56.9282 10.2722 58.0643 10.2722C59.2154 10.2722 60.2566 10.9554 60.7148 12.0114Z"/><path fill="#8fb0ff" d="M78.9251 18.4379C81.0147 22.297 72.2262 31.0567 59.3202 37.8562C46.4141 44.6556 34.307 47.0446 32.2174 43.1855C30.4095 39.8466 37.4132 32.6201 47.5126 26.3878L45.3699 30.5147C40.3698 34.7479 37.9794 38.7324 39.0197 40.6865C40.6176 43.688 49.4481 39.3073 61.0636 33.1816C72.6791 27.056 77.1572 22.1036 76.8632 19.7519C76.5793 17.48 71.6823 17.3841 64.6355 19.7862L64.1319 18.5023C71.6925 16.0691 77.5328 15.8664 78.9251 18.4379Z"/></svg>
+      ATMO School
+    </a>
+    <ol class="steps" id="steps">
+      <li data-s="0"><i>1</i><span>About</span></li><li class="sep"></li>
+      <li data-s="1"><i>2</i><span>Book</span></li><li class="sep"></li>
+      <li data-s="2"><i>3</i><span>Confirm</span></li>
+    </ol>
+  </header>
+
+  <form class="body" id="f" novalidate>
+
+    <section data-v="reason">
+      <span class="chip">Admissions call · 15 min, free</span>
+      <p class="sub">Registered Cambridge School · UCAS Centre · 14-day money-back guarantee</p>
+      <h1>Let's get your call booked</h1>
+      <p class="lead">Pick what fits best. We'll tailor the next few questions and find a time that works for you.</p>
+      <div class="opts" data-q="reason">
+        <button type="button" class="opt" data-a="abroad"><b>Living outside the UK</b><span>A British education wherever your family is based</span></button>
+        <button type="button" class="opt" data-a="uni"><b>Aiming for top universities</b><span>A stronger route to the Russell Group and Oxbridge</span></button>
+        <button type="button" class="opt" data-a="school"><b>School isn't working</b><span>A calmer, more personal way to learn</span></button>
+        <button type="button" class="opt" data-a="flex"><b>Sport, arts or travel</b><span>Study around training, shows or a busy schedule</span></button>
+        <button type="button" class="opt" data-a="subjects"><b>Just a few subjects</b><span>Add IGCSE or A-Level subjects to current study</span></button>
+        <button type="button" class="opt" data-a="other"><b>Other / prefer to explain</b><span>We'll talk it through on the call</span></button>
+      </div>
+    </section>
+
+    <section data-v="qual" class="hide">
+      <h1>Which qualification are you looking at?</h1>
+      <p class="lead">This helps us pair you with the right advisor.</p>
+      <div class="opts list" data-q="qual">
+        <button type="button" class="opt" data-a="IGCSE"><b>IGCSE / GCSE</b><span>Usually Years 9 to 11</span></button>
+        <button type="button" class="opt" data-a="A-Level"><b>A-Level</b><span>Usually Years 12 and 13</span></button>
+        <button type="button" class="opt" data-a="Not sure yet"><b>Not sure yet</b><span>We'll help you choose the right pathway</span></button>
+      </div>
+    </section>
+
+    <section data-v="year" class="hide">
+      <h1>Which year is your child in?</h1>
+      <p class="lead">To check they're the right age for the programme.</p>
+      <label for="year">Child's year group</label>
+      <select id="year" name="year">
+        <option value="">Select year group</option>
+        <option>Year 8 or below</option><option>Year 9</option><option>Year 10</option><option>Year 11</option><option>Year 12</option><option>Year 13</option><option>Gap year / finished school</option>
+      </select>
+    </section>
+
+    <section data-v="fit" class="hide">
+      <h1>Does this sound like it could work?</h1>
+      <p class="lead" id="fitLead"></p>
+      <ul class="ticks" id="fitList"></ul>
+      <div class="opts list" data-q="fit">
+        <button type="button" class="opt" data-a="Yes"><b>Yes, this sounds like a great fit</b></button>
+        <button type="button" class="opt" data-a="Not sure"><b>I'm not sure this is right for us</b></button>
+      </div>
+      <p class="note hide" id="unsure"><b>That's completely fine.</b> Most families book the call to find out. Your advisor will listen first and tell you honestly whether ATMO is right for your child — no pressure to enrol.</p>
+    </section>
+
+    <section data-v="fees" class="hide">
+      <h1>Have you had a chance to see our fees?</h1>
+      <p class="lead">ATMO School is an independent online school. Plans are paid monthly or yearly.</p>
+      <div class="fees">
+        <div class="fee pop"><div>Full Programme<small>IGCSE / A-Level · 3 subjects · live small-group lessons</small></div><strong>£720 / month</strong></div>
+        <div class="fee"><div>Core Programme<small>A-Level · 3 subjects · self-paced with teacher access</small></div><strong>£240 / month</strong></div>
+        <div class="fee"><div>Core Programme<small>IGCSE / GCSE · 3 + 2 subjects · self-paced</small></div><strong>£250 / month</strong></div>
+        <div class="fee"><div>Single Subject<small>IGCSE / A-Level · 1 subject</small></div><strong>£80 / month</strong></div>
+      </div>
+      <p class="fine">Monthly figures are the yearly fee averaged over 12 months. Plus a £100 enrolment fee. <a href="https://atmo-school.com/pricing/">Full details</a></p>
+      <div class="opts list" data-q="fees">
+        <button type="button" class="opt" data-a="Reviewed"><b>Yes, we've reviewed the fees</b></button>
+        <button type="button" class="opt" data-a="Explain on call"><b>I'd like to understand more on the call</b><span>We'll walk you through every option</span></button>
+        <button type="button" class="opt" data-a="Stretch"><b>This might be a stretch for us</b></button>
+      </div>
+      <p class="note hide" id="stretch"><b>Good to know.</b> Many families start with Core from £240 a month or a Single Subject from £80 a month, and move up later. Your advisor will show you what fits.</p>
+    </section>
+
+    <section data-v="details" class="hide">
+      <h1>Nearly there!</h1>
+      <p class="lead">Just a few details to confirm your call.</p>
+      <label for="name">Your first name *</label>
+      <input id="name" name="name" autocomplete="given-name" placeholder="First name">
+      <label for="email">Email address *</label>
+      <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com">
+      <label for="phone">Phone number *</label>
+      <div class="row">
+        <select id="cc" name="cc" aria-label="Country code">
+          <option>🇬🇧 +44</option><option>🇦🇪 +971</option><option>🇸🇦 +966</option><option>🇶🇦 +974</option><option>🇪🇸 +34</option><option>🇨🇾 +357</option><option>🇩🇪 +49</option><option>🇵🇱 +48</option><option>🇺🇦 +380</option><option>🇰🇿 +7</option><option>🇺🇸 +1</option>
+        </select>
+        <input id="phone" name="phone" type="tel" autocomplete="tel-national" placeholder="7XXX XXXXXX">
+      </div>
+      <label>How would you like to chat? *</label>
+      <div class="ways" data-q="way">
+        <button type="button" class="opt" data-a="Phone"><b>Phone</b></button>
+        <button type="button" class="opt" data-a="Video"><b>Video</b></button>
+        <button type="button" class="opt" data-a="WhatsApp"><b>WhatsApp</b></button>
+      </div>
+      <p class="err" id="err" role="alert"></p>
+      <p class="demo">ATMO School may contact me about this request by phone, email or WhatsApp.</p>
+    </section>
+
+    <section data-v="time" class="hide">
+      <h1>Choose a time</h1>
+      <p class="lead">All times are UK time. Your advisor will call you at the time you pick.</p>
+      <div class="days" id="days"></div>
+      <div class="slots" id="slots"></div>
+      <p class="err" id="err2" role="alert"></p>
+      <p class="demo">Your advisor will confirm the time by email or WhatsApp.</p>
+    </section>
+
+    <section data-v="done" class="hide">
+      <span class="chip">Call booked</span>
+      <h1 id="doneTitle">You're all set</h1>
+      <p class="lead">We've got your request. Your advisor will confirm the call by email or WhatsApp.</p>
+      <div class="sum" id="sum"></div>
+      <ol class="next">
+        <li>Your advisor reviews your answers before the call.</li>
+        <li>On the call: subjects, timetable, fees and how live lessons work.</li>
+        <li>If it's a fit, you'll get a personal plan and a link to enrol — with a 14-day money-back guarantee.</li>
+      </ol>
+    </section>
+
+  </form>
+
+  <div class="bar" id="bar">
+    <button type="button" class="btn back" id="back">← Back</button>
+    <button type="button" class="btn go" id="go" disabled>Continue →</button>
+  </div>
+</main>
+
+<aside class="side" aria-hidden="true">
+  <div class="ph">
+  <img src="img/hero-laptop.jpg" alt="" class="on" data-p="reason">
+  <img src="img/group.jpg" alt="" data-p="qual">
+  <img src="img/boy-notebook.jpg" alt="" data-p="year">
+  <img src="img/boys-lab.jpg" alt="" data-p="fit">
+  <img src="img/books.jpg" alt="" data-p="fees">
+  <img src="img/graduate.jpg" alt="" data-p="details">
+  </div>
+  <div class="trust"><span>Cambridge &amp; Edexcel</span><span>UCAS Registered Centre</span><span>Qualified British teachers</span></div>
+  <div class="stat" id="stat"><b>96%</b><span>university acceptance rate</span></div>
+</aside>
+</div>
+
+<script>
+{
+const flow=['reason','qual','year','fit','fees','details','time','done'];
+const stepOf={reason:0,qual:0,year:0,fit:0,fees:0,details:1,time:1,done:2};
+const pics={reason:'reason',qual:'qual',year:'year',fit:'fit',fees:'fees',details:'details',time:'details',done:'details'};
+const stats={reason:['1,000+','students worldwide'],qual:['95%','exam success rate'],year:['40+','countries'],fit:['45+','Russell Group placements'],fees:['14 days','full money-back guarantee'],details:['15+','Oxbridge offers in 2024'],time:['15+','Oxbridge offers in 2024'],done:['96%','university acceptance rate']};
+const fit={
+ abroad:['Here is how it works when you live abroad:',['Live small-group lessons with qualified British teachers, from anywhere','Every lesson recorded for revision, whatever your time zone','Progress, marks and predicted grades in the Parent Dashboard']],
+ uni:['Here is how we prepare students for top universities:',['Cambridge and Pearson Edexcel qualifications, recognised worldwide','UCAS Registered Centre: we support the whole application','A personal pathway that points to the right degree']],
+ school:['Here is what a calmer school day looks like at ATMO:',['Small live classes and direct contact with tutors','Every lesson recorded, so nothing is missed','Progress parents can see at any time, not once a term']],
+ flex:['Here is how study fits around a busy schedule:',['Live lessons plus a recording of every lesson','Direct tutor contact when your child needs help','Revision tools built for IGCSE and A-Level exams']],
+ subjects:['Here is how studying a few subjects works:',['A Single Subject or the Core Programme alongside current study','Self-paced study with teacher access','Revision tools built for IGCSE and A-Level exams']],
+ other:['Here is what ATMO School offers:',['Live online lessons with qualified British teachers','Cambridge and Pearson Edexcel qualifications','An advisor who listens first and gives an honest view']]
+};
+const ans={};let i=0,day=0;
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const go=$('#go'),back=$('#back');
+
+const days=[];{const d=new Date();while(days.length<7){d.setDate(d.getDate()+1);if(d.getDay()%6)days.push(new Date(d));}}
+const slotsFor=n=>['09:30','10:30','11:00','13:30','14:00','15:30','16:30','17:30','18:30'].filter((_,k)=>(k+n)%3!==0);
+function drawDays(){
+ $('#days').innerHTML=days.map((d,k)=>`<button type="button" class="day" aria-pressed="${k===day}" data-k="${k}"><small>${d.toLocaleDateString('en-GB',{weekday:'short'})}</small><b>${d.getDate()}</b><small>${d.toLocaleDateString('en-GB',{month:'short'})}</small></button>`).join('');
+ $('#slots').innerHTML=slotsFor(day).map(t=>`<button type="button" class="slot" aria-pressed="${ans.time===t&&ans.day===day}" data-t="${t}">${t}</button>`).join('');
+}
+$('#days').addEventListener('click',e=>{const b=e.target.closest('.day');if(!b)return;day=+b.dataset.k;delete ans.time;drawDays();check();});
+$('#slots').addEventListener('click',e=>{const b=e.target.closest('.slot');if(!b)return;ans.time=b.dataset.t;ans.day=day;drawDays();check();});
+
+$$('[data-q]').forEach(g=>g.addEventListener('click',e=>{
+ const b=e.target.closest('.opt');if(!b)return;
+ g.querySelectorAll('.opt').forEach(o=>o.setAttribute('aria-pressed',o===b));
+ ans[g.dataset.q]=b.dataset.a;
+ if(g.dataset.q==='fees')$('#stretch').classList.toggle('hide',b.dataset.a!=='Stretch');
+ if(g.dataset.q==='fit')$('#unsure').classList.toggle('hide',b.dataset.a!=='Not sure');
+ check();
+ if(['reason','qual'].includes(g.dataset.q)||(g.dataset.q==='fit'&&b.dataset.a==='Yes'))setTimeout(next,250);
+}));
+$('#year').addEventListener('change',e=>{ans.year=e.target.value;check();});
+['name','email','phone'].forEach(id=>$('#'+id).addEventListener('input',check));
+
+function valid(){
+ const v=flow[i];
+ if(v==='year')return !!ans.year;
+ if(v==='details')return $('#name').value.trim()&&/^\S+@\S+\.\S+$/.test($('#email').value)&&$('#phone').value.replace(/\D/g,'').length>=6&&ans.way;
+ if(v==='time')return !!ans.time;
+ return !!ans[v];
+}
+function check(){go.disabled=!valid();if(flow[i]==='details')$('#err').textContent='';}
+function show(){
+ const v=flow[i];
+ $$('section[data-v]').forEach(s=>s.classList.toggle('hide',s.dataset.v!==v));
+ $$('#steps li[data-s]').forEach(li=>{const s=+li.dataset.s;li.classList.toggle('on',s===stepOf[v]);li.classList.toggle('done',s<stepOf[v]);});
+ $$('.side img').forEach(im=>im.classList.toggle('on',im.dataset.p===pics[v]));
+ const [n,t]=stats[v];$('#stat').innerHTML=`<b>${n}</b><span>${t}</span>`;
+ if(v==='fit'){const [l,pts]=fit[ans.reason]||fit.other;$('#fitLead').textContent=l;$('#fitList').innerHTML=pts.map(p=>`<li>${p}</li>`).join('');}
+ if(v==='time')drawDays();
+ go.textContent=v==='details'?'Next: choose time →':v==='time'?'Confirm call →':'Continue →';
+ back.style.visibility=i?'visible':'hidden';
+ $('#bar').classList.toggle('hide',v==='done');
+ if(v==='done'){
+  const d=days[ans.day];
+  $('#doneTitle').textContent=`You're all set, ${$('#name').value.trim()}`;
+  const rows=[['Call',`${ans.way} · 15 min`],['When',`${d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'})}, ${ans.time} UK time`],['Phone',`${$('#cc').value.split(' ')[1]} ${$('#phone').value}`],['Email',$('#email').value],['Qualification',ans.qual],['Year group',ans.year]];
+  $('#sum').innerHTML=rows.map(([a,b])=>`<div><span>${a}</span><b>${b.replace(/</g,'&lt;')}</b></div>`).join('');
+ }
+ check();window.scrollTo({top:0});
+}
+const HS_URL='https://api-eu1.hsforms.com/submissions/v3/integration/submit/149190779/821f2347-63df-420a-88ab-5e65d0d7d3d4';
+const CONSENT='ATMO School may contact me about this request by phone, email or WhatsApp.';
+const label=(q)=>{const b=document.querySelector(`[data-q="${q}"] .opt[aria-pressed=true] b`);return b?b.textContent:'';};
+const hutk=()=>{const m=document.cookie.match(/(?:^|; )hubspotutk=([^;]*)/);return m?decodeURIComponent(m[1]):'';};
+const qs=new URLSearchParams(location.search);
+async function send(){
+ const parts=$('#name').value.trim().split(/\s+/),first=parts.shift()||'',last=parts.join(' ');
+ const d=days[ans.day],when=`${d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',year:'numeric'})} ${ans.time} UK`;
+ const utm=['utm_source','utm_medium','utm_campaign','utm_content'].map(k=>qs.get(k)?`${k}=${qs.get(k)}`:'').filter(Boolean).join(', ');
+ const msg=['Book a call',`Reason: ${label('reason')}`,`Qualification: ${ans.qual}`,`Year: ${ans.year}`,`Fit: ${label('fit')}`,`Fees: ${label('fees')}`,`Call: ${ans.way}, ${when}`].concat(utm?[`UTM: ${utm}`]:[]).join(' | ');
+ const body={fields:[
+  {objectTypeId:'0-1',name:'firstname',value:first},
+  {objectTypeId:'0-1',name:'lastname',value:last},
+  {objectTypeId:'0-1',name:'email',value:$('#email').value.trim()},
+  {objectTypeId:'0-1',name:'phone',value:`${$('#cc').value.split(' ')[1]} ${$('#phone').value.trim()}`},
+  {objectTypeId:'0-1',name:'what_grade_is_your_child_in',value:ans.year},
+  {objectTypeId:'0-1',name:'message',value:msg}],
+  context:{pageUri:location.href,pageName:'Book a call'},
+  legalConsentOptions:{consent:{consentToProcess:true,text:CONSENT}}};
+ const t=hutk();if(t)body.context.hutk=t;
+ const r=await fetch(HS_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+ if(!r.ok)throw new Error('HubSpot '+r.status);
+ try{fbq('track','Lead',{content_name:'Book a call'});}catch(e){}
+}
+async function next(){
+ if(!valid()){if(flow[i]==='details')$('#err').textContent='Please fill in your name, a valid email, a phone number and how you would like to chat.';return;}
+ if(flow[i]==='time'){
+  go.disabled=true;go.textContent='Sending…';$('#err2').textContent='';
+  try{await send();}catch(e){$('#err2').textContent="Sorry, that didn't send. Please try again, or call +44 7441 429616.";go.disabled=false;go.textContent='Confirm call →';return;}
+ }
+ if(i<flow.length-1){i++;show();}
+}
+go.addEventListener('click',next);
+back.addEventListener('click',()=>{if(i){i--;show();}});
+$('#f').addEventListener('submit',e=>e.preventDefault());
+show();
+}
+</script>
+</body>
+</html>
