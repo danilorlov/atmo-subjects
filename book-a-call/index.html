@@ -107,6 +107,7 @@ fbq('init','1526831918648629');fbq('track','PageView');
 </script>
 </head>
 <body>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1526831918648629&ev=PageView&noscript=1"/></noscript>
 <div class="wrap">
 <main class="main">
   <header class="top">
@@ -304,6 +305,7 @@ function check(){go.disabled=!valid();if(flow[i]==='details')$('#err').textConte
 function show(){
  const v=flow[i];
  $$('section[data-v]').forEach(s=>s.classList.toggle('hide',s.dataset.v!==v));
+ try{if(!window._seen)window._seen={};if(!_seen[v]){_seen[v]=1;fbq('trackCustom','BookCallStep',{step:v,step_index:i+1});if(v==='fees')fbq('track','ViewContent',{content_name:'Book a call - fees'});if(v==='time')fbq('track','InitiateCheckout',{content_name:'Book a call - details done'});}}catch(e){}
  $$('#steps li[data-s]').forEach(li=>{const s=+li.dataset.s;li.classList.toggle('on',s===stepOf[v]);li.classList.toggle('done',s<stepOf[v]);});
  $$('.side img').forEach(im=>im.classList.toggle('on',im.dataset.p===pics[v]));
  const [n,t]=stats[v];$('#stat').innerHTML=`<b>${n}</b><span>${t}</span>`;
