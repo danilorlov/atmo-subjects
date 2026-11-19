@@ -331,7 +331,7 @@ async function send(){
  const parts=$('#name').value.trim().split(/\s+/),first=parts.shift()||'',last=parts.join(' ');
  const d=days[ans.day],when=`${d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',year:'numeric'})} ${ans.time} UK`;
  const utm=['utm_source','utm_medium','utm_campaign','utm_content'].map(k=>qs.get(k)?`${k}=${qs.get(k)}`:'').filter(Boolean).join(', ');
- const msg=['Book a call',`Reason: ${label('reason')}`,`Qualification: ${ans.qual}`,`Year: ${ans.year}`,`Fit: ${label('fit')}`,`Fees: ${label('fees')}`,`Call: ${ans.way}, ${when}`].concat(utm?[`UTM: ${utm}`]:[]).join(' | ');
+ const msg=['Book a call',`Reason: ${label('reason')}`,`Qualification: ${ans.qual}`,`Year: ${ans.year}`,`Fit: ${label('fit')}`,`Fees: ${label('fees')}`,`Call: ${ans.way}, ${when}`].concat(qs.get('market')?[`Market: ${qs.get('market')}`]:[]).concat(utm?[`UTM: ${utm}`]:[]).join(' | ');
  const body={fields:[
   {objectTypeId:'0-1',name:'firstname',value:first},
   {objectTypeId:'0-1',name:'lastname',value:last},
